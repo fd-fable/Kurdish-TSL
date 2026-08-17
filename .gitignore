@@ -1,0 +1,22 @@
+# Temporary & Lock Files
+~$*.docx
+~$*.doc
+~$*.xlsx
+~$*.pptx
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

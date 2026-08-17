@@ -1,0 +1,15 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Binary files
+*.pdf binary
+*.docx binary
+*.doc binary
+*.xlsx binary
+*.pptx binary
+*.gz binary
+*.zip binary
+*.tar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
