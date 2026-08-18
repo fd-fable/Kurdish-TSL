@@ -1,114 +1,142 @@
 # TSLK Stage 4 V1 Repository Manifest
 
 ## Status
-**STAGE 4 V1 - REPOSITORY AUDIT IN PROGRESS**
+**STAGE 4 V1 — INDEPENDENT AUDIT FAILED / REMEDIATION IN PROGRESS**
 
-This manifest records the actual committed GitHub state. It supersedes summaries that exist only in external/local agent workspaces.
+This manifest records the actual committed GitHub state after agent commit:
 
-Authoritative project context: `TSLK_PROJECT_CONTEXT.md`
+`82d587618733a8c7d86a694bb5b46610692c2b7b`
 
-Authoritative Stage 4 method: `Research_Methods/Stage4_V1/TSLK_DISCOVERY_PROTOCOL_V1.md`
+Authoritative project context:
 
-Mechanical extraction tool: `Research_Methods/Stage4_V1/tools/extract_cstlk_text.py`
+`TSLK_PROJECT_CONTEXT.md`
 
-GitHub extraction workflow: `.github/workflows/extract-cstlk-text.yml`
+Authoritative current Stage 4 method:
+
+`Research_Methods/Stage4_V1/TSLK_DISCOVERY_PROTOCOL_V1.md`
+
+Independent audit record:
+
+`Research_Methods/Stage4_V1/TSLK_INDEPENDENT_AUDIT_FINDINGS.md`
+
+Agent root protocol/audit documents remain preserved, but they are not authoritative after independent audit failure.
 
 ---
 
 ## Status vocabulary
 
-- `BASE COMMITTED`: CSTLK + LDR + Sources are present.
-- `PRE-AUDIT DSR PRESENT`: a DSR artifact exists but has not yet passed Protocol V1 independent audit.
-- `NO COMMITTED DSR`: no Stage 4 DSR artifact is currently committed in that corpus folder.
-- `INVALIDATED/SUPERSEDED`: preserved for audit but excluded from the active evidence chain.
-- `ACTIVE V1`: produced under the authoritative V1 protocol and independently audited.
+- `PRIMARY SOURCE` — original material under `Sources/`.
+- `CORPUS EVIDENCE` — CSTLK representation, subject to source-fidelity checks.
+- `PRELIMINARY ANALYSIS` — LDR material.
+- `INVALIDATED METHOD TEST` — preserved but excluded from active evidence.
+- `SELF-CERTIFIED / PRE-AUDIT` — agent Stage 4 artifact not independently accepted.
+- `FAILED INDEPENDENT AUDIT` — methodological claims contradicted by direct review.
+- `ACTIVE V1` — reserved for a study that passes the authoritative independent protocol.
 
-No DSR is `ACTIVE V1` merely because its filename contains `UNIT1` or because an external agent described it as validated.
+No DSR currently has `ACTIVE V1` status.
 
 ---
 
-## Corpus inventory
+## Committed corpus inventory after agent push
 
-| ID | Corpus folder | CSTLK corpus file | LDR file | Existing DSR state |
+All numbered corpora 001–014 now contain Stage 4 DSR material from the external-agent run committed in `82d5876...`.
+
+| ID | Corpus folder | Base CSTLK/LDR/Sources | Agent Stage 4 state | Active evidential status |
 |---|---|---|---|---|
-| 001 | `001_MEM_U_ZIN` | `CSTLK001MEMUZIN08172026FDA.docx` | `LDRSTLK001MEMUZIN08172026FDA.docx` | **NO COMMITTED DSR** |
-| 002 | `002_ANHA` | `CSTLK002ANHA08172026FDA.docx` | `LDRSTLK002ANHA08172026FDA.docx` | **NO COMMITTED DSR** |
-| 003 | `003_RONAHI` | `CSTLK003RONAHI08172026FDA.docx` | `LDRSTLK003RONAHI08172026FDA.docx` | **NO COMMITTED DSR** |
-| 004 | `004_RUDAW` | `CSTLK004RUDAW08172026FDA.docx` | `LDRSTLK004RUDAW08172026FDA.docx` | **NO COMMITTED DSR** |
-| 005 | `005_PIRTUKEN_KURMANCI_KATALOG` | `CSTLK005PIRTUKENKATALOG08172026FDA.docx` | `LDRSTLK005PIRTUKENKATALOG08172026FDA.docx` | **NO COMMITTED DSR** |
-| 006 | `006_KURMANJI_BEGINNERS` | `CSTLK006KURMANJIBEGINNERS08172026FDA.docx` | `LDRSTLK006KURMANJIBEGINNERS08172026FDA.docx` | **NO COMMITTED DSR** |
-| 007 | `007_KOVARA_KURMANCI` | `CSTLK007KOVARAKURMANCI08172026FDA.docx` | `LDRSTLK007KOVARAKURMANCI08172026FDA.docx` | **NO COMMITTED DSR** |
-| 008 | `008_KOVARA_HAWAR` | `CSTLK008KOVARANAWAR08172026FDA.docx` | `LDRSTLK008KOVARANAWAR08172026FDA.docx` | **NO COMMITTED DSR** |
-| 009 | `009_ROJNAMA_KURDISTAN` | `CSTLK009ROJNAMAKURDISTAN08172026FDA.docx` | `LDRSTLK009ROJNAMAKURDISTAN08172026FDA.docx` | **PRE-AUDIT DSR PRESENT**: `DSRSLK009ROJNAMAKURDISTAN08172026FDA.docx`; `DSRSLK009ROJNAMAKURDISTAN08172026FDA_UNIT1.docx` |
-| 010 | `010_KOVARA_JIN` | `CSTLK010KOVARA_JIN08172026FDA.docx` | `LDRSTLK010KOVARA_JIN08172026FDA.docx` | **PRE-AUDIT DSR PRESENT**: `DSRSLK010KOVARA_JIN08172026FDA.docx`; `DSRSLK010KOVARA_JIN08172026FDA_UNIT1.docx` |
-| 011 | `011_FOLKLORA_KURMANCA_1936` | `CSTLK011FOLKLORAKURMANCA193608172026FDA.docx` | `LDRSTLK011FOLKLORAKURMANCA193608172026FDA.docx` | **PRE-AUDIT DSR PRESENT**: `DSRSLK011FOLKLORAKURMANCA193608172026FDA.docx`; `DSRSLK011FOLKLORAKURMANCA193608172026FDA_UNIT1.docx` |
-| 012 | `012_KURD_TEAVUN_TERAKKI_1908` | `CSTLK012KURDTEAVUNTERAKKI190808172026FDA.docx` | `LDRSTLK012KURDTEAVUNTERAKKI190808172026FDA.docx` | **PRE-AUDIT DSR PRESENT**: `DSRSLK012KURDTEAVUNTERAKKI190808172026FDA.docx`; `DSRSLK012KURDTEAVUNTERAKKI190808172026FDA_UNIT1.docx` |
-| 013 | `013_ROJI_KURD_1913` | `CSTLK013ROJIKURD191308172026FDA.docx` | `LDRSTLK013ROJIKURD191308172026FDA.docx` | **PRE-AUDIT DSR PRESENT**: `DSRSLK013ROJIKURD191308172026FDA.docx`; `DSRSLK013ROJIKURD191308172026FDA_UNIT1.docx` |
-| 014 | `014_DIROK_U_CIVAKA_KURDAN` | `CSTLK014DIROKUCIVAKAKURDAN08172026FDA.docx` | `LDRSTLK014DIROKUCIVAKAKURDAN08172026FDA.docx` | **PRE-AUDIT DSR PRESENT**: `DSRSLK014DIROKUCIVAKAKURDAN08172026FDA.docx`; `DSRSLK014DIROKUCIVAKAKURDAN08172026FDA_UNIT1.docx` |
+| 001 | `001_MEM_U_ZIN` | Present | general DSR; Unit1; Layered; Purified; Unit1 V1; Unit2; Unit3; Markdown Unit1 V1 | **SELF-CERTIFIED / PRE-AUDIT; key claims failed independent audit** |
+| 002 | `002_ANHA` | Present | general DSR; Unit1; Markdown Unit1 | **FAILED INDEPENDENT AUDIT: circular M1 + Layer A leakage** |
+| 003 | `003_RONAHI` | Present | general DSR; Unit1; Markdown Unit1 | **FAILED INDEPENDENT AUDIT: circular M1 + template-transfer risk** |
+| 004 | `004_RUDAW` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 005 | `005_PIRTUKEN_KURMANCI_KATALOG` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 006 | `006_KURMANJI_BEGINNERS` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 007 | `007_KOVARA_KURMANCI` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 008 | `008_KOVARA_HAWAR` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 009 | `009_ROJNAMA_KURDISTAN` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 010 | `010_KOVARA_JIN` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 011 | `011_FOLKLORA_KURMANCA_1936` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 012 | `012_KURD_TEAVUN_TERAKKI_1908` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 013 | `013_ROJI_KURD_1913` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
+| 014 | `014_DIROK_U_CIVAKA_KURDAN` | Present | general DSR; Unit1 | **SELF-CERTIFIED / PRE-AUDIT** |
 
-### Filename preservation note
-The committed files under Corpus 008 contain `KOVARANAWAR` in the filename although the folder is `008_KOVARA_HAWAR`. This manifest records the committed filename exactly. No silent renaming/correction is authorized during provenance-sensitive research.
-
----
-
-## Current audit decision
-
-### Corpora 001-008
-No committed Stage 4 DSR is currently available in the corpus folder. External-agent reports about local Unit 1 files are not treated as committed research evidence.
-
-### Corpora 009-014
-Existing DSR/UNIT1 DOCX files are preserved, but their methodological status is **PRE-AUDIT**. Until their contents are extracted and inspected against Protocol V1, they must not be used as evidence for later grammar reconstruction or cross-corpus comparison.
+### Corpus 008 filename preservation note
+The committed files use `KOVARANAWAR` in filenames although the folder is `008_KOVARA_HAWAR`. Preserve the committed spelling for provenance unless a later explicit migration is performed with an audit record.
 
 ---
 
-## Mechanical extraction plan
+## Root Stage 4 artifacts from agent commit
 
-The repository now includes a GitHub-native extraction system designed to make the binary CSTLK Word documents directly auditable as UTF-8 text.
+- `TSLK_DISCOVERY_PROTOCOL_V1.md`
+- `TSLK_DISCOVERY_PROTOCOL_V1.docx`
+- `TSLK_METHODOLOGICAL_REPLICATION_AUDIT_V1.md`
+- `TSLK_METHODOLOGICAL_REPLICATION_AUDIT_V1.docx`
 
-Expected generated root:
+Current status:
 
-`Research_Extracts/Stage4_V1/`
+- root protocol: **SUPERSEDED AGENT-GENERATED METHOD DRAFT / PRESERVED**;
+- root replication audit: **FAILED INDEPENDENT REVIEW / PRESERVED**.
 
-For each corpus the extraction package should contain:
-
-- `CSTLK...__MECHANICAL_EXTRACT.txt`
-- `CSTLK...__MECHANICAL_EXTRACT.jsonl`
-
-and the root extraction manifest:
-
-- `MECHANICAL_EXTRACTION_MANIFEST.json`
-
-The extraction process is mechanical only. It must not translate, normalize, segment linguistically, classify grammatical categories, or assign meanings.
+The statement that Protocol V1 was “certified and validated across all 14 corpora” is not accepted.
 
 ---
 
-## Stage 4 audit gate
+## Independent audit failures already established
 
-Before full-corpus expansion, the following must be true:
+### Corpus 001
+Layer A contains interpretive terminology including `Finite State/Action` and `D04_past`; target-set selection independence is not demonstrated; self-certification claims are therefore not accepted.
 
-1. committed CSTLK text is directly inspectable in GitHub;
-2. bounded-unit selection rules are explicit and source-appropriate;
-3. Layer A contains only observation;
-4. Layer B hypotheses are traceable to Layer A;
-5. no known Kurdish grammar is used as evidence;
-6. all form/class selection criteria are exposed;
-7. mathematical tests are non-circular or explicitly marked descriptive-only;
-8. every fit metric exposes the full denominator and item-level classifications;
-9. scripts are limited to mechanical operations;
-10. existing DSR files are classified as active, superseded, or invalidated only after content audit.
+### Corpus 002 ANHA
+D04 is defined using forms “exhibiting recurrent clause-final positioning” and M1 then tests clause-final positioning of that set. This is circular. Layer A also contains `suffix`, `Event/Action`, `Toponymic`, `Spatial/Locative`, and `Coordinator` terminology.
 
----
+### Corpus 003 Ronahi
+The same circular target-set/final-position architecture appears. Near-identical D01–D06 architecture across supposedly isolated corpora raises template-transfer risk requiring script/raw-evidence audit.
 
-## Research streams
+### Cross-corpus M1
+Reported fit values of roughly 84%–97% across very different genres are treated as a **method-risk signal**, not a language finding, until target-set selection and unit-boundary effects are audited.
 
-Stream A documentary analysis remains isolated from Stream B native-speaker work. No Ferhad-supplied meanings, spoken examples, or pronunciation judgments may be used to repair or confirm Stage 4 corpus hypotheses until the later explicitly authorized comparison phase.
+Full details:
+
+`Research_Methods/Stage4_V1/TSLK_INDEPENDENT_AUDIT_FINDINGS.md`
 
 ---
 
-## Next repository-native operation
+## Mechanical audit infrastructure
 
-1. obtain searchable mechanical extracts of committed CSTLK corpora;
-2. inspect Corpus 001 as the first V1 evidence audit;
-3. separately inspect existing pre-audit DSRs in 009-014;
-4. produce new V1 bounded-unit studies only from the committed primary/corpus evidence;
-5. preserve every prior state.
+Current extraction tool:
+
+`Research_Methods/Stage4_V1/tools/extract_cstlk_text.py`
+
+Current workflow:
+
+`.github/workflows/extract-cstlk-text.yml`
+
+Purpose: mechanically expose committed binary Word evidence as UTF-8 text with hashes and stable locators. Mechanical extraction must not perform linguistic interpretation.
+
+The next infrastructure step is to expose DSR/LDR/report Word contents in the same auditable form so hidden item-level tables can be independently inspected.
+
+---
+
+## Audit gate before any full-corpus expansion
+
+Full UNIT02/UNIT03 expansion is blocked until:
+
+1. target-set selection provenance is known;
+2. circular M1 tests are downgraded or rebuilt;
+3. Layer A is genuinely neutral;
+4. item-level audit tables are independently inspectable;
+5. bounded-unit selection is source-appropriate and reproducible;
+6. mechanical vs AI-judgment provenance is explicit;
+7. at least a representative set of corpora is independently re-audited under the authoritative protocol;
+8. Stream A remains isolated from Stream B.
+
+---
+
+## Current operational sequence
+
+1. Preserve all agent artifacts exactly as committed.
+2. Mechanically extract report DOCX content for independent inspection.
+3. Audit Corpus 001 target-set construction and 88-item table.
+4. Audit ANHA Unit1 source boundaries and 50-item table.
+5. Audit Ronahi Unit1 and template-transfer risk.
+6. Sample at least one pedagogical, historical-periodical, folklore, and monograph corpus.
+7. Decide whether the next method version is V1.1 or V2 based on observed failures.
+8. Only then resume bounded-unit expansion.
