@@ -1,0 +1,287 @@
+name: Publish exhaustive dictionary core from validated artifacts
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Dictionary_Core_Publish_Request.md'
+      - '.github/workflows/publish-deep-dictionary-core.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: tslk-dictionary-core-publish-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+
+      - name: Download all validated dictionary artifacts from source run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: dict-*
+          path: _dict_artifacts
+          repository: fd-fable/Kurdish-TSL
+          run-id: 32165597134
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build repository-safe exhaustive dictionary core
+        shell: bash
+        run: |
+          rm -rf Dictionaries
+          mkdir -p Dictionaries
+
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          import shutil
+          from pathlib import Path
+
+          source_root = Path('_dict_artifacts')
+          out_root = Path('Dictionaries')
+          SOURCE_RUN_ID = 32165597134
+          MAX_ROWS = 50000
+
+          # Exact artifact metadata from validated matrix build run 32165597134.
+          artifacts = {
+            '001_MEM_U_ZIN': {'id': 9335446147, 'sha256': '43e6c096d436fc89c116570a7a09d4b665e070fde2c11787ca04d158b896e3f7'},
+            '002_ANHA': {'id': 9335957499, 'sha256': 'f15a92dea602ca191b324bc6f7ba8ad318a8470bcc699c613e9622727af7cbf9'},
+            '003_RONAHI': {'id': 9335337149, 'sha256': 'abb45cbd394c4f790434a44431e9dc6165a4e5bb447ded67885a9f6cca0d0ab4'},
+            '004_RUDAW': {'id': 9335713435, 'sha256': 'abf0373edc4f43a4dfef97a192c19ec3feb746af1115c3d274dff55d5c6d75fd'},
+            '005_PIRTUKEN_KURMANCI_KATALOG': {'id': 9335282061, 'sha256': '24163e630fa2565af72b7b1fcc16a5cd0774ab5e7c5fcf164bbf0fd60bc86a12'},
+            '006_KURMANJI_BEGINNERS': {'id': 9335283150, 'sha256': '8ac3cc8e92fb769f72fcdeb71032965b032904aa98357f89f1e54155cc90b058'},
+            '007_KOVARA_KURMANCI': {'id': 9335412871, 'sha256': '4847074acf2d0ead40c33eddd21583be2dd488a42996622736a426bd1071e7cb'},
+            '008_KOVARA_HAWAR': {'id': 9335292475, 'sha256': '28824fe4805d7347d92b3ab5c72e317b5602dc17e4efb69e42b1c22dddb5e83e'},
+            '009_ROJNAMA_KURDISTAN': {'id': 9335294556, 'sha256': '031f7dbb0df00907079890153cdd124381dcbdbe62b71e9a08ced827528728db'},
+            '010_KOVARA_JIN': {'id': 9335302081, 'sha256': 'd4840b4978342bc5445b0f6c35a0bf9d63847d2b62bb7a688012db4bafacfccb'},
+            '011_FOLKLORA_KURMANCA_1936': {'id': 9335304002, 'sha256': '154da91a076ff391c628332ca41f902600ccdebb765744c135dcfa1c44e4073b'},
+            '012_KURD_TEAVUN_TERAKKI_1908': {'id': 9335312152, 'sha256': '1ca5ae5fb34f74049e7943aae1fa6642bb72fdbf6c43877d70271a5f968e7d54'},
+            '013_ROJI_KURD_1913': {'id': 9335426660, 'sha256': '5e73d2cf655865c4718d74b666c7139b5e7127177a0594832e73add99b8236c3'},
+            '014_DIROK_U_CIVAKA_KURDAN': {'id': 9335322747, 'sha256': '19175ffb34641701423e89d1842f6148597632e8b65bd613442f3e4694e35d07'},
+          }
+
+          def sha256(path: Path):
+              h = hashlib.sha256()
+              with path.open('rb') as f:
+                  for block in iter(lambda: f.read(1024*1024), b''):
+                      h.update(block)
+              return h.hexdigest()
+
+          def shard_tsv(src: Path, out_dir: Path):
+              files = []
+              with src.open('r', encoding='utf-8', newline='') as f:
+                  reader = csv.reader(f, delimiter='\t')
+                  header = next(reader)
+                  shard = 0
+                  writer = None
+                  handle = None
+                  rows = 0
+                  total = 0
+                  try:
+                      for row in reader:
+                          if writer is None or rows >= MAX_ROWS:
+                              if handle:
+                                  handle.close()
+                              shard += 1
+                              rows = 0
+                              p = out_dir / f'LEXICON_{shard:04d}.tsv'
+                              handle = p.open('w', encoding='utf-8', newline='')
+                              writer = csv.writer(handle, delimiter='\t', lineterminator='\n')
+                              writer.writerow(header)
+                              files.append(p.name)
+                          writer.writerow(row)
+                          rows += 1
+                          total += 1
+                  finally:
+                      if handle:
+                          handle.close()
+              return files, total
+
+          def shard_jsonl(src: Path, out_dir: Path):
+              files = []
+              shard = 0
+              handle = None
+              rows = 0
+              total = 0
+              try:
+                  with src.open('r', encoding='utf-8') as f:
+                      for line in f:
+                          if handle is None or rows >= MAX_ROWS:
+                              if handle:
+                                  handle.close()
+                              shard += 1
+                              rows = 0
+                              p = out_dir / f'LEXICON_{shard:04d}.jsonl'
+                              handle = p.open('w', encoding='utf-8', newline='\n')
+                              files.append(p.name)
+                          handle.write(line)
+                          rows += 1
+                          total += 1
+              finally:
+                  if handle:
+                      handle.close()
+              return files, total
+
+          manifests = []
+          for artifact_dir in sorted(source_root.glob('dict-*')):
+              corpus = artifact_dir.name.removeprefix('dict-')
+              if corpus not in artifacts:
+                  raise SystemExit(f'Unexpected artifact corpus: {corpus}')
+              src = artifact_dir
+              dest = out_root / corpus
+              dest.mkdir(parents=True, exist_ok=True)
+
+              manifest = json.loads((src / 'MANIFEST.json').read_text(encoding='utf-8'))
+              if not str(manifest.get('dictionary_status', '')).startswith('MECHANICALLY COMPLETE'):
+                  raise SystemExit(f'{corpus} is not mechanically complete')
+
+              # Preserve compact provenance/inventory files directly.
+              for name in ['README.md', 'MANIFEST.json', 'CHARACTER_INVENTORY.tsv', 'RAW_TOKEN_INVENTORY.tsv']:
+                  shutil.copy2(src / name, dest / name)
+
+              # Shard exhaustive lexicons by row count to stay safely below GitHub file limits.
+              tsv_files, tsv_rows = shard_tsv(src / 'LEXICON.tsv', dest)
+              jsonl_files, jsonl_rows = shard_jsonl(src / 'LEXICON.jsonl', dest)
+              expected = manifest['counts']['wordlike_surface_types']
+              if tsv_rows != expected or jsonl_rows != expected:
+                  raise SystemExit(f'{corpus}: lexicon row mismatch TSV={tsv_rows} JSONL={jsonl_rows} expected={expected}')
+
+              # No OCCURRENCES_*.gz files are committed to Git: full concordance evidence
+              # stays in the immutable source-run artifact package, referenced below.
+              repo_files = sorted(p.name for p in dest.iterdir() if p.is_file())
+              max_size = max((dest / n).stat().st_size for n in repo_files)
+              if max_size >= 95 * 1024 * 1024:
+                  raise SystemExit(f'{corpus}: repository-core file too large: {max_size}')
+
+              manifest['repository_core'] = {
+                  'storage_model': 'Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact',
+                  'lexicon_tsv_shards': tsv_files,
+                  'lexicon_jsonl_shards': jsonl_files,
+                  'lexicon_rows_verified': expected,
+                  'largest_core_file_bytes': max_size,
+                  'occurrence_files_committed_to_git': False,
+              }
+              manifest['full_evidence_artifact'] = {
+                  'source_workflow_run_id': SOURCE_RUN_ID,
+                  'artifact_id': artifacts[corpus]['id'],
+                  'artifact_sha256': artifacts[corpus]['sha256'],
+                  'artifact_name': f'dict-{corpus}',
+                  'contains_complete_occurrence_concordance': True,
+                  'original_retention_days': 7,
+                  'preservation_note': 'A long-retention archival copy is created by the publish workflow below.',
+              }
+              manifest['files']['lexicon_tsv'] = tsv_files
+              manifest['files']['lexicon_jsonl'] = jsonl_files
+              manifest['files']['occurrence_shards'] = 'See full_evidence_artifact'
+              (dest / 'MANIFEST.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+
+              # Append repository/evidence storage note to README.
+              with (dest / 'README.md').open('a', encoding='utf-8') as f:
+                  f.write('\n## Repository storage\n\n')
+                  f.write('The exhaustive vocabulary tables are sharded in Git. The complete occurrence/concordance stream is preserved in the validated GitHub Actions evidence artifact referenced in `MANIFEST.json`; this separation is storage-only and does not drop any vocabulary entry.\n')
+
+              manifests.append(manifest)
+
+          if len(manifests) != 14:
+              raise SystemExit(f'Expected 14 manifests, found {len(manifests)}')
+
+          total_types = sum(m['counts']['wordlike_surface_types'] for m in manifests)
+          total_occ = sum(m['counts']['wordlike_occurrences'] for m in manifests)
+          all_coverage = all(m['checks']['nonspace_character_coverage_ok'] for m in manifests)
+
+          lines = [
+              '# Kurdish-TSL — Exhaustive Corpus-Specific Deep Dictionaries V1',
+              '',
+              '**Method:** `Research_Methods/Dictionary_V1/TSLK_DEEP_DICTIONARY_PROTOCOL_V1.md`',
+              '',
+              f'**Corpus-local surface-form entries:** {total_types:,}',
+              f'**Word-like occurrences represented by the builds:** {total_occ:,}',
+              f'**All 14 non-whitespace coverage checks:** {"PASS" if all_coverage else "FAIL"}',
+              '',
+              '> These are corpus-local evidence entries, not a merged count of unique Kurdish lemmas. Identical spellings in different corpora and spelling variants remain independent evidence.',
+              '',
+              '| Corpus | Surface types | Word-like occurrences | Raw token types | Coverage | Status |',
+              '|---|---:|---:|---:|---:|---|',
+          ]
+          for m in manifests:
+              c = m['counts']
+              coverage = f"{c['covered_non_whitespace_characters']}/{c['non_whitespace_characters']}"
+              lines.append(f"| `{m['corpus_folder']}` | {c['wordlike_surface_types']:,} | {c['wordlike_occurrences']:,} | {c['raw_token_types']:,} | {coverage} | {m['dictionary_status']} |")
+          lines += [
+              '',
+              '## What is in Git',
+              '',
+              '- exhaustive sharded `LEXICON_*.tsv` and `LEXICON_*.jsonl` tables for every exact word-like surface form;',
+              '- complete raw-token inventory;',
+              '- complete character inventory;',
+              '- per-corpus manifest with source and builder hashes;',
+              '- per-entry frequency, locators, first context, positional counts, neighbor profiles, and graphemic details;',
+              '- semantics and grammatical interpretation deliberately unresolved by the mechanical build.',
+              '',
+              '## Full occurrence evidence',
+              '',
+              'The full 47.6M-occurrence concordance streams are not committed to ordinary Git because the combined evidence pack is ~1.8 GB. Each per-corpus `MANIFEST.json` records the validated source-run artifact ID and SHA-256. This is a storage separation only: no vocabulary entries are omitted from the Git-tracked lexicons.',
+              '',
+          ]
+          (out_root / 'INDEX.md').write_text('\n'.join(lines), encoding='utf-8')
+
+          master = {
+              'schema': 'TSLK_DEEP_DICTIONARY_MASTER_MANIFEST_V1',
+              'source_workflow_run_id': SOURCE_RUN_ID,
+              'corpus_count': 14,
+              'corpus_local_surface_form_entries': total_types,
+              'wordlike_occurrences': total_occ,
+              'all_corpora_mechanically_complete': True,
+              'all_nonspace_character_coverage_checks_passed': all_coverage,
+              'repository_storage': 'sharded exhaustive lexicon core',
+              'full_occurrence_storage': 'GitHub Actions evidence artifacts referenced per corpus',
+              'corpora': manifests,
+          }
+          (out_root / 'DICTIONARY_BUILD_MANIFEST.json').write_text(json.dumps(master, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          PY
+
+          echo 'Largest repository-core files:'
+          find Dictionaries -type f -printf '%s %p\n' | sort -nr | head -30
+          echo 'Core size:'
+          du -sh Dictionaries
+          sed -n '1,220p' Dictionaries/INDEX.md
+
+      - name: Commit repository-safe dictionary core
+        shell: bash
+        run: |
+          git config user.name "kurdish-tsl-dictionary-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add Dictionaries
+          if git diff --cached --quiet; then
+            echo 'No dictionary-core changes to commit.'
+          else
+            git commit -m "Publish exhaustive sharded corpus dictionaries V1"
+            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+              git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+            else
+              git push
+            fi
+          fi
+
+      - name: Archive full occurrence evidence for long retention
+        uses: actions/upload-artifact@v4
+        with:
+          name: TSLK_DEEP_DICTIONARY_FULL_EVIDENCE_V1
+          path: _dict_artifacts
+          retention-days: 90
+          compression-level: 0
+          if-no-files-found: error
