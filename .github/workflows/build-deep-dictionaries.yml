@@ -1,0 +1,59 @@
+name: Build exhaustive corpus-specific dictionaries
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '0*/CSTLK*.docx'
+      - 'Research_Methods/Dictionary_V1/TSLK_DEEP_DICTIONARY_PROTOCOL_V1.md'
+      - 'Research_Methods/Dictionary_V1/tools/build_deep_dictionaries.py'
+      - '.github/workflows/build-deep-dictionaries.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tslk-deep-dictionary-main
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build all isolated corpus dictionaries
+        run: |
+          python Research_Methods/Dictionary_V1/tools/build_deep_dictionaries.py \
+            --repo-root . \
+            --output-root Dictionaries
+
+      - name: Show dictionary build summary
+        run: |
+          sed -n '1,220p' Dictionaries/INDEX.md
+          du -sh Dictionaries
+          find Dictionaries -maxdepth 2 -type f | sort | sed -n '1,240p'
+
+      - name: Commit generated dictionary evidence
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain Dictionaries)" ]]; then
+            git config user.name "kurdish-tsl-dictionary-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add Dictionaries
+            git commit -m "Generate exhaustive corpus-specific deep dictionaries"
+            git push
+          else
+            echo "Dictionary outputs already match the committed CSTLK inputs."
+          fi
