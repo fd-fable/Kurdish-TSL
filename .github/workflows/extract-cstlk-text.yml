@@ -1,11 +1,16 @@
-name: Extract CSTLK text for Stage4 V1
+name: Extract Stage4 V1 evidence and reports
 
 on:
   push:
     branches: [main]
     paths:
       - '0*/CSTLK*.docx'
+      - '0*/DSR*.docx'
+      - '0*/LDRSTLK*.docx'
+      - 'TSLK_DISCOVERY_PROTOCOL_V1.docx'
+      - 'TSLK_METHODOLOGICAL_REPLICATION_AUDIT_V1.docx'
       - 'Research_Methods/Stage4_V1/tools/extract_cstlk_text.py'
+      - 'Research_Methods/Stage4_V1/tools/extract_research_docx_text.py'
       - '.github/workflows/extract-cstlk-text.yml'
   workflow_dispatch:
 
@@ -27,17 +32,20 @@ jobs:
       - name: Install extraction dependency
         run: python -m pip install --disable-pip-version-check python-docx
 
-      - name: Run mechanical extraction
+      - name: Extract CSTLK corpus evidence mechanically
         run: python Research_Methods/Stage4_V1/tools/extract_cstlk_text.py
 
-      - name: Commit extracted evidence if changed
+      - name: Extract DSR/LDR/protocol reports mechanically
+        run: python Research_Methods/Stage4_V1/tools/extract_research_docx_text.py
+
+      - name: Commit extracted audit material if changed
         shell: bash
         run: |
           if [[ -n "$(git status --porcelain Research_Extracts/Stage4_V1)" ]]; then
             git config user.name "kurdish-tsl-research-bot"
             git config user.email "actions@users.noreply.github.com"
             git add Research_Extracts/Stage4_V1
-            git commit -m "Generate mechanical CSTLK text extracts for Stage4 V1"
+            git commit -m "Generate mechanical Stage4 V1 audit extracts"
             git push
           else
             echo "No extraction changes to commit."
