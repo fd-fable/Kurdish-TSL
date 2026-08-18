@@ -8,13 +8,21 @@ on:
       - 'Research_Methods/Dictionary_V1/TSLK_DEEP_DICTIONARY_PROTOCOL_V1.md'
       - 'Research_Methods/Dictionary_V1/tools/build_deep_dictionaries.py'
       - '.github/workflows/build-deep-dictionaries.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Dictionary_Build_Request.md'
+      - '0*/CSTLK*.docx'
+      - 'Research_Methods/Dictionary_V1/TSLK_DEEP_DICTIONARY_PROTOCOL_V1.md'
+      - 'Research_Methods/Dictionary_V1/tools/build_deep_dictionaries.py'
+      - '.github/workflows/build-deep-dictionaries.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: tslk-deep-dictionary-main
+  group: tslk-deep-dictionary-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -23,10 +31,11 @@ jobs:
     timeout-minutes: 120
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -53,7 +62,11 @@ jobs:
             git config user.email "actions@users.noreply.github.com"
             git add Dictionaries
             git commit -m "Generate exhaustive corpus-specific deep dictionaries"
-            git push
+            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+              git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+            else
+              git push
+            fi
           else
             echo "Dictionary outputs already match the committed CSTLK inputs."
           fi
