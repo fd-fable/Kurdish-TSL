@@ -1,0 +1,68 @@
+{
+  "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+  "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+  "checks": {
+    "cross_corpus_lemma_merging_performed": false,
+    "grammatical_classification_performed": false,
+    "nonspace_character_coverage_ok": true,
+    "raw_frequency_sum_ok": true,
+    "semantic_assignment_performed": false,
+    "source_surface_forms_preserved": true,
+    "wordlike_frequency_sum_ok": true
+  },
+  "corpus_folder": "007_KOVARA_KURMANCI",
+  "corpus_id": "007",
+  "counts": {
+    "covered_non_whitespace_characters": 700,
+    "non_whitespace_characters": 700,
+    "occurrence_shards": 1,
+    "other_nonspace_spans": 31,
+    "raw_token_occurrences": 106,
+    "raw_token_types": 88,
+    "text_containers": 10,
+    "total_characters": 798,
+    "wordlike_occurrences": 105,
+    "wordlike_surface_types": 85
+  },
+  "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+  "document_parts": {
+    "BODY": 10
+  },
+  "files": {
+    "character_inventory": "CHARACTER_INVENTORY.tsv",
+    "lexicon_jsonl": [
+      "LEXICON_0001.jsonl"
+    ],
+    "lexicon_tsv": [
+      "LEXICON_0001.tsv"
+    ],
+    "occurrence_shards": "See full_evidence_artifact",
+    "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+    "readme": "README.md"
+  },
+  "full_evidence_artifact": {
+    "artifact_id": 9335412871,
+    "artifact_name": "dict-007_KOVARA_KURMANCI",
+    "artifact_sha256": "4847074acf2d0ead40c33eddd21583be2dd488a42996622736a426bd1071e7cb",
+    "contains_complete_occurrence_concordance": true,
+    "original_retention_days": 7,
+    "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+    "source_workflow_run_id": 32165597134
+  },
+  "repository_core": {
+    "largest_core_file_bytes": 80979,
+    "lexicon_jsonl_shards": [
+      "LEXICON_0001.jsonl"
+    ],
+    "lexicon_rows_verified": 85,
+    "lexicon_tsv_shards": [
+      "LEXICON_0001.tsv"
+    ],
+    "occurrence_files_committed_to_git": false,
+    "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+  },
+  "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+  "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+  "source_cstlk_path": "007_KOVARA_KURMANCI/CSTLK007KOVARAKURMANCI08172026FDA.docx",
+  "source_cstlk_sha256": "1e630c89be73c455de2eea1f87b480582b2c1a1d45b102557fa88f27b566e146"
+}

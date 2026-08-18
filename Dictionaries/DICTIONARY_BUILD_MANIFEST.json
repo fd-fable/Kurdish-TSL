@@ -1,0 +1,1000 @@
+{
+  "all_corpora_mechanically_complete": true,
+  "all_nonspace_character_coverage_checks_passed": true,
+  "corpora": [
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "001_MEM_U_ZIN",
+      "corpus_id": "001",
+      "counts": {
+        "covered_non_whitespace_characters": 39346,
+        "non_whitespace_characters": 39346,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 1785,
+        "raw_token_occurrences": 7931,
+        "raw_token_types": 4319,
+        "text_containers": 357,
+        "total_characters": 47274,
+        "wordlike_occurrences": 7813,
+        "wordlike_surface_types": 3932
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 357
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335446147,
+        "artifact_name": "dict-001_MEM_U_ZIN",
+        "artifact_sha256": "43e6c096d436fc89c116570a7a09d4b665e070fde2c11787ca04d158b896e3f7",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 3879556,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 3932,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "001_MEM_U_ZIN/CSTLK001MEMUZIN08172026FDA.docx",
+      "source_cstlk_sha256": "6d2b7b83c00b5b11ca030ca1aab87cd5b1051fd83d0d7e9690fb268bbd7024f3"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "002_ANHA",
+      "corpus_id": "002",
+      "counts": {
+        "covered_non_whitespace_characters": 137188942,
+        "non_whitespace_characters": 137188942,
+        "occurrence_shards": 142,
+        "other_nonspace_spans": 3786429,
+        "raw_token_occurrences": 28382663,
+        "raw_token_types": 92044,
+        "text_containers": 1765394,
+        "total_characters": 163806215,
+        "wordlike_occurrences": 28275212,
+        "wordlike_surface_types": 71523
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 1765393,
+        "FOOTER:footer1.xml": 1
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl",
+          "LEXICON_0002.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv",
+          "LEXICON_0002.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335957499,
+        "artifact_name": "dict-002_ANHA",
+        "artifact_sha256": "f15a92dea602ca191b324bc6f7ba8ad318a8470bcc699c613e9622727af7cbf9",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 55534890,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl",
+          "LEXICON_0002.jsonl"
+        ],
+        "lexicon_rows_verified": 71523,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv",
+          "LEXICON_0002.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "002_ANHA/CSTLK002ANHA08172026FDA.docx",
+      "source_cstlk_sha256": "cc6c609d0f8f03a89193720458bdbf446c7c3804f83b64c445846779baef0ad2"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "003_RONAHI",
+      "corpus_id": "003",
+      "counts": {
+        "covered_non_whitespace_characters": 10102098,
+        "non_whitespace_characters": 10102098,
+        "occurrence_shards": 10,
+        "other_nonspace_spans": 298675,
+        "raw_token_occurrences": 1947954,
+        "raw_token_types": 108571,
+        "text_containers": 153995,
+        "total_characters": 11896061,
+        "wordlike_occurrences": 1977137,
+        "wordlike_surface_types": 84532
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 153994,
+        "FOOTER:footer1.xml": 1
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl",
+          "LEXICON_0002.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv",
+          "LEXICON_0002.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335337149,
+        "artifact_name": "dict-003_RONAHI",
+        "artifact_sha256": "abb45cbd394c4f790434a44431e9dc6165a4e5bb447ded67885a9f6cca0d0ab4",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 48399067,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl",
+          "LEXICON_0002.jsonl"
+        ],
+        "lexicon_rows_verified": 84532,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv",
+          "LEXICON_0002.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "003_RONAHI/CSTLK003RONAHI08172026FDA.docx",
+      "source_cstlk_sha256": "d35a7a27f32c03dded4086e29c6956bc7a46ccce2f4e9bf393f809fbe7a9970b"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "004_RUDAW",
+      "corpus_id": "004",
+      "counts": {
+        "covered_non_whitespace_characters": 84707765,
+        "non_whitespace_characters": 84707765,
+        "occurrence_shards": 87,
+        "other_nonspace_spans": 2527222,
+        "raw_token_occurrences": 17046981,
+        "raw_token_types": 446208,
+        "text_containers": 1224906,
+        "total_characters": 100529844,
+        "wordlike_occurrences": 17311859,
+        "wordlike_surface_types": 314182
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 1224905,
+        "FOOTER:footer1.xml": 1
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl",
+          "LEXICON_0002.jsonl",
+          "LEXICON_0003.jsonl",
+          "LEXICON_0004.jsonl",
+          "LEXICON_0005.jsonl",
+          "LEXICON_0006.jsonl",
+          "LEXICON_0007.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv",
+          "LEXICON_0002.tsv",
+          "LEXICON_0003.tsv",
+          "LEXICON_0004.tsv",
+          "LEXICON_0005.tsv",
+          "LEXICON_0006.tsv",
+          "LEXICON_0007.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335713435,
+        "artifact_name": "dict-004_RUDAW",
+        "artifact_sha256": "abf0373edc4f43a4dfef97a192c19ec3feb746af1115c3d274dff55d5c6d75fd",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 51613728,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl",
+          "LEXICON_0002.jsonl",
+          "LEXICON_0003.jsonl",
+          "LEXICON_0004.jsonl",
+          "LEXICON_0005.jsonl",
+          "LEXICON_0006.jsonl",
+          "LEXICON_0007.jsonl"
+        ],
+        "lexicon_rows_verified": 314182,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv",
+          "LEXICON_0002.tsv",
+          "LEXICON_0003.tsv",
+          "LEXICON_0004.tsv",
+          "LEXICON_0005.tsv",
+          "LEXICON_0006.tsv",
+          "LEXICON_0007.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "004_RUDAW/CSTLK004RUDAW08172026FDA.docx",
+      "source_cstlk_sha256": "adffe1e079d6fc0b2e92d4756e26f9f8a1e724480c93644e17aeceadd219c07f"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "corpus_id": "005",
+      "counts": {
+        "covered_non_whitespace_characters": 8026,
+        "non_whitespace_characters": 8026,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 398,
+        "raw_token_occurrences": 1715,
+        "raw_token_types": 600,
+        "text_containers": 339,
+        "total_characters": 9404,
+        "wordlike_occurrences": 1617,
+        "wordlike_surface_types": 505
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 339
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335282061,
+        "artifact_name": "dict-005_PIRTUKEN_KURMANCI_KATALOG",
+        "artifact_sha256": "24163e630fa2565af72b7b1fcc16a5cd0774ab5e7c5fcf164bbf0fd60bc86a12",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 456031,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 505,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "005_PIRTUKEN_KURMANCI_KATALOG/CSTLK005PIRTUKENKATALOG08172026FDA.docx",
+      "source_cstlk_sha256": "9407be736f4f737b3cd316799a754f10ac12544236b0a4ffedb3559002e2ab9c"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "006_KURMANJI_BEGINNERS",
+      "corpus_id": "006",
+      "counts": {
+        "covered_non_whitespace_characters": 246897,
+        "non_whitespace_characters": 246897,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 16782,
+        "raw_token_occurrences": 55058,
+        "raw_token_types": 16769,
+        "text_containers": 11241,
+        "total_characters": 291807,
+        "wordlike_occurrences": 54650,
+        "wordlike_surface_types": 11740
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 11241
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335283150,
+        "artifact_name": "dict-006_KURMANJI_BEGINNERS",
+        "artifact_sha256": "8ac3cc8e92fb769f72fcdeb71032965b032904aa98357f89f1e54155cc90b058",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 10425289,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 11740,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "006_KURMANJI_BEGINNERS/CSTLK006KURMANJIBEGINNERS08172026FDA.docx",
+      "source_cstlk_sha256": "106768681bc1d37f13907570f039aa868edc15112bdb87e4351ce76899595d14"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "007_KOVARA_KURMANCI",
+      "corpus_id": "007",
+      "counts": {
+        "covered_non_whitespace_characters": 700,
+        "non_whitespace_characters": 700,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 31,
+        "raw_token_occurrences": 106,
+        "raw_token_types": 88,
+        "text_containers": 10,
+        "total_characters": 798,
+        "wordlike_occurrences": 105,
+        "wordlike_surface_types": 85
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335412871,
+        "artifact_name": "dict-007_KOVARA_KURMANCI",
+        "artifact_sha256": "4847074acf2d0ead40c33eddd21583be2dd488a42996622736a426bd1071e7cb",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 80979,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 85,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "007_KOVARA_KURMANCI/CSTLK007KOVARAKURMANCI08172026FDA.docx",
+      "source_cstlk_sha256": "1e630c89be73c455de2eea1f87b480582b2c1a1d45b102557fa88f27b566e146"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "008_KOVARA_HAWAR",
+      "corpus_id": "008",
+      "counts": {
+        "covered_non_whitespace_characters": 633,
+        "non_whitespace_characters": 633,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 28,
+        "raw_token_occurrences": 103,
+        "raw_token_types": 87,
+        "text_containers": 10,
+        "total_characters": 728,
+        "wordlike_occurrences": 100,
+        "wordlike_surface_types": 81
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335292475,
+        "artifact_name": "dict-008_KOVARA_HAWAR",
+        "artifact_sha256": "28824fe4805d7347d92b3ab5c72e317b5602dc17e4efb69e42b1c22dddb5e83e",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 75419,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 81,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "008_KOVARA_HAWAR/CSTLK008KOVARANAWAR08172026FDA.docx",
+      "source_cstlk_sha256": "90600fc90b28b1eefa0b647957399b77c07ea2570a752e4618ed734e7d6f1ce8"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "009_ROJNAMA_KURDISTAN",
+      "corpus_id": "009",
+      "counts": {
+        "covered_non_whitespace_characters": 634,
+        "non_whitespace_characters": 634,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 27,
+        "raw_token_occurrences": 106,
+        "raw_token_types": 89,
+        "text_containers": 10,
+        "total_characters": 732,
+        "wordlike_occurrences": 104,
+        "wordlike_surface_types": 86
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335294556,
+        "artifact_name": "dict-009_ROJNAMA_KURDISTAN",
+        "artifact_sha256": "031f7dbb0df00907079890153cdd124381dcbdbe62b71e9a08ced827528728db",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 79694,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 86,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "009_ROJNAMA_KURDISTAN/CSTLK009ROJNAMAKURDISTAN08172026FDA.docx",
+      "source_cstlk_sha256": "bd9f593c51eb4aa2bf24bea8a4da2319fb5e7b40887aab37d2f8242aa69fcf04"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "010_KOVARA_JIN",
+      "corpus_id": "010",
+      "counts": {
+        "covered_non_whitespace_characters": 592,
+        "non_whitespace_characters": 592,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 26,
+        "raw_token_occurrences": 96,
+        "raw_token_types": 82,
+        "text_containers": 10,
+        "total_characters": 680,
+        "wordlike_occurrences": 93,
+        "wordlike_surface_types": 79
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335302081,
+        "artifact_name": "dict-010_KOVARA_JIN",
+        "artifact_sha256": "d4840b4978342bc5445b0f6c35a0bf9d63847d2b62bb7a688012db4bafacfccb",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 73296,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 79,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "010_KOVARA_JIN/CSTLK010KOVARA_JIN08172026FDA.docx",
+      "source_cstlk_sha256": "2145f96413811bccc416358ebf2355aaebb042c92912407fadeb0c2fb39c2b9e"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "011_FOLKLORA_KURMANCA_1936",
+      "corpus_id": "011",
+      "counts": {
+        "covered_non_whitespace_characters": 611,
+        "non_whitespace_characters": 611,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 31,
+        "raw_token_occurrences": 101,
+        "raw_token_types": 85,
+        "text_containers": 10,
+        "total_characters": 704,
+        "wordlike_occurrences": 97,
+        "wordlike_surface_types": 80
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335304002,
+        "artifact_name": "dict-011_FOLKLORA_KURMANCA_1936",
+        "artifact_sha256": "154da91a076ff391c628332ca41f902600ccdebb765744c135dcfa1c44e4073b",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 74781,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 80,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "011_FOLKLORA_KURMANCA_1936/CSTLK011FOLKLORAKURMANCA193608172026FDA.docx",
+      "source_cstlk_sha256": "1215bf1de7dd7b8d84d1c86c7021199b624915bcbd46199106ab17ce79b5e926"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "012_KURD_TEAVUN_TERAKKI_1908",
+      "corpus_id": "012",
+      "counts": {
+        "covered_non_whitespace_characters": 510,
+        "non_whitespace_characters": 510,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 19,
+        "raw_token_occurrences": 83,
+        "raw_token_types": 72,
+        "text_containers": 10,
+        "total_characters": 585,
+        "wordlike_occurrences": 81,
+        "wordlike_surface_types": 70
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335312152,
+        "artifact_name": "dict-012_KURD_TEAVUN_TERAKKI_1908",
+        "artifact_sha256": "1ca5ae5fb34f74049e7943aae1fa6642bb72fdbf6c43877d70271a5f968e7d54",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 63261,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 70,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "012_KURD_TEAVUN_TERAKKI_1908/CSTLK012KURDTEAVUNTERAKKI190808172026FDA.docx",
+      "source_cstlk_sha256": "7d31c803fa43701c0e5b82f2729e26de33854329f8ced7b8e6b14babca693254"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "013_ROJI_KURD_1913",
+      "corpus_id": "013",
+      "counts": {
+        "covered_non_whitespace_characters": 521,
+        "non_whitespace_characters": 521,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 24,
+        "raw_token_occurrences": 90,
+        "raw_token_types": 72,
+        "text_containers": 10,
+        "total_characters": 603,
+        "wordlike_occurrences": 88,
+        "wordlike_surface_types": 69
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335426660,
+        "artifact_name": "dict-013_ROJI_KURD_1913",
+        "artifact_sha256": "5e73d2cf655865c4718d74b666c7139b5e7127177a0594832e73add99b8236c3",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 62833,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 69,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "013_ROJI_KURD_1913/CSTLK013ROJIKURD191308172026FDA.docx",
+      "source_cstlk_sha256": "ad0227376547a571911556ca8f36532567e76bc6788edcb230dcb2339585242a"
+    },
+    {
+      "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+      "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+      "checks": {
+        "cross_corpus_lemma_merging_performed": false,
+        "grammatical_classification_performed": false,
+        "nonspace_character_coverage_ok": true,
+        "raw_frequency_sum_ok": true,
+        "semantic_assignment_performed": false,
+        "source_surface_forms_preserved": true,
+        "wordlike_frequency_sum_ok": true
+      },
+      "corpus_folder": "014_DIROK_U_CIVAKA_KURDAN",
+      "corpus_id": "014",
+      "counts": {
+        "covered_non_whitespace_characters": 562,
+        "non_whitespace_characters": 562,
+        "occurrence_shards": 1,
+        "other_nonspace_spans": 24,
+        "raw_token_occurrences": 96,
+        "raw_token_types": 82,
+        "text_containers": 10,
+        "total_characters": 650,
+        "wordlike_occurrences": 93,
+        "wordlike_surface_types": 77
+      },
+      "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+      "document_parts": {
+        "BODY": 10
+      },
+      "files": {
+        "character_inventory": "CHARACTER_INVENTORY.tsv",
+        "lexicon_jsonl": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_tsv": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_shards": "See full_evidence_artifact",
+        "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+        "readme": "README.md"
+      },
+      "full_evidence_artifact": {
+        "artifact_id": 9335322747,
+        "artifact_name": "dict-014_DIROK_U_CIVAKA_KURDAN",
+        "artifact_sha256": "19175ffb34641701423e89d1842f6148597632e8b65bd613442f3e4694e35d07",
+        "contains_complete_occurrence_concordance": true,
+        "original_retention_days": 7,
+        "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+        "source_workflow_run_id": 32165597134
+      },
+      "repository_core": {
+        "largest_core_file_bytes": 70351,
+        "lexicon_jsonl_shards": [
+          "LEXICON_0001.jsonl"
+        ],
+        "lexicon_rows_verified": 77,
+        "lexicon_tsv_shards": [
+          "LEXICON_0001.tsv"
+        ],
+        "occurrence_files_committed_to_git": false,
+        "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+      },
+      "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+      "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+      "source_cstlk_path": "014_DIROK_U_CIVAKA_KURDAN/CSTLK014DIROKUCIVAKAKURDAN08172026FDA.docx",
+      "source_cstlk_sha256": "b5a6132603d4ea7a7589fdc8c10309d0b86cd6e99e1a7a128840f8bcf7bccd58"
+    }
+  ],
+  "corpus_count": 14,
+  "corpus_local_surface_form_entries": 487041,
+  "full_occurrence_storage": "GitHub Actions evidence artifacts referenced per corpus",
+  "repository_storage": "sharded exhaustive lexicon core",
+  "schema": "TSLK_DEEP_DICTIONARY_MASTER_MANIFEST_V1",
+  "source_workflow_run_id": 32165597134,
+  "wordlike_occurrences": 47629049
+}
