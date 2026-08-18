@@ -1,42 +1,100 @@
-# Kurdish-TSL (The Sciences of Language)
+# Kurdish-TSL — The Sciences of Language
 
-Comprehensive Kurdish (Kurmancî) text corpora, linguistic diagnosis reports, source materials, and morphological/grammatical analyses.
+Kurdish-TSL is a corpus-centered project for recovering, comparing, and studying Kurdish (Kurmancî) texts across different periods, genres, and sources.
 
----
+## Current research phase: discover before formalizing
 
-## 📚 Repository Structure
+The project is currently in a **grammar-discovery phase**.
 
-This repository organizes curated Kurdish linguistic resources across classical texts, historical periodicals, and modern journalism:
+The immediate objective is **not** to take an existing Kurmancî grammar and apply it to these texts. The objective is to:
 
-- **Corpus Numbers & Sources:**
-  - `001_MEM_U_ZIN`: Mem û Zîn classical text corpus & linguistic report.
-  - `002_ANHA`: Hawar News Agency (ANHA) journalistic corpus & linguistic report.
-  - `003_RONAHI`: Ronahî newspaper corpus & linguistic report.
-  - `004_RUDAW`: Rudaw Media Network Kurdish Kurmancî corpus & linguistic report.
-  - `005_PIRTUKEN_KURMANCI_KATALOG`: Kurdish book catalog corpus.
-  - `006_KURMANJI_BEGINNERS`: Kurmanji introductory texts & learning corpus.
-  - `007_KOVARA_KURMANCI`: Kovara Kurmancî linguistic journal issues & reports.
-  - `008_KOVARA_HAWAR`: Hawar Magazine (Celadet Alî Bedirxan) historical collection.
-  - `009_ROJNAMA_KURDISTAN`: Kurdistan Newspaper (1898) historical corpus.
-  - `010_KOVARA_JIN`: Jin Magazine historical corpus.
-  - `011_FOLKLORA_KURMANCA_1936`: Folklora Kurmanca (1936) folklore corpus.
-  - `012_KURD_TEAVUN_TERAKKI_1908`: Kurd Teavun ve Terakki Gazetesi (1908) corpus.
-  - `013_ROJI_KURD_1913`: Roji Kurd (1913) journal corpus.
-  - `014_DIROK_U_CIVAKA_KURDAN`: History and Society of Kurds collection.
+1. preserve the original sources;
+2. recover the clearest faithful text possible;
+3. observe recurrent forms and distributions without imposing inherited grammatical categories;
+4. form hypotheses from corpus evidence;
+5. test those hypotheses across independent corpora;
+6. synthesize a grammar only after patterns survive repeated testing;
+7. compare with external grammars and implement computational rules later.
 
-- **Aggregated Corpora & Diagnosis:**
-  - `Kurdish_Corpora_Word_Docs/`: Compiled full-text Word (.docx) corpora and JSONL audit records.
-  - `Linguistic_Diagnosis_Reports/`: Section-by-section linguistic and grammatical diagnosis reports (TSL-A, TSL-R, TSL-RO).
-  - `Sources/` & `books_sources/`: Source documents, digitized PDFs, and OCR page index data.
-  - `LDRSTLK000MASTERGRAMMAR08172026FDA.docx`: Master Grammar & Linguistic Diagnosis Report.
+See `AGENTS.md` for the project-wide evidence rules and phase boundaries.
 
----
+## Evidence discipline
 
-## 🔍 Linguistic Analysis & Diagnostics
+Every analytical claim must be distinguishable as:
 
-Each corpus is coupled with systematic linguistic evaluations covering:
-- Phonology and Orthography (Hawar Latin alphabet standard adherence)
-- Nominal Morphology (Casus Rectus / Casus Obliquus, Ezafe constructions, Vocative)
-- Verbal System (Ergativity alignment, tense/aspect/mood markers)
-- Pronominal & Prepositional Systems (Pronominal clitics, circumpositions)
-- Lexical Distribution & Loanword Integration
+- **OBSERVED** — directly present in cited corpus evidence;
+- **INFERRED** — a hypothesis induced from observations;
+- **EXTERNAL** — knowledge from outside the corpus.
+
+During the current discovery phase, EXTERNAL knowledge is not admissible as evidence for deciding the grammar.
+
+Agents should use neutral descriptive labels such as `FORM-001`, `PATTERN-A`, or `SLOT-2` until the corpus itself supports a more functional description.
+
+## Repository structure
+
+### Numbered corpora
+
+- `001_MEM_U_ZIN` — Mem û Zîn classical-text corpus and source materials.
+- `002_ANHA` — ANHA journalistic corpus and source materials.
+- `003_RONAHI` — Ronahî corpus and source materials.
+- `004_RUDAW` — Rûdaw corpus and source materials.
+- `005_PIRTUKEN_KURMANCI_KATALOG` — Kurdish book-catalog material.
+- `006_KURMANJI_BEGINNERS` — introductory/learning-text corpus.
+- `007_KOVARA_KURMANCI` — Kovara Kurmancî material.
+- `008_KOVARA_HAWAR` — Hawar historical collection.
+- `009_ROJNAMA_KURDISTAN` — Kurdistan newspaper historical corpus.
+- `010_KOVARA_JIN` — Jin magazine historical corpus.
+- `011_FOLKLORA_KURMANCA_1936` — Folklora Kurmanca corpus.
+- `012_KURD_TEAVUN_TERAKKI_1908` — Kurd Teavun ve Terakki material.
+- `013_ROJI_KURD_1913` — Roji Kurd historical journal corpus.
+- `014_DIROK_U_CIVAKA_KURDAN` — history-and-society collection.
+
+Numbered corpus directories generally preserve compiled corpus documents together with their source materials. Source provenance should remain traceable.
+
+### Aggregated corpus material
+
+- `Kurdish_Corpora_Word_Docs/` — compiled corpus documents and article audit records.
+- `Sources/` and `books_sources/` — source documents, digitized material, and extraction/OCR support data.
+
+### Legacy/preliminary analysis
+
+The repository also preserves an earlier analytical layer:
+
+- `LDRSTLK000MASTERGRAMMAR08172026FDA.docx`
+- numbered-corpus documents beginning with `LDRSTLK`
+- `Linguistic_Diagnosis_Reports/`
+
+These files are **not discovery evidence**. They may contain prior grammatical assumptions. Preserve them for historical record and later blind comparison, but do not feed them to discovery agents while the corpus-derived grammar is being built. See `LEGACY_ANALYSIS_NOTICE.md`.
+
+## Agent prompts
+
+- `prompts/TEXT_RECOVERY_AGENT.md` — recover faithful text without grammar-based correction.
+- `prompts/GRAMMAR_DISCOVERY_AGENT.md` — observe, induce, falsify, and cross-test patterns using neutral labels.
+- `prompts/MANAGER_AGENT.md` — coordinate the process, enforce evidence classes, and prevent prior-grammar leakage.
+
+## Discovery workflow
+
+### Phase 0 — preserve sources and provenance
+Keep original material unchanged and record what each recovered text came from.
+
+### Phase 1 — recover clear text
+Repair demonstrable OCR, encoding, or layout corruption only. Preserve uncertain, historical, dialectal, and source-specific forms rather than silently normalizing them.
+
+### Phase 2 — observe
+Record recurrence, alternation, ordering, adjacency, distribution, and boundary behavior. Do not explain a pattern before documenting it.
+
+### Phase 3 — hypothesize
+Propose minimal, falsifiable explanations from accumulated observations. Keep competing explanations when the evidence is insufficient.
+
+### Phase 4 — cross-test
+Test candidates against independent texts from different genres, dates, authors, and sources. Search actively for counterexamples.
+
+### Phase 5 — synthesize grammar
+Introduce stable descriptive rules only after repeated corpus support, with an evidence trail attached to each rule.
+
+### Phase 6 — compare and implement
+Only after independent discovery should the project compare its system with published grammars, legacy diagnosis documents, dictionaries, parsers, or other external descriptions. Grammar-engine or parser implementation belongs after this stage begins.
+
+## Current principle
+
+**Clear text first. Observation second. Grammar discovery third. Formalization and programming later.**
