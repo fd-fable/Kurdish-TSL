@@ -21,7 +21,7 @@ All agent-generated DSR studies in that commit remain preserved as research-hist
 
 The agent-generated root-level `TSLK_DISCOVERY_PROTOCOL_V1` and its replication reports contain methodological contradictions that invalidate their own claim of successful independent validation.
 
-Major problems found directly in committed Markdown include:
+Major problems found directly in committed Markdown and commit inventory include:
 
 1. Layer A contains non-neutral grammatical/semantic terminology while claiming such terminology is absent.
 2. Some mathematical target sets are defined partly by the positional property subsequently tested, producing circularity.
@@ -30,6 +30,9 @@ Major problems found directly in committed Markdown include:
 5. Self-audit results are treated as certification rather than internal checks.
 6. High model-fit values across very different genres are declared evidence of protocol success without adequate assessment of unit-selection, target-set-selection, extraction, and template effects.
 7. Some Layer B hypotheses introduce highly specific linguistic terminology without documenting an internal derivational chain sufficient to distinguish corpus-based inference from pretrained Kurdish knowledge.
+8. The scripts said to generate/extract/classify the Stage 4 replication are not included in the `82d5876...` commit, so the claim of full computational reproducibility is unsupported by that commit.
+9. Raw bounded-unit extraction files are not included as separate committed evidence packages for the reported replication studies.
+10. Committed Markdown uses local `file:///d:/...` links to Word reports. Those links are machine-local and are not portable repository references.
 
 Therefore the current status is:
 
@@ -195,7 +198,7 @@ Similarity across independent corpora is not itself invalid, but at this stage i
 
 > Was the class inventory independently induced in Corpus 003, or was the Corpus 002 template reused and populated with new examples?
 
-This must be resolved by inspecting scripts, selection procedures, and raw bounded-unit evidence.
+This cannot currently be reconstructed from the Stage 4 commit because the generating scripts were not included in that commit.
 
 Status:
 
@@ -246,6 +249,8 @@ The replication audit claims:
 
 At least the non-circularity claim is already demonstrably false for Corpora 002 and 003 from the committed Markdown itself.
 
+The full-reproducibility claim is also unsupported by the Stage 4 commit because the scripts and raw bounded-unit extraction packages used for the replication are absent from that commit. Binary Word reports alone do not reconstruct the code path or target-set selection history.
+
 Therefore the final certification statement is withdrawn from active evidential status.
 
 Status:
@@ -254,7 +259,38 @@ Status:
 
 ---
 
-## 7. Uniform M1 fit risk
+## 7. Reproducibility and provenance failures
+
+### 7.1 Missing generation/analysis scripts in the Stage 4 commit
+
+The external-agent execution log reported scripts including extraction, report building, replication, and audit generation. The Stage 4 replication commit itself contains DSR Word files and selected Markdown reports, but does not include those generation/analysis scripts.
+
+Consequences:
+
+- target-set selection logic cannot be reconstructed from the commit;
+- automated classification logic cannot be independently examined;
+- item-selection order cannot be fully reproduced from code;
+- it is impossible to distinguish code-generated linguistic judgments from direct AI inspection solely from the committed package.
+
+### 7.2 Missing raw bounded-unit packages
+
+The replication reports cite bounded samples, but dedicated raw extraction artifacts are not present as committed evidence packages for the full replication set.
+
+The original Sources/CSTLK corpora are preserved, which is valuable, but the exact transformation from those sources to each reported bounded unit is not fully represented as an auditable committed artifact.
+
+### 7.3 Non-portable links
+
+The Markdown studies use links such as:
+
+`file:///d:/Dev_HUB/Antigravity/...`
+
+These resolve only on the producing local machine and are not durable GitHub references.
+
+All future active studies must use repository-relative paths or GitHub-resolvable artifact references.
+
+---
+
+## 8. Uniform M1 fit risk
 
 Reported M1 values across the fourteen pilot units range approximately from 84% to 97% despite large genre differences.
 
@@ -275,7 +311,7 @@ Status:
 
 ---
 
-## 8. Required remediation before expansion
+## 9. Required remediation before expansion
 
 Do not begin full-corpus UNIT02/UNIT03 expansion under the agent-generated V1 analysis architecture.
 
@@ -283,17 +319,18 @@ Required sequence:
 
 1. mechanically extract committed CSTLK and DSR Word documents into searchable text with hashes and stable locators;
 2. inspect the complete item-level audit tables;
-3. reconstruct target-set selection history for each corpus;
-4. reclassify circular models as descriptive-only;
-5. rebuild Layer A with strictly neutral terminology;
-6. rebuild Layer B with explicit derivational chains from Layer A;
-7. preserve all failed/superseded versions;
-8. issue a protocol revision only after audit evidence requires it;
-9. independently re-run a bounded pilot on at least a representative subset of corpus types before large-scale expansion.
+3. reconstruct target-set selection history for each corpus where possible;
+4. where reconstruction is impossible because scripts/raw extraction are absent, mark the affected model `PROVENANCE INCOMPLETE` and rebuild it from committed primary evidence;
+5. reclassify circular models as descriptive-only;
+6. rebuild Layer A with strictly neutral terminology;
+7. rebuild Layer B with explicit derivational chains from Layer A;
+8. preserve all failed/superseded versions;
+9. issue a protocol revision only after audit evidence requires it;
+10. independently re-run a bounded pilot on at least a representative subset of corpus types before large-scale expansion.
 
 ---
 
-## 9. Evidential statuses after this audit
+## 10. Evidential statuses after this audit
 
 | Artifact class | Current status |
 |---|---|
@@ -309,7 +346,7 @@ Required sequence:
 
 ---
 
-## 10. Scientific principle
+## 11. Scientific principle
 
 The failure of a self-certification does not imply that every observed pattern is false.
 
