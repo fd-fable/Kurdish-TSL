@@ -14,7 +14,7 @@ The objective is not to impose a grammar on Kurdish. The objective is to discove
 ### Stream A — Documentary corpus / agent work
 - Each corpus is analyzed independently.
 - No cross-corpus evidence may be used during first-pass discovery.
-- The agent works file-by-file and bounded-unit-by-bounded-unit.
+- Work proceeds file-by-file and bounded-unit-by-bounded-unit.
 - Raw corpus, source, earlier drafts, invalidated analyses, scripts, and later revisions are preserved for audit.
 - Python may perform mechanical operations (extraction, counts, concordances, arithmetic, tables, document generation) but must not decide linguistic categories, meanings, morphemes, grammatical functions, sentence constituents, word families, or rules.
 
@@ -70,9 +70,9 @@ Examples already in repository:
 - `CSTLK001MEMUZIN08172026FDA.docx`
 - `LDRSTLK001MEMUZIN08172026FDA.docx`
 
-The archive is cumulative. Do not overwrite or delete previous methodological states solely because a later analysis differs; instead label status (e.g. invalidated method test, superseded draft, active study, validated protocol version).
+The archive is cumulative. Do not overwrite or delete previous methodological states solely because a later analysis differs; instead label status (e.g. invalidated method test, superseded draft, active study, protocol version, audit failed).
 
-## Discovery methodology (current direction)
+## Discovery methodology
 A strict two-layer architecture is required.
 
 ### Layer A — Blind Discovery Record
@@ -103,37 +103,112 @@ Interpretive terminology is permitted only as a hypothesis, never as inherited e
 Formalization follows discovery: `Data -> Observation -> Pattern -> Hypothesis -> Test -> Formal Model`.
 Never begin from a formula and search for fitting examples.
 
-Every fit metric must be fully auditable: define relevant units, support, non-conforming cases, ambiguous cases, exclusions, numerator, denominator, and complete item IDs. Avoid circular models where a class is defined by the same variable later used to validate that class.
+Every fit metric must be fully auditable: define relevant units, support, non-conforming cases, ambiguous cases, exclusions, numerator, denominator, and complete item IDs. Avoid circular models where a class or target set is selected using the same variable later used to claim independent validation.
 
-## Current methodological history
+An explicit form list alone does not prove non-circularity. The selection history and criteria for every target set must be recorded.
+
+## Authoritative Stage 4 method
+The current authoritative Stage 4 method is:
+
+`Research_Methods/Stage4_V1/TSLK_DISCOVERY_PROTOCOL_V1.md`
+
+The agent-generated root file:
+
+`TSLK_DISCOVERY_PROTOCOL_V1.md`
+
+is preserved as a **SUPERSEDED AGENT-GENERATED METHOD DRAFT** after independent audit failure. Do not delete it and do not treat it as the controlling protocol.
+
+## Stage 4 methodological history
 - An initial rapid Stage 4 generated structural reports across all corpora with scripts and conventional Kurdish grammatical labels. This run was judged methodologically contaminated and must remain preserved only as an invalidated methodological test, not research evidence.
 - A reset introduced bounded-unit analysis and then a two-layer discovery architecture.
-- Corpus 001 Unit 1 became the pilot used to debug the research instrument.
+- Corpus 001 Unit 1 was used as a pilot to debug the research instrument.
 - Important corrections included removing inherited lexical glosses, removing premature labels such as SOV/ergativity/aspect, auditing graphemic contrasts, exposing model denominators, and prohibiting circular classification.
-- The intended next state is a frozen protocol (`TSLK_DISCOVERY_PROTOCOL_V1`) applied independently to bounded units across all corpora, while preserving all previous files.
+- The external agent subsequently committed Stage 4 outputs for Corpora 001–014 in commit `82d587618733a8c7d86a694bb5b46610692c2b7b` and declared Protocol V1 certified across all corpora.
+- Direct independent audit of that commit has **rejected the certification**.
 
-## Current agent-reported milestone (requires verification against repository state)
-The external agent reports having created locally:
-- `TSLK_DISCOVERY_PROTOCOL_V1.docx`
-- `TSLK_DISCOVERY_PROTOCOL_V1.md`
-- `TSLK_METHODOLOGICAL_REPLICATION_AUDIT_V1.docx`
-- `TSLK_METHODOLOGICAL_REPLICATION_AUDIT_V1.md`
-- `DSRSLK001MEMUZIN08172026FDA_UNIT1_V1.docx`
-- bounded Unit 1 DSR outputs for corpora 002–014
-- scripts for extraction, report generation, protocol construction, and replication.
+## Current verified Stage 4 state
+External-agent commit under audit:
 
-The agent reports Protocol V1 validation and a first bounded replication round across all 14 corpora. These claims must be audited before full-corpus expansion; local file creation alone is not proof that the work is methodologically valid or committed to GitHub.
+`82d587618733a8c7d86a694bb5b46610692c2b7b`
 
-## Critical audit warning for the latest replication report
-Do not automatically accept high fit percentages or claims of independent replication. Before scaling full-corpus expansion, verify at least:
-- the same target form set/model was not inappropriately transferred between corpora;
-- each corpus's form sets/classes were independently induced;
-- article/lesson/entry boundaries are genuine and not arbitrary script slices;
-- all counted units and classifications are inspectable;
-- Layer A contains no hidden grammatical labels;
-- Layer B does not silently reuse pretrained Kurdish grammar;
-- scripts did not make linguistic decisions;
-- protocol validation is procedural, not validation of any Kurdish grammatical hypothesis.
+It committed:
+- general DSR and bounded Unit1 DSR Word reports across Corpora 001–014;
+- multiple earlier/superseded Corpus 001 Stage 4 drafts (Unit1, Layered, Purified, V1, Unit2, Unit3);
+- Markdown Unit1 reports for at least Corpora 001–003;
+- root `TSLK_DISCOVERY_PROTOCOL_V1` Word/Markdown artifacts;
+- root `TSLK_METHODOLOGICAL_REPLICATION_AUDIT_V1` Word/Markdown artifacts.
+
+Independent audit record:
+
+`Research_Methods/Stage4_V1/TSLK_INDEPENDENT_AUDIT_FINDINGS.md`
+
+Repository manifest:
+
+`Research_Methods/Stage4_V1/TSLK_STAGE4_V1_MANIFEST.md`
+
+Current status of agent Stage 4 outputs:
+
+> **SELF-CERTIFIED / INDEPENDENT AUDIT FAILED / PRESERVE FOR REVISION / NOT ACTIVE GRAMMATICAL EVIDENCE**
+
+## Verified failures in agent Stage 4 V1
+### Corpus 001
+- Layer A contains interpretive labels such as `Recurrent Finite State/Action Form Set` and `D04_past` while the self-audit claims zero conventional grammatical terminology.
+- `F_target` selection independence is not demonstrated. An explicit list does not establish that position was not used, knowingly or indirectly, to select the forms.
+- Layer B introduces highly specific hypotheses requiring a more explicit derivational chain from Layer A.
+
+### Corpus 002 ANHA
+- D04 is defined as forms in `F_event` **exhibiting recurrent clause-final positioning** and the model then tests whether `F_event` is clause-final. This is directly circular.
+- Layer A contains `zero suffixes`, `Event/Action`, `Toponymic`, `Spatial/Locative`, and `Coordinator` terminology.
+- The self-audit claim that Layer A is purely neutral is false.
+
+### Corpus 003 Ronahi
+- The same circular `F_event`/final-position architecture appears.
+- Near-identical D01–D06 class architecture across independently claimed studies creates an unresolved template-transfer risk.
+
+### Replication audit
+- The claim of strict non-circularity across all fourteen corpora is already false because Corpora 002 and 003 violate it in committed Markdown.
+- Reported M1 fits of roughly 84%–97% across very different genres are a method-risk signal until selection, unit-boundary, and template effects are independently audited.
+- The agent-generated replication audit is therefore preserved as **FAILED INDEPENDENT REVIEW**, not certification.
+
+## Reproducibility failures confirmed in GitHub
+The external agent reported using scripts such as:
+- `build_unit1_v1_final.py`
+- `run_replication_all_corpora.py`
+- `build_replication_audit.py`
+
+Repository search finds no committed copies of those exact scripts.
+
+The Stage 4 replication commit also lacks complete raw bounded-unit extraction packages as separate repository artifacts.
+
+Therefore the claim of full computational reproducibility is not currently supported by the committed Stage 4 package.
+
+Committed Markdown also contains local links such as `file:///d:/Dev_HUB/Antigravity/...`; these are not portable GitHub references.
+
+## Direct ChatGPT takeover / project-management state
+Ferhad explicitly authorized ChatGPT to work directly through the connected GitHub repository rather than merely writing prompts for the external agent.
+
+Direct work already committed by ChatGPT includes:
+- durable context (this file);
+- authoritative Stage 4 method: `Research_Methods/Stage4_V1/TSLK_DISCOVERY_PROTOCOL_V1.md`;
+- independent audit findings: `Research_Methods/Stage4_V1/TSLK_INDEPENDENT_AUDIT_FINDINGS.md`;
+- corrected Stage 4 manifest: `Research_Methods/Stage4_V1/TSLK_STAGE4_V1_MANIFEST.md`;
+- mechanical CSTLK extractor: `Research_Methods/Stage4_V1/tools/extract_cstlk_text.py`;
+- mechanical DSR/LDR/report extractor: `Research_Methods/Stage4_V1/tools/extract_research_docx_text.py`;
+- GitHub Actions extraction workflow: `.github/workflows/extract-cstlk-text.yml`.
+
+These extraction scripts are mechanical only; they are not authorized to decide linguistic categories or meanings.
+
+## Current audit gate
+Do **not** proceed to full UNIT02/UNIT03 expansion under the agent-generated architecture.
+
+Required next operations:
+1. expose committed CSTLK and DSR/LDR Word contents as searchable audit text where technically possible;
+2. independently inspect the complete item-level tables and target-set construction;
+3. downgrade circular models to descriptive-only;
+4. rebuild any active Layer A under genuinely neutral terminology;
+5. rebuild Layer B with explicit evidence derivation and competing hypotheses;
+6. independently re-run representative bounded pilots before large-scale expansion;
+7. preserve all failed and superseded artifacts.
 
 ## Native-speaker evidence already established in Stream B
 Examples supplied by Ferhad include working forms such as:
