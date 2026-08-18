@@ -23,12 +23,31 @@ permissions:
 
 concurrency:
   group: tslk-deep-dictionary-${{ github.event_name }}-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  build:
+  build-corpus:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        corpus:
+          - 001_MEM_U_ZIN
+          - 002_ANHA
+          - 003_RONAHI
+          - 004_RUDAW
+          - 005_PIRTUKEN_KURMANCI_KATALOG
+          - 006_KURMANJI_BEGINNERS
+          - 007_KOVARA_KURMANCI
+          - 008_KOVARA_HAWAR
+          - 009_ROJNAMA_KURDISTAN
+          - 010_KOVARA_JIN
+          - 011_FOLKLORA_KURMANCA_1936
+          - 012_KURD_TEAVUN_TERAKKI_1908
+          - 013_ROJI_KURD_1913
+          - 014_DIROK_U_CIVAKA_KURDAN
 
     steps:
       - name: Checkout repository branch
@@ -42,17 +61,113 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build all isolated corpus dictionaries
+      - name: Build isolated dictionary
         run: |
           python Research_Methods/Dictionary_V1/tools/build_deep_dictionaries.py \
             --repo-root . \
-            --output-root Dictionaries
+            --output-root Dictionaries \
+            --corpus "${{ matrix.corpus }}"
 
-      - name: Show dictionary build summary
+      - name: Verify corpus manifest exists
         run: |
-          sed -n '1,220p' Dictionaries/INDEX.md
+          test -f "Dictionaries/${{ matrix.corpus }}/MANIFEST.json"
+          cat "Dictionaries/${{ matrix.corpus }}/MANIFEST.json"
+
+      - name: Upload isolated corpus dictionary
+        uses: actions/upload-artifact@v4
+        with:
+          name: dict-${{ matrix.corpus }}
+          path: Dictionaries/${{ matrix.corpus }}
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+
+  aggregate:
+    needs: build-corpus
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+
+      - name: Download all isolated dictionary artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: dict-*
+          path: _dict_artifacts
+
+      - name: Assemble dictionary tree and master index
+        shell: bash
+        run: |
+          rm -rf Dictionaries
+          mkdir -p Dictionaries
+          for d in _dict_artifacts/dict-*; do
+            name="$(basename "$d")"
+            corpus="${name#dict-}"
+            mkdir -p "Dictionaries/$corpus"
+            cp -a "$d/." "Dictionaries/$corpus/"
+          done
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('Dictionaries')
+          manifests = []
+          for p in sorted(root.glob('*/MANIFEST.json')):
+              manifests.append(json.loads(p.read_text(encoding='utf-8')))
+
+          if len(manifests) != 14:
+              raise SystemExit(f'Expected 14 corpus manifests, found {len(manifests)}')
+
+          failed = [m for m in manifests if not str(m.get('dictionary_status', '')).startswith('MECHANICALLY COMPLETE')]
+          if failed:
+              raise SystemExit('Completeness failure: ' + ', '.join(m['corpus_folder'] for m in failed))
+
+          lines = [
+              '# Kurdish-TSL — Corpus-Specific Deep Dictionaries',
+              '',
+              '**Method:** `Research_Methods/Dictionary_V1/TSLK_DEEP_DICTIONARY_PROTOCOL_V1.md`',
+              '',
+              'Every corpus is indexed independently. This table compares build metadata only; it does not merge forms, meanings, or grammar across corpora.',
+              '',
+              '| Corpus | Layer W surface types | Layer W occurrences | Raw token types | Nonspace coverage | Status |',
+              '|---|---:|---:|---:|---:|---|',
+          ]
+          for m in manifests:
+              c = m['counts']
+              coverage = f"{c['covered_non_whitespace_characters']}/{c['non_whitespace_characters']}"
+              lines.append(
+                  f"| `{m['corpus_folder']}` | {c['wordlike_surface_types']:,} | {c['wordlike_occurrences']:,} | "
+                  f"{c['raw_token_types']:,} | {coverage} | {m['dictionary_status']} |"
+              )
+          lines += [
+              '',
+              '## Evidential status',
+              '',
+              'These are exhaustive written-form evidence inventories, not externally translated dictionaries. Every generated entry begins semantically and grammatically unresolved. Exact surface forms remain separate; no cross-corpus lemma merging is performed.',
+              '',
+          ]
+          (root / 'INDEX.md').write_text('\n'.join(lines), encoding='utf-8')
+
+          master = {
+              'schema': 'TSLK_DEEP_DICTIONARY_MASTER_MANIFEST_V1',
+              'corpus_count': len(manifests),
+              'corpora': manifests,
+              'all_corpora_mechanically_complete': True,
+          }
+          (root / 'DICTIONARY_BUILD_MANIFEST.json').write_text(
+              json.dumps(master, ensure_ascii=False, indent=2, sort_keys=True) + '\n',
+              encoding='utf-8',
+          )
+          PY
+
+          sed -n '1,240p' Dictionaries/INDEX.md
           du -sh Dictionaries
-          find Dictionaries -maxdepth 2 -type f | sort | sed -n '1,240p'
 
       - name: Commit generated dictionary evidence
         shell: bash
