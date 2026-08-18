@@ -1,0 +1,73 @@
+{
+  "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+  "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+  "checks": {
+    "cross_corpus_lemma_merging_performed": false,
+    "grammatical_classification_performed": false,
+    "nonspace_character_coverage_ok": true,
+    "raw_frequency_sum_ok": true,
+    "semantic_assignment_performed": false,
+    "source_surface_forms_preserved": true,
+    "wordlike_frequency_sum_ok": true
+  },
+  "corpus_folder": "002_ANHA",
+  "corpus_id": "002",
+  "counts": {
+    "covered_non_whitespace_characters": 137188942,
+    "non_whitespace_characters": 137188942,
+    "occurrence_shards": 142,
+    "other_nonspace_spans": 3786429,
+    "raw_token_occurrences": 28382663,
+    "raw_token_types": 92044,
+    "text_containers": 1765394,
+    "total_characters": 163806215,
+    "wordlike_occurrences": 28275212,
+    "wordlike_surface_types": 71523
+  },
+  "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+  "document_parts": {
+    "BODY": 1765393,
+    "FOOTER:footer1.xml": 1
+  },
+  "files": {
+    "character_inventory": "CHARACTER_INVENTORY.tsv",
+    "lexicon_jsonl": [
+      "LEXICON_0001.jsonl",
+      "LEXICON_0002.jsonl"
+    ],
+    "lexicon_tsv": [
+      "LEXICON_0001.tsv",
+      "LEXICON_0002.tsv"
+    ],
+    "occurrence_shards": "See full_evidence_artifact",
+    "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+    "readme": "README.md"
+  },
+  "full_evidence_artifact": {
+    "artifact_id": 9335957499,
+    "artifact_name": "dict-002_ANHA",
+    "artifact_sha256": "f15a92dea602ca191b324bc6f7ba8ad318a8470bcc699c613e9622727af7cbf9",
+    "contains_complete_occurrence_concordance": true,
+    "original_retention_days": 7,
+    "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+    "source_workflow_run_id": 32165597134
+  },
+  "repository_core": {
+    "largest_core_file_bytes": 55534890,
+    "lexicon_jsonl_shards": [
+      "LEXICON_0001.jsonl",
+      "LEXICON_0002.jsonl"
+    ],
+    "lexicon_rows_verified": 71523,
+    "lexicon_tsv_shards": [
+      "LEXICON_0001.tsv",
+      "LEXICON_0002.tsv"
+    ],
+    "occurrence_files_committed_to_git": false,
+    "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+  },
+  "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+  "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+  "source_cstlk_path": "002_ANHA/CSTLK002ANHA08172026FDA.docx",
+  "source_cstlk_sha256": "cc6c609d0f8f03a89193720458bdbf446c7c3804f83b64c445846779baef0ad2"
+}

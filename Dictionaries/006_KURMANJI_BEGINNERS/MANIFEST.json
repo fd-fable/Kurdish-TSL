@@ -1,0 +1,68 @@
+{
+  "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+  "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+  "checks": {
+    "cross_corpus_lemma_merging_performed": false,
+    "grammatical_classification_performed": false,
+    "nonspace_character_coverage_ok": true,
+    "raw_frequency_sum_ok": true,
+    "semantic_assignment_performed": false,
+    "source_surface_forms_preserved": true,
+    "wordlike_frequency_sum_ok": true
+  },
+  "corpus_folder": "006_KURMANJI_BEGINNERS",
+  "corpus_id": "006",
+  "counts": {
+    "covered_non_whitespace_characters": 246897,
+    "non_whitespace_characters": 246897,
+    "occurrence_shards": 1,
+    "other_nonspace_spans": 16782,
+    "raw_token_occurrences": 55058,
+    "raw_token_types": 16769,
+    "text_containers": 11241,
+    "total_characters": 291807,
+    "wordlike_occurrences": 54650,
+    "wordlike_surface_types": 11740
+  },
+  "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+  "document_parts": {
+    "BODY": 11241
+  },
+  "files": {
+    "character_inventory": "CHARACTER_INVENTORY.tsv",
+    "lexicon_jsonl": [
+      "LEXICON_0001.jsonl"
+    ],
+    "lexicon_tsv": [
+      "LEXICON_0001.tsv"
+    ],
+    "occurrence_shards": "See full_evidence_artifact",
+    "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+    "readme": "README.md"
+  },
+  "full_evidence_artifact": {
+    "artifact_id": 9335283150,
+    "artifact_name": "dict-006_KURMANJI_BEGINNERS",
+    "artifact_sha256": "8ac3cc8e92fb769f72fcdeb71032965b032904aa98357f89f1e54155cc90b058",
+    "contains_complete_occurrence_concordance": true,
+    "original_retention_days": 7,
+    "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+    "source_workflow_run_id": 32165597134
+  },
+  "repository_core": {
+    "largest_core_file_bytes": 10425289,
+    "lexicon_jsonl_shards": [
+      "LEXICON_0001.jsonl"
+    ],
+    "lexicon_rows_verified": 11740,
+    "lexicon_tsv_shards": [
+      "LEXICON_0001.tsv"
+    ],
+    "occurrence_files_committed_to_git": false,
+    "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+  },
+  "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+  "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+  "source_cstlk_path": "006_KURMANJI_BEGINNERS/CSTLK006KURMANJIBEGINNERS08172026FDA.docx",
+  "source_cstlk_sha256": "106768681bc1d37f13907570f039aa868edc15112bdb87e4351ce76899595d14"
+}

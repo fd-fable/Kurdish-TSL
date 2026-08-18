@@ -1,0 +1,93 @@
+{
+  "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
+  "builder_version": "TSLK_DEEP_DICTIONARY_BUILDER_V1.0.0",
+  "checks": {
+    "cross_corpus_lemma_merging_performed": false,
+    "grammatical_classification_performed": false,
+    "nonspace_character_coverage_ok": true,
+    "raw_frequency_sum_ok": true,
+    "semantic_assignment_performed": false,
+    "source_surface_forms_preserved": true,
+    "wordlike_frequency_sum_ok": true
+  },
+  "corpus_folder": "004_RUDAW",
+  "corpus_id": "004",
+  "counts": {
+    "covered_non_whitespace_characters": 84707765,
+    "non_whitespace_characters": 84707765,
+    "occurrence_shards": 87,
+    "other_nonspace_spans": 2527222,
+    "raw_token_occurrences": 17046981,
+    "raw_token_types": 446208,
+    "text_containers": 1224906,
+    "total_characters": 100529844,
+    "wordlike_occurrences": 17311859,
+    "wordlike_surface_types": 314182
+  },
+  "dictionary_status": "MECHANICALLY COMPLETE / INTERPRETATION UNREVIEWED",
+  "document_parts": {
+    "BODY": 1224905,
+    "FOOTER:footer1.xml": 1
+  },
+  "files": {
+    "character_inventory": "CHARACTER_INVENTORY.tsv",
+    "lexicon_jsonl": [
+      "LEXICON_0001.jsonl",
+      "LEXICON_0002.jsonl",
+      "LEXICON_0003.jsonl",
+      "LEXICON_0004.jsonl",
+      "LEXICON_0005.jsonl",
+      "LEXICON_0006.jsonl",
+      "LEXICON_0007.jsonl"
+    ],
+    "lexicon_tsv": [
+      "LEXICON_0001.tsv",
+      "LEXICON_0002.tsv",
+      "LEXICON_0003.tsv",
+      "LEXICON_0004.tsv",
+      "LEXICON_0005.tsv",
+      "LEXICON_0006.tsv",
+      "LEXICON_0007.tsv"
+    ],
+    "occurrence_shards": "See full_evidence_artifact",
+    "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
+    "readme": "README.md"
+  },
+  "full_evidence_artifact": {
+    "artifact_id": 9335713435,
+    "artifact_name": "dict-004_RUDAW",
+    "artifact_sha256": "abf0373edc4f43a4dfef97a192c19ec3feb746af1115c3d274dff55d5c6d75fd",
+    "contains_complete_occurrence_concordance": true,
+    "original_retention_days": 7,
+    "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+    "source_workflow_run_id": 32165597134
+  },
+  "repository_core": {
+    "largest_core_file_bytes": 51613728,
+    "lexicon_jsonl_shards": [
+      "LEXICON_0001.jsonl",
+      "LEXICON_0002.jsonl",
+      "LEXICON_0003.jsonl",
+      "LEXICON_0004.jsonl",
+      "LEXICON_0005.jsonl",
+      "LEXICON_0006.jsonl",
+      "LEXICON_0007.jsonl"
+    ],
+    "lexicon_rows_verified": 314182,
+    "lexicon_tsv_shards": [
+      "LEXICON_0001.tsv",
+      "LEXICON_0002.tsv",
+      "LEXICON_0003.tsv",
+      "LEXICON_0004.tsv",
+      "LEXICON_0005.tsv",
+      "LEXICON_0006.tsv",
+      "LEXICON_0007.tsv"
+    ],
+    "occurrence_files_committed_to_git": false,
+    "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+  },
+  "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
+  "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",
+  "source_cstlk_path": "004_RUDAW/CSTLK004RUDAW08172026FDA.docx",
+  "source_cstlk_sha256": "adffe1e079d6fc0b2e92d4756e26f9f8a1e724480c93644e17aeceadd219c07f"
+}
