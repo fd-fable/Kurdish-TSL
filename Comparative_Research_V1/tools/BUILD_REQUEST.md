@@ -1,0 +1,1 @@
+Run the Comparative Research V1 builder on the committed fourteen named-source dictionaries and generate the combined named-source report, exhaustive exact-surface cross-source index, pairwise comparison table, final combined result, and deep conclusion.
