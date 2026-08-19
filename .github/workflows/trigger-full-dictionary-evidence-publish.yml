@@ -1,0 +1,27 @@
+name: Trigger full dictionary evidence publisher from PR
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'FULL_DICTIONARY_GITHUB_PUBLISH_REQUEST.md'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch full dictionary evidence publisher
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'run-full-dictionary-evidence-publish.yml',
+              ref: 'main'
+            })
+            core.info('Dispatched full dictionary evidence publisher on main; publisher writes only to agent/full-dictionary-evidence-v1.')
