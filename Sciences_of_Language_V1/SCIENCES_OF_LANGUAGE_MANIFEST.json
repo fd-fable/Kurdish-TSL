@@ -1,0 +1,17 @@
+{
+  "version": "TSLK_SCIENCES_OF_LANGUAGE_V1",
+  "source_count": 14,
+  "shared_non_template_form_profiles": 54762,
+  "form_family_edge_extension_candidates": 405177,
+  "edge_material_patterns": 26291,
+  "structural_neighbor_candidates": 66844,
+  "positional_candidates": 54762,
+  "language_graph_nodes": 55276,
+  "language_graph_edges": 284344,
+  "scores_are_truth_probabilities": false,
+  "semantic_assignment_performed": false,
+  "conventional_grammar_assignment_performed": false,
+  "stage4_failed_claims_used_as_proof": false,
+  "full_47m_occurrence_sequence_grammar_performed": false,
+  "scope_note": "V1 uses lexicon-level top-neighbor and position profiles; unrestricted occurrence-sequence grammar is reserved for V2."
+}

@@ -1,0 +1,15 @@
+source	folder	domain	letter_bearing_types	letter_bearing_occurrences	type_token_ratio	hapax_types	hapax_type_share	shared_2plus_types	shared_2plus_share	template_risk_types	weighted_mean_graphemic_length	container_initial_occurrences	container_final_occurrences
+Mem û Zîn	001_MEM_U_ZIN	Classical poetic/literary source	3882	7666	0.50639186	2980	0.76764554	1066	0.27460072	5	4.8440	340	334
+ANHA	002_ANHA	Modern news source	54922	27229894	0.00201697	7809	0.14218346	36920	0.67222607	9	4.7841	1575251	1577063
+Ronahî	003_RONAHI	Modern broadcast/news source	62285	1915102	0.03252307	28211	0.45293409	43933	0.70535442	9	4.9519	142960	152908
+Rudaw	004_RUDAW	Modern news/opinion source	229474	16730504	0.01371590	97027	0.42282350	50177	0.21866094	11	4.7790	1169858	1208120
+Pirtûkên Kurmancî Katalog	005_PIRTUKEN_KURMANCI_KATALOG	Book/catalog source	421	1367	0.30797366	193	0.45843230	367	0.87173397	6	4.9978	204	148
+Kurmanji Beginners	006_KURMANJI_BEGINNERS	Pedagogical source	11364	53487	0.21246284	6733	0.59248504	5895	0.51874340	5	4.1767	10353	10645
+Kovara Kurmancî	007_KOVARA_KURMANCI	Periodical source	77	95	0.81052632	64	0.83116883	63	0.81818182	12	6.7368	4	7
+Kovara Hawar	008_KOVARA_HAWAR	Historical periodical source	73	90	0.81111111	59	0.80821918	63	0.86301370	12	6.2889	4	9
+Rojnama Kurdistan	009_ROJNAMA_KURDISTAN	Historical newspaper source	78	94	0.82978723	67	0.85897436	65	0.83333333	12	6.0957	4	9
+Kovara Jîn	010_KOVARA_JIN	Historical periodical source	73	85	0.85882353	65	0.89041096	64	0.87671233	12	6.3176	4	9
+Folklora Kurmanca (1936)	011_FOLKLORA_KURMANCA_1936	Folklore source	75	89	0.84269663	65	0.86666667	55	0.73333333	12	6.3258	4	9
+Kurd Teavun Terakki (1908)	012_KURD_TEAVUN_TERAKKI_1908	Historical journal source	64	73	0.87671233	59	0.92187500	52	0.81250000	12	6.3151	4	8
+Rojî Kurd (1913)	013_ROJI_KURD_1913	Historical periodical source	65	80	0.81250000	55	0.84615385	57	0.87692308	12	5.9875	4	9
+Dîrok û Civaka Kurdan	014_DIROK_U_CIVAKA_KURDAN	Monograph/research source	74	87	0.85057471	65	0.87837838	49	0.66216216	12	6.1149	4	9
