@@ -60,59 +60,77 @@ jobs:
           target = Path('_v2_artifacts/Per_Source')
           target.mkdir(parents=True, exist_ok=True)
 
-          copied = 0
-          for f in source.rglob('*'):
-              if not f.is_file():
-                  continue
-              parts = f.parts
-              try:
-                  i = parts.index('Per_Source')
-              except ValueError:
-                  continue
-              rel = Path(*parts[i + 1:])
-              if not rel.parts:
-                  continue
-              dst = target / rel
-              dst.parent.mkdir(parents=True, exist_ok=True)
-              shutil.copy2(f, dst)
-              copied += 1
-
-          audits = sorted(target.rglob('CORPUS_AUDIT.json'))
-          patterns = sorted(target.glob('*/Patterns/*.tsv.gz'))
-          corpora = sorted({p.parent.parent.name for p in patterns})
-          print(f'Files copied from source-preserving paths: {copied}')
-          print(f'Corpus audits reconstructed: {len(audits)}')
-          print(f'Full pattern tables reconstructed: {len(patterns)}')
-          print(f'Corpora represented by pattern tables: {len(corpora)}')
-          print('Corpora:', ', '.join(corpora))
-
-          expected_corpora = {
+          corpora = [
               '001_MEM_U_ZIN','002_ANHA','003_RONAHI','004_RUDAW',
               '005_PIRTUKEN_KURMANCI_KATALOG','006_KURMANJI_BEGINNERS',
               '007_KOVARA_KURMANCI','008_KOVARA_HAWAR','009_ROJNAMA_KURDISTAN',
               '010_KOVARA_JIN','011_FOLKLORA_KURMANCA_1936',
               '012_KURD_TEAVUN_TERAKKI_1908','013_ROJI_KURD_1913',
               '014_DIROK_U_CIVAKA_KURDAN'
+          ]
+          kind_map = {
+              'bigram':'BIGRAMS.tsv.gz',
+              'trigram':'TRIGRAMS.tsv.gz',
+              'fourgram':'FOURGRAMS.tsv.gz',
+              'slot':'SLOT_FRAMES.tsv.gz',
+              'gap2':'GAP2.tsv.gz',
+              'gap3':'GAP3.tsv.gz',
           }
-          actual_corpora = set(corpora)
-          missing = sorted(expected_corpora - actual_corpora)
-          unexpected = sorted(actual_corpora - expected_corpora)
+
+          artifact_dirs = sorted(p for p in source.iterdir() if p.is_dir())
+          print(f'Artifact directories discovered: {len(artifact_dirs)}')
+          if len(artifact_dirs) != 98:
+              raise SystemExit(f'Expected 98 artifact directories, found {len(artifact_dirs)}')
+
+          copied_audits = 0
+          copied_patterns = 0
+          missing = []
+
+          for corpus in corpora:
+              adir = source / f'v2-audit-{corpus}'
+              if not adir.is_dir():
+                  missing.append(f'artifact:v2-audit-{corpus}')
+                  continue
+              outdir = target / corpus
+              outdir.mkdir(parents=True, exist_ok=True)
+              for filename in ['CORPUS_AUDIT.json','POSITION_PROFILES.tsv.gz','MORPH_CONTEXT_PAIR_EVIDENCE.tsv.gz']:
+                  candidates = [p for p in adir.rglob(filename) if corpus in p.parts]
+                  if len(candidates) != 1:
+                      # Fallback to exact-name search when GitHub strips the corpus directory itself.
+                      candidates = list(adir.rglob(filename))
+                  if len(candidates) != 1:
+                      missing.append(f'{adir.name}:{filename}:matches={len(candidates)}')
+                      continue
+                  shutil.copy2(candidates[0], outdir / filename)
+              if (outdir / 'CORPUS_AUDIT.json').exists():
+                  copied_audits += 1
+
+              pdir = outdir / 'Patterns'
+              pdir.mkdir(parents=True, exist_ok=True)
+              for artifact_kind, filename in kind_map.items():
+                  p_art = source / f'v2-pattern-{corpus}-{artifact_kind}'
+                  if not p_art.is_dir():
+                      missing.append(f'artifact:{p_art.name}')
+                      continue
+                  candidates = [p for p in p_art.rglob(filename) if corpus in p.parts and p.name == filename]
+                  if len(candidates) != 1:
+                      candidates = [p for p in p_art.rglob(filename) if p.name == filename]
+                  if len(candidates) != 1:
+                      missing.append(f'{p_art.name}:{filename}:matches={len(candidates)}')
+                      continue
+                  shutil.copy2(candidates[0], pdir / filename)
+                  copied_patterns += 1
+
           if missing:
-              print('Missing corpora:', missing)
-          if unexpected:
-              print('Unexpected corpora:', unexpected)
+              print('Reconstruction problems:')
+              for x in missing:
+                  print(' -', x)
+          print(f'Corpus audits reconstructed: {copied_audits}')
+          print(f'Full pattern tables reconstructed: {copied_patterns}')
 
-          kinds = {'BIGRAMS','TRIGRAMS','FOURGRAMS','SLOT_FRAMES','GAP2','GAP3'}
-          missing_tables = []
-          for corpus in sorted(expected_corpora):
-              pdir = target / corpus / 'Patterns'
-              for kind in sorted(kinds):
-                  if not (pdir / f'{kind}.tsv.gz').exists():
-                      missing_tables.append(f'{corpus}/{kind}')
-          if missing_tables:
-              print('Missing pattern tables:', missing_tables)
-
-          if len(audits) != 14 or len(patterns) != 84 or missing or unexpected or missing_tables:
+          actual_audits = len(list(target.glob('*/CORPUS_AUDIT.json')))
+          actual_patterns = len(list(target.glob('*/Patterns/*.tsv.gz')))
+          if missing or copied_audits != 14 or copied_patterns != 84 or actual_audits != 14 or actual_patterns != 84:
               raise SystemExit('Artifact reconstruction gate failed')
           print('Artifact tree complete: 14 audits / 84 full pattern tables / 14 corpora.')
           PY
