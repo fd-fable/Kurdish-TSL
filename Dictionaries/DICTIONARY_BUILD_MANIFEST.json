@@ -1,6 +1,7 @@
 {
   "all_corpora_mechanically_complete": true,
   "all_nonspace_character_coverage_checks_passed": true,
+  "all_occurrence_shards_committed_to_git": true,
   "corpora": [
     {
       "builder_sha256": "c979a031e7651da908f6dd6c9ca23a7d67d9d6bbb1bb64bcf880352ec4e05865",
@@ -992,9 +993,10 @@
   ],
   "corpus_count": 14,
   "corpus_local_surface_form_entries": 487041,
-  "full_occurrence_storage": "GitHub Actions evidence artifacts referenced per corpus",
-  "repository_storage": "sharded exhaustive lexicon core",
+  "full_occurrence_storage": "Git repository Dictionaries/<corpus>/Occurrences/; GitHub Actions artifact retained as backup",
+  "repository_storage": "sharded exhaustive lexicon core plus complete compressed occurrence concordance shards",
   "schema": "TSLK_DEEP_DICTIONARY_MASTER_MANIFEST_V1",
   "source_workflow_run_id": 32165597134,
+  "total_occurrence_shards_committed": 250,
   "wordlike_occurrences": 47629049
 }

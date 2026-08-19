@@ -36,7 +36,11 @@
     "lexicon_tsv": [
       "LEXICON_0001.tsv"
     ],
-    "occurrence_shards": "See full_evidence_artifact",
+    "occurrence_shards": {
+      "count": 1,
+      "directory": "Occurrences",
+      "pattern": "OCCURRENCES_*.tsv.gz"
+    },
     "raw_token_inventory": "RAW_TOKEN_INVENTORY.tsv",
     "readme": "README.md"
   },
@@ -46,7 +50,7 @@
     "artifact_sha256": "5e73d2cf655865c4718d74b666c7139b5e7127177a0594832e73add99b8236c3",
     "contains_complete_occurrence_concordance": true,
     "original_retention_days": 7,
-    "preservation_note": "A long-retention archival copy is created by the publish workflow below.",
+    "preservation_note": "Backup artifact retained; complete occurrence shards are also committed in Dictionaries/<corpus>/Occurrences/.",
     "source_workflow_run_id": 32165597134
   },
   "repository_core": {
@@ -58,8 +62,8 @@
     "lexicon_tsv_shards": [
       "LEXICON_0001.tsv"
     ],
-    "occurrence_files_committed_to_git": false,
-    "storage_model": "Git-tracked exhaustive vocabulary core; full occurrence concordance externalized to GitHub Actions artifact"
+    "occurrence_files_committed_to_git": true,
+    "storage_model": "Git-tracked exhaustive vocabulary core plus complete occurrence concordance shards"
   },
   "schema": "TSLK_DEEP_DICTIONARY_MANIFEST_V1",
   "semantic_status": "UNRESOLVED BY MECHANICAL BUILD",

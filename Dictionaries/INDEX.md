@@ -36,4 +36,4 @@
 
 ## Full occurrence evidence
 
-The full 47.6M-occurrence concordance streams are not committed to ordinary Git because the combined evidence pack is ~1.8 GB. Each per-corpus `MANIFEST.json` records the validated source-run artifact ID and SHA-256. This is a storage separation only: no vocabulary entries are omitted from the Git-tracked lexicons.
+The complete 47.6M-occurrence concordance is stored directly in this GitHub repository as compressed per-corpus shards under `Dictionaries/<CORPUS>/Occurrences/OCCURRENCES_*.tsv.gz`. The Actions artifact remains as a backup. Large lexicons remain row-sharded so every ordinary Git file stays below GitHub file-size limits.
