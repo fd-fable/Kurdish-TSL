@@ -56,6 +56,8 @@ jobs:
             /Research_Methods/Stage4_V1/TSLK_INDEPENDENT_AUDIT_FINDINGS.md
       - name: Build named-source comparison
         run: python Comparative_Research_V1/tools/build_comparative_research.py
+      - name: Audit lexical-candidate convergence layer
+        run: python Comparative_Research_V1/tools/audit_comparative_research.py
       - name: Commit generated comparative layer
         run: |
           set -euo pipefail
@@ -63,6 +65,6 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add Comparative_Research_V1
           if ! git diff --cached --quiet; then
-            git commit -m "Generate named-source comparative research V1"
+            git commit -m "Generate audited named-source comparative research V1"
             git push origin HEAD:agent/comparative-convergence-v1
           fi
