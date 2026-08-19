@@ -52,15 +52,70 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          while IFS= read -r -d '' f; do
-            rel="${f#*/Per_Source/}"
-            dst="_v2_artifacts/Per_Source/$rel"
-            mkdir -p "$(dirname "$dst")"
-            cp "$f" "$dst"
-          done < <(find _v2_downloads -type f -path '*/Per_Source/*' -print0)
-          test "$(find _v2_artifacts/Per_Source -name 'CORPUS_AUDIT.json' | wc -l)" -eq 14
-          test "$(find _v2_artifacts/Per_Source -path '*/Patterns/*.tsv.gz' | wc -l)" -eq 84
-          echo 'Artifact tree complete: 14 audits / 84 full pattern tables.'
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+
+          source = Path('_v2_downloads')
+          target = Path('_v2_artifacts/Per_Source')
+          target.mkdir(parents=True, exist_ok=True)
+
+          copied = 0
+          for f in source.rglob('*'):
+              if not f.is_file():
+                  continue
+              parts = f.parts
+              try:
+                  i = parts.index('Per_Source')
+              except ValueError:
+                  continue
+              rel = Path(*parts[i + 1:])
+              if not rel.parts:
+                  continue
+              dst = target / rel
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(f, dst)
+              copied += 1
+
+          audits = sorted(target.rglob('CORPUS_AUDIT.json'))
+          patterns = sorted(target.glob('*/Patterns/*.tsv.gz'))
+          corpora = sorted({p.parent.parent.name for p in patterns})
+          print(f'Files copied from source-preserving paths: {copied}')
+          print(f'Corpus audits reconstructed: {len(audits)}')
+          print(f'Full pattern tables reconstructed: {len(patterns)}')
+          print(f'Corpora represented by pattern tables: {len(corpora)}')
+          print('Corpora:', ', '.join(corpora))
+
+          expected_corpora = {
+              '001_MEM_U_ZIN','002_ANHA','003_RONAHI','004_RUDAW',
+              '005_PIRTUKEN_KURMANCI_KATALOG','006_KURMANJI_BEGINNERS',
+              '007_KOVARA_KURMANCI','008_KOVARA_HAWAR','009_ROJNAMA_KURDISTAN',
+              '010_KOVARA_JIN','011_FOLKLORA_KURMANCA_1936',
+              '012_KURD_TEAVUN_TERAKKI_1908','013_ROJI_KURD_1913',
+              '014_DIROK_U_CIVAKA_KURDAN'
+          }
+          actual_corpora = set(corpora)
+          missing = sorted(expected_corpora - actual_corpora)
+          unexpected = sorted(actual_corpora - expected_corpora)
+          if missing:
+              print('Missing corpora:', missing)
+          if unexpected:
+              print('Unexpected corpora:', unexpected)
+
+          kinds = {'BIGRAMS','TRIGRAMS','FOURGRAMS','SLOT_FRAMES','GAP2','GAP3'}
+          missing_tables = []
+          for corpus in sorted(expected_corpora):
+              pdir = target / corpus / 'Patterns'
+              for kind in sorted(kinds):
+                  if not (pdir / f'{kind}.tsv.gz').exists():
+                      missing_tables.append(f'{corpus}/{kind}')
+          if missing_tables:
+              print('Missing pattern tables:', missing_tables)
+
+          if len(audits) != 14 or len(patterns) != 84 or missing or unexpected or missing_tables:
+              raise SystemExit('Artifact reconstruction gate failed')
+          print('Artifact tree complete: 14 audits / 84 full pattern tables / 14 corpora.')
+          PY
 
       - name: Re-aggregate current V2 and publish all full source pattern tables
         shell: bash
