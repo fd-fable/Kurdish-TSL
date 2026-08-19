@@ -1,0 +1,31 @@
+{
+  "version": "TSLK_COMPARATIVE_RESEARCH_V1_FINAL",
+  "named_sources": [
+    "Mem û Zîn",
+    "ANHA",
+    "Ronahî",
+    "Rudaw",
+    "Pirtûkên Kurmancî Katalog",
+    "Kurmanji Beginners",
+    "Kovara Kurmancî",
+    "Kovara Hawar",
+    "Rojnama Kurdistan",
+    "Kovara Jîn",
+    "Folklora Kurmanca (1936)",
+    "Kurd Teavun Terakki (1908)",
+    "Rojî Kurd (1913)",
+    "Dîrok û Civaka Kurdan"
+  ],
+  "letter_bearing_no_numeric_union": 278875,
+  "letter_bearing_shared_2plus": 54774,
+  "letter_bearing_shared_all_14": 6,
+  "repeated_first_context_template_risk_forms": 12,
+  "shared_2plus_after_template_risk_exclusion": 54762,
+  "language_membership_assignment_performed": false,
+  "semantic_assignment_performed": false,
+  "lemma_merging_performed": false,
+  "grammar_synthesis_performed": false,
+  "numeric_documentary_forms_deleted": false,
+  "documentary_baseline_preserved": true,
+  "final_report": "Comparative_Research_V1/TSLK_COMBINED_NAMED_SOURCE_RESEARCH_V1_FINAL.md"
+}
