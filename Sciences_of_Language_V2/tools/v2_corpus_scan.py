@@ -108,13 +108,7 @@ def iter_occurrences(root: Path, corpus: str):
 
 
 def _finalize_container(rows, template_risk: set[str], audit=None):
-    """Apply candidate-stream decisions only after the whole container is visible.
-
-    If an explicit URL/technical marker occurs anywhere in the container, the
-    entire container remains documentary evidence but is excluded from active
-    structural scoring. This implements Protocol V2 section 3 exactly and
-    prevents URL/path fragments from becoming apparent constructions.
-    """
+    """Apply candidate-stream decisions only after the whole container is visible."""
     technical_risk = any(r["surface"].casefold() in TECHNICAL_MARKERS for r in rows)
     if audit is not None and technical_risk:
         audit["technical_risk_containers"] += 1
@@ -169,17 +163,14 @@ def emit_windows(root: Path, corpus: str, template_risk: set[str], kind: str):
     for _, rows in iter_containers(root, corpus, template_risk):
         for run in active_runs(rows):
             if kind == "bigram":
-                n = 2
-                for i in range(len(run)-n+1):
-                    print("\t".join(run[i:i+n]))
+                for i in range(len(run)-1):
+                    print("\t".join(run[i:i+2]))
             elif kind == "trigram":
-                n = 3
-                for i in range(len(run)-n+1):
-                    print("\t".join(run[i:i+n]))
+                for i in range(len(run)-2):
+                    print("\t".join(run[i:i+3]))
             elif kind == "fourgram":
-                n = 4
-                for i in range(len(run)-n+1):
-                    print("\t".join(run[i:i+n]))
+                for i in range(len(run)-3):
+                    print("\t".join(run[i:i+4]))
             elif kind == "slot":
                 for i in range(len(run)-2):
                     print("\t".join((run[i], run[i+2], run[i+1])))
@@ -238,16 +229,21 @@ def audit_and_positions(root: Path, corpus: str, out_dir: Path, template_risk: s
     }
     for _, rows in iter_containers(root, corpus, template_risk, audit):
         audit["containers"] += 1
-        active_rows = [r for r in rows if r["active"]]
-        if active_rows:
-            init[active_rows[0]["surface"]] += 1
-            final[active_rows[-1]["surface"]] += 1
-            n = len(active_rows)
-            for j, r in enumerate(active_rows):
-                form = r["surface"]
-                active_freq[form] += 1
-                dec = min(9, int((j / max(1, n)) * 10))
-                pos[form][dec] += 1
+        for r in rows:
+            if not r["active"]:
+                continue
+            form = r["surface"]
+            active_freq[form] += 1
+            # Position is measured against the ORIGINAL container coordinates,
+            # never against the filtered candidate sequence.
+            idx = max(1, r["token_index"])
+            count = max(1, r["container_count"])
+            if idx == 1:
+                init[form] += 1
+            if idx == count:
+                final[form] += 1
+            dec = min(9, int(((idx - 1) / count) * 10))
+            pos[form][dec] += 1
         for run in active_runs(rows):
             audit["active_runs"] += 1
         for r in rows:
@@ -328,8 +324,7 @@ def format_counts(kind: str, min_count: int):
         "gap2":["support","left_form","right_form"],
         "gap3":["support","left_form","right_form"],
     }
-    fields = headers[kind]
-    print("\t".join(fields))
+    print("\t".join(headers[kind]))
     rx = re.compile(r"^\s*(\d+)\s(.*)$")
     for line in sys.stdin:
         m = rx.match(line.rstrip("\n"))
@@ -338,8 +333,7 @@ def format_counts(kind: str, min_count: int):
         count = int(m.group(1))
         if count < min_count:
             continue
-        pat = m.group(2)
-        print(f"{count}\t{pat}")
+        print(f"{count}\t{m.group(2)}")
 
 
 def format_slot(min_support: int = 3, min_fillers: int = 2):
@@ -411,8 +405,7 @@ def main():
         audit = audit_and_positions(root,args.corpus,out,risk)
         print(json.dumps(audit,ensure_ascii=False,sort_keys=True))
         return
-    kind = args.mode.removeprefix("emit-")
-    emit_windows(root,args.corpus,risk,kind)
+    emit_windows(root,args.corpus,risk,args.mode.removeprefix("emit-"))
 
 
 if __name__ == "__main__":
