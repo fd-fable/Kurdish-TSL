@@ -11,11 +11,11 @@ V2 reads every committed Deep Dictionary occurrence row and reconstructs recurre
 | Named source | Expected occurrences | Scanned | Candidate stream | Documentary-only | Containers | Ordering anomalies |
 |---|---:|---:|---:|---:|---:|---:|
 | Mem û Zîn | 7,813 | 7,813 | 7,661 | 152 | 356 | 0 |
-| ANHA | 28,275,212 | 28,275,212 | 26,117,237 | 2,157,975 | 1,765,322 | 0 |
-| Ronahî | 1,977,137 | 1,977,137 | 1,809,747 | 167,390 | 153,967 | 0 |
-| Rudaw | 17,311,859 | 17,311,859 | 15,934,579 | 1,377,280 | 1,224,887 | 0 |
+| ANHA | 28,275,212 | 28,275,212 | 26,053,220 | 2,221,992 | 1,765,322 | 0 |
+| Ronahî | 1,977,137 | 1,977,137 | 1,750,479 | 226,658 | 153,967 | 0 |
+| Rudaw | 17,311,859 | 17,311,859 | 15,620,935 | 1,690,924 | 1,224,887 | 0 |
 | Pirtûkên Kurmancî Katalog | 1,617 | 1,617 | 1,287 | 330 | 337 | 0 |
-| Kurmanji Beginners | 54,650 | 54,650 | 52,406 | 2,244 | 11,089 | 0 |
+| Kurmanji Beginners | 54,650 | 54,650 | 52,394 | 2,256 | 11,089 | 0 |
 | Kovara Kurmancî | 105 | 105 | 78 | 27 | 9 | 0 |
 | Kovara Hawar | 100 | 100 | 74 | 26 | 9 | 0 |
 | Rojnama Kurdistan | 104 | 104 | 80 | 24 | 9 | 0 |
@@ -25,7 +25,7 @@ V2 reads every committed Deep Dictionary occurrence row and reconstructs recurre
 | Rojî Kurd (1913) | 88 | 88 | 67 | 21 | 9 | 0 |
 | Dîrok û Civaka Kurdan | 93 | 93 | 73 | 20 | 9 | 0 |
 
-**Verified rows scanned:** **47,629,049**.  **Active structural-candidate occurrences:** **43,923,488**.
+**Verified rows scanned:** **47,629,049**.  **Active structural-candidate occurrences:** **43,486,547**.
 
 The difference is preserved documentary material excluded from active structural scoring by the mechanical V2 candidate filter; it is not deleted from the dictionaries.
 
@@ -33,84 +33,84 @@ The difference is preserved documentary material excluded from active structural
 
 | Candidate type | Cross-source retained patterns |
 |---|---:|
-| BIGRAMS | 173,446 |
-| TRIGRAMS | 147,092 |
-| FOURGRAMS | 74,078 |
-| SLOT_FRAMES | 60,568 |
-| GAP2 | 176,745 |
-| GAP3 | 159,014 |
+| BIGRAMS | 173,399 |
+| TRIGRAMS | 147,070 |
+| FOURGRAMS | 74,054 |
+| SLOT_FRAMES | 60,552 |
+| GAP2 | 176,712 |
+| GAP3 | 158,980 |
 
 ### Highest evidence BIGRAMS
 
 | Pattern | Sources | Support | CCES |
 |---|---:|---:|---:|
-| `li ser` | 5 | 226,024 | 57.5031 |
-| `ji bo` | 4 | 256,083 | 56.9705 |
-| `kir ku` | 4 | 115,133 | 54.9269 |
-| `ku li` | 5 | 55,607 | 54.2278 |
-| `ji ber` | 4 | 65,502 | 53.9453 |
-| `ku ji` | 3 | 63,555 | 53.8517 |
-| `diyar kir` | 3 | 58,945 | 53.7567 |
-| `ragihand ku` | 3 | 34,058 | 53.6101 |
-| `Li gorî` | 4 | 45,848 | 53.5091 |
-| `ku di` | 4 | 68,144 | 53.3708 |
-| `ya li` | 3 | 43,547 | 53.3324 |
-| `ji aliyê` | 4 | 42,870 | 53.2602 |
-| `di navbera` | 4 | 44,084 | 52.8940 |
-| `xwe ya` | 3 | 39,147 | 52.8903 |
-| `yên li` | 5 | 29,982 | 52.7741 |
-| `li dijî` | 4 | 72,045 | 52.4508 |
-| `xwe ji` | 4 | 31,629 | 52.3482 |
-| `e ku` | 4 | 41,230 | 52.3361 |
-| `da zanîn` | 3 | 18,956 | 52.3007 |
-| `ku ew` | 4 | 31,733 | 52.2857 |
-| `de li` | 4 | 32,613 | 52.2779 |
-| `zanîn ku` | 3 | 21,344 | 52.2258 |
-| `ber ku` | 5 | 38,198 | 52.2186 |
-| `da ku` | 4 | 33,098 | 52.1973 |
-| `ku em` | 5 | 31,822 | 51.9996 |
+| `li ser` | 5 | 225,893 | 57.5026 |
+| `ji bo` | 4 | 256,036 | 56.9702 |
+| `kir ku` | 4 | 115,129 | 54.9268 |
+| `ku li` | 5 | 55,599 | 54.2273 |
+| `ji ber` | 4 | 65,496 | 53.9455 |
+| `ku ji` | 3 | 63,549 | 53.8509 |
+| `diyar kir` | 3 | 58,943 | 53.7562 |
+| `ragihand ku` | 3 | 34,051 | 53.6105 |
+| `Li gorî` | 4 | 45,829 | 53.5084 |
+| `ku di` | 4 | 68,139 | 53.3707 |
+| `ya li` | 3 | 43,541 | 53.3317 |
+| `ji aliyê` | 4 | 42,860 | 53.2600 |
+| `di navbera` | 4 | 44,083 | 52.8943 |
+| `xwe ya` | 3 | 39,139 | 52.8892 |
+| `yên li` | 5 | 29,981 | 52.7743 |
+| `li dijî` | 4 | 72,042 | 52.4505 |
+| `xwe ji` | 4 | 31,621 | 52.3471 |
+| `e ku` | 4 | 41,227 | 52.3363 |
+| `da zanîn` | 3 | 18,955 | 52.3007 |
+| `ku ew` | 4 | 31,731 | 52.2850 |
+| `de li` | 4 | 32,604 | 52.2778 |
+| `zanîn ku` | 3 | 21,343 | 52.2258 |
+| `ber ku` | 5 | 38,197 | 52.2188 |
+| `da ku` | 4 | 33,091 | 52.1965 |
+| `ku em` | 5 | 31,819 | 51.9995 |
 
 ### Highest evidence TRIGRAMS
 
 | Pattern | Sources | Support | CCES |
 |---|---:|---:|---:|
-| `diyar kir ku` | 3 | 52,350 | 60.6449 |
-| `da zanîn ku` | 3 | 16,870 | 59.0298 |
-| `xwe ji dest` | 3 | 15,524 | 58.2903 |
-| `ew e ku` | 3 | 13,754 | 57.6519 |
-| `ji ber ku` | 4 | 17,942 | 57.4531 |
-| `ku ji bo` | 3 | 17,520 | 57.3689 |
-| `kir ku ew` | 3 | 6,266 | 57.1950 |
-| `dest pê kir` | 3 | 9,835 | 57.1295 |
-| `bi hev re` | 4 | 13,349 | 56.0507 |
-| `ya li ser` | 3 | 8,341 | 55.9824 |
-| `destnîşan kir ku` | 3 | 24,325 | 55.9623 |
-| `ya ji bo` | 3 | 12,204 | 55.9424 |
-| `ji bo ku` | 4 | 9,712 | 55.7547 |
-| `ku ji ber` | 3 | 5,376 | 55.7225 |
+| `diyar kir ku` | 3 | 52,348 | 60.6440 |
+| `da zanîn ku` | 3 | 16,869 | 59.0294 |
+| `xwe ji dest` | 3 | 15,518 | 58.2906 |
+| `ew e ku` | 3 | 13,754 | 57.6520 |
+| `ji ber ku` | 4 | 17,941 | 57.4530 |
+| `ku ji bo` | 3 | 17,520 | 57.3690 |
+| `kir ku ew` | 3 | 6,266 | 57.1951 |
+| `dest pê kir` | 3 | 9,825 | 57.1153 |
+| `bi hev re` | 4 | 13,346 | 56.0435 |
+| `ya li ser` | 3 | 8,341 | 55.9825 |
+| `destnîşan kir ku` | 3 | 24,325 | 55.9624 |
+| `ya ji bo` | 3 | 12,202 | 55.9404 |
+| `ji bo ku` | 4 | 9,712 | 55.7548 |
+| `ku ji ber` | 3 | 5,376 | 55.7226 |
 | `kir ku ji` | 3 | 4,650 | 55.6857 |
-| `ku ji aliyê` | 3 | 6,185 | 55.6690 |
-| `kir ku di` | 3 | 5,227 | 55.6458 |
-| `li ser vê` | 3 | 8,331 | 55.4711 |
-| `Mafên Mirovan a` | 3 | 3,858 | 55.4660 |
-| `ji bo parastina` | 3 | 5,312 | 55.4546 |
-| `ku li ser` | 4 | 9,616 | 55.4293 |
-| `rê li ber` | 3 | 7,276 | 55.4242 |
-| `de li ser` | 3 | 5,855 | 55.4211 |
-| `Di daxuyaniyê de` | 3 | 8,859 | 55.3504 |
-| `Li gorî agahiyên` | 3 | 2,692 | 55.3108 |
+| `ku ji aliyê` | 3 | 6,185 | 55.6691 |
+| `kir ku di` | 3 | 5,226 | 55.6447 |
+| `Mafên Mirovan a` | 3 | 3,858 | 55.4661 |
+| `li ser vê` | 3 | 8,299 | 55.4653 |
+| `ji bo parastina` | 3 | 5,312 | 55.4547 |
+| `rê li ber` | 3 | 7,276 | 55.4243 |
+| `ku li ser` | 4 | 9,613 | 55.4235 |
+| `de li ser` | 3 | 5,851 | 55.4227 |
+| `Di daxuyaniyê de` | 3 | 8,859 | 55.3505 |
+| `Li gorî agahiyên` | 3 | 2,690 | 55.3058 |
 
 ### Highest evidence FOURGRAMS
 
 | Pattern | Sources | Support | CCES |
 |---|---:|---:|---:|
 | `diyar kir ku ew` | 3 | 3,925 | 61.7426 |
-| `xwe ji dest da` | 3 | 3,938 | 60.8858 |
+| `xwe ji dest da` | 3 | 3,935 | 60.8820 |
 | `Di heman demê de` | 3 | 5,729 | 60.2048 |
 | `xwe ji dest dane` | 3 | 4,886 | 60.1498 |
 | `Di daxuyaniyê de hat` | 3 | 2,493 | 60.0462 |
-| `jiyana xwe ji dest` | 3 | 8,138 | 60.0164 |
-| `xwe ji dest dan` | 3 | 2,520 | 59.7571 |
+| `jiyana xwe ji dest` | 3 | 8,137 | 60.0135 |
+| `xwe ji dest dan` | 3 | 2,519 | 59.7574 |
 | `Ji ber vê yekê` | 3 | 15,772 | 59.6421 |
 | `di heman demê de` | 3 | 13,296 | 59.4020 |
 | `kir ku ji bo` | 3 | 2,176 | 59.3852 |
@@ -120,13 +120,13 @@ The difference is preserved documentary material excluded from active structural
 | `Wezareta Karên Derve ya` | 3 | 2,860 | 58.6275 |
 | `ji ber vê yekê` | 3 | 2,216 | 58.3470 |
 | `jî di nav de` | 3 | 2,996 | 58.3187 |
-| `Li gorî agahiyên ku` | 3 | 1,100 | 58.2821 |
+| `Li gorî agahiyên ku` | 3 | 1,098 | 58.2710 |
 | `diyar kir ku wan` | 3 | 984 | 58.1598 |
-| `diyar kir ku li` | 3 | 1,413 | 58.0956 |
+| `diyar kir ku li` | 3 | 1,412 | 58.0731 |
 | `da zanîn ku ew` | 3 | 1,229 | 57.9045 |
 | `de diyar kir ku` | 3 | 2,266 | 57.8605 |
 | `di vî warî de` | 3 | 3,259 | 57.8489 |
-| `xwe ya ji bo` | 3 | 2,863 | 57.6730 |
+| `xwe ya ji bo` | 3 | 2,862 | 57.6680 |
 | `wiha pê de çû` | 3 | 1,690 | 57.6423 |
 | `Mafên Mirovan a Sûriyeyê` | 3 | 706 | 57.5368 |
 
@@ -134,146 +134,146 @@ The difference is preserved documentary material excluded from active structural
 
 | Pattern | Sources | Support | CCES |
 |---|---:|---:|---:|
-| `di + SLOT + de` | 4 | 88,469 | 66.9532 |
-| `diyar + SLOT + ku` | 3 | 62,562 | 65.6896 |
-| `bi + SLOT + re` | 4 | 51,172 | 64.9256 |
-| `Di + SLOT + de` | 4 | 46,489 | 64.8880 |
-| `ku + SLOT + li` | 4 | 36,420 | 64.4043 |
-| `ku + SLOT + bi` | 3 | 28,861 | 64.1540 |
-| `ji + SLOT + re` | 4 | 32,957 | 64.1266 |
-| `da + SLOT + ku` | 3 | 18,583 | 64.0246 |
-| `ku + SLOT + ji` | 4 | 30,384 | 63.9763 |
-| `ji + SLOT + ku` | 4 | 32,545 | 63.8773 |
-| `de + SLOT + ku` | 3 | 21,127 | 63.3120 |
-| `di + SLOT + xwe` | 4 | 23,576 | 63.2732 |
-| `xwe + SLOT + dest` | 3 | 16,198 | 63.2293 |
-| `bi + SLOT + xwe` | 3 | 22,321 | 63.2121 |
-| `ku + SLOT + di` | 3 | 21,957 | 63.0910 |
-| `ew + SLOT + ku` | 3 | 20,014 | 62.9825 |
-| `ku + SLOT + wan` | 3 | 14,796 | 62.9154 |
-| `ya + SLOT + li` | 3 | 12,488 | 62.8660 |
-| `ya + SLOT + de` | 3 | 14,984 | 62.6606 |
-| `li + SLOT + bi` | 3 | 10,854 | 62.6124 |
-| `aliyê + SLOT + ve` | 3 | 13,283 | 62.5520 |
-| `vê + SLOT + de` | 4 | 42,747 | 62.5294 |
-| `xwe + SLOT + li` | 3 | 11,804 | 62.3932 |
-| `de + SLOT + bi` | 3 | 13,996 | 62.3868 |
-| `ku + SLOT + bo` | 3 | 17,975 | 62.3753 |
+| `di + SLOT + de` | 4 | 88,457 | 66.9530 |
+| `diyar + SLOT + ku` | 3 | 62,560 | 65.6891 |
+| `bi + SLOT + re` | 4 | 51,165 | 64.9241 |
+| `Di + SLOT + de` | 4 | 46,486 | 64.8872 |
+| `ku + SLOT + li` | 4 | 36,415 | 64.4039 |
+| `ku + SLOT + bi` | 3 | 28,850 | 64.1534 |
+| `ji + SLOT + re` | 4 | 32,940 | 64.1271 |
+| `da + SLOT + ku` | 3 | 18,582 | 64.0245 |
+| `ku + SLOT + ji` | 4 | 30,384 | 63.9766 |
+| `ji + SLOT + ku` | 4 | 32,544 | 63.8775 |
+| `de + SLOT + ku` | 3 | 21,126 | 63.3122 |
+| `di + SLOT + xwe` | 4 | 23,575 | 63.2734 |
+| `xwe + SLOT + dest` | 3 | 16,192 | 63.2297 |
+| `bi + SLOT + xwe` | 3 | 22,319 | 63.2116 |
+| `ku + SLOT + di` | 3 | 21,956 | 63.0909 |
+| `ew + SLOT + ku` | 3 | 20,014 | 62.9828 |
+| `ku + SLOT + wan` | 3 | 14,793 | 62.9159 |
+| `ya + SLOT + li` | 3 | 12,482 | 62.8655 |
+| `ya + SLOT + de` | 3 | 14,980 | 62.6595 |
+| `li + SLOT + bi` | 3 | 10,852 | 62.6121 |
+| `aliyê + SLOT + ve` | 3 | 13,281 | 62.5521 |
+| `vê + SLOT + de` | 4 | 42,744 | 62.5287 |
+| `xwe + SLOT + li` | 3 | 11,800 | 62.3923 |
+| `de + SLOT + bi` | 3 | 13,989 | 62.3865 |
+| `ku + SLOT + bo` | 3 | 17,975 | 62.3756 |
 
 ### Highest evidence GAP2
 
 | Pattern | Sources | Support | CCES |
 |---|---:|---:|---:|
-| `di _ _ de` | 5 | 194,083 | 59.7959 |
-| `ku _ _ li` | 3 | 31,990 | 55.4218 |
-| `de _ _ ku` | 3 | 30,282 | 54.8444 |
-| `ku _ _ bi` | 3 | 28,437 | 54.8232 |
-| `Di _ _ de` | 4 | 64,356 | 54.7749 |
-| `li _ _ ya` | 3 | 16,178 | 54.5415 |
-| `ku _ _ di` | 3 | 18,581 | 54.5215 |
-| `ku _ _ ji` | 4 | 27,998 | 54.5134 |
-| `li _ _ li` | 3 | 19,180 | 54.1847 |
-| `li _ _ ku` | 3 | 14,055 | 54.1470 |
-| `bi _ _ re` | 3 | 28,686 | 54.0566 |
-| `jî _ _ ku` | 3 | 18,007 | 53.8087 |
-| `di _ _ ya` | 3 | 12,429 | 53.7819 |
-| `ji _ _ ve` | 4 | 21,645 | 53.7715 |
-| `li _ _ xwe` | 4 | 15,193 | 53.3142 |
-| `li _ _ bi` | 4 | 16,301 | 53.2731 |
-| `aliyê _ _ ve` | 3 | 9,441 | 53.2446 |
-| `ya _ _ li` | 3 | 10,728 | 53.2411 |
-| `bi _ _ li` | 4 | 17,158 | 53.2086 |
-| `ji _ _ re` | 4 | 14,041 | 53.2002 |
-| `li _ _ ji` | 3 | 9,886 | 53.0842 |
-| `bi _ _ ku` | 3 | 11,768 | 53.0728 |
-| `ji _ _ li` | 4 | 12,158 | 52.8973 |
-| `ku _ _ ya` | 3 | 14,984 | 52.7970 |
-| `de _ _ li` | 3 | 14,005 | 52.7633 |
+| `di _ _ de` | 5 | 194,037 | 59.7959 |
+| `ku _ _ li` | 3 | 31,987 | 55.4218 |
+| `de _ _ ku` | 3 | 30,282 | 54.8449 |
+| `ku _ _ bi` | 3 | 28,434 | 54.8216 |
+| `Di _ _ de` | 4 | 64,352 | 54.7753 |
+| `li _ _ ya` | 3 | 16,177 | 54.5417 |
+| `ku _ _ di` | 3 | 18,579 | 54.5215 |
+| `ku _ _ ji` | 4 | 27,997 | 54.5137 |
+| `li _ _ li` | 3 | 19,178 | 54.1844 |
+| `li _ _ ku` | 3 | 14,052 | 54.1477 |
+| `bi _ _ re` | 3 | 28,681 | 54.0553 |
+| `jî _ _ ku` | 3 | 18,007 | 53.8092 |
+| `di _ _ ya` | 3 | 12,429 | 53.7823 |
+| `ji _ _ ve` | 4 | 21,643 | 53.7715 |
+| `li _ _ xwe` | 4 | 15,192 | 53.3146 |
+| `li _ _ bi` | 4 | 16,297 | 53.2723 |
+| `aliyê _ _ ve` | 3 | 9,437 | 53.2444 |
+| `ya _ _ li` | 3 | 10,724 | 53.2399 |
+| `bi _ _ li` | 4 | 17,148 | 53.2101 |
+| `ji _ _ re` | 4 | 14,034 | 53.2012 |
+| `li _ _ ji` | 3 | 9,879 | 53.0837 |
+| `bi _ _ ku` | 3 | 11,766 | 53.0724 |
+| `ji _ _ li` | 4 | 12,158 | 52.8978 |
+| `ku _ _ ya` | 3 | 14,984 | 52.7974 |
+| `de _ _ li` | 3 | 14,002 | 52.7618 |
 
 ### Highest evidence GAP3
 
 | Pattern | Sources | Support | CCES |
 |---|---:|---:|---:|
-| `di _ _ _ de` | 4 | 60,459 | 60.8514 |
-| `ku _ _ _ li` | 4 | 22,181 | 58.3489 |
-| `li _ _ _ li` | 4 | 20,047 | 58.3198 |
-| `ku _ _ _ ji` | 3 | 18,283 | 58.1682 |
-| `li _ _ _ ya` | 3 | 14,373 | 58.0728 |
-| `ku _ _ _ de` | 4 | 25,138 | 57.9211 |
-| `ku _ _ _ bi` | 3 | 19,723 | 57.8791 |
-| `ji _ _ _ li` | 3 | 13,223 | 57.8075 |
-| `Di _ _ _ de` | 3 | 11,003 | 57.6589 |
-| `li _ _ _ ku` | 4 | 16,731 | 57.5685 |
-| `ji _ _ _ ku` | 3 | 15,024 | 57.5075 |
-| `li _ _ _ ji` | 3 | 11,161 | 57.1772 |
-| `ji _ _ _ ve` | 4 | 13,395 | 57.1120 |
-| `bi _ _ _ li` | 3 | 16,040 | 57.0698 |
-| `di _ _ _ li` | 3 | 11,805 | 57.0288 |
-| `bi _ _ _ ku` | 3 | 13,459 | 57.0135 |
-| `li _ _ _ bi` | 4 | 15,230 | 56.9710 |
-| `ji _ _ _ bi` | 3 | 11,238 | 56.7925 |
-| `bi _ _ _ ji` | 3 | 10,652 | 56.7619 |
-| `ku _ _ _ xwe` | 3 | 12,173 | 56.7423 |
-| `ku _ _ _ di` | 3 | 13,143 | 56.7054 |
-| `ya _ _ _ ku` | 3 | 11,058 | 56.4470 |
-| `de _ _ _ ji` | 3 | 10,847 | 56.3753 |
-| `ji _ _ _ ji` | 4 | 11,417 | 56.3258 |
-| `ji _ _ _ ya` | 3 | 11,981 | 56.2848 |
+| `di _ _ _ de` | 4 | 60,453 | 60.8506 |
+| `ku _ _ _ li` | 4 | 22,179 | 58.3488 |
+| `li _ _ _ li` | 4 | 20,046 | 58.3198 |
+| `ku _ _ _ ji` | 3 | 18,280 | 58.1676 |
+| `li _ _ _ ya` | 3 | 14,347 | 58.0728 |
+| `ku _ _ _ de` | 4 | 25,137 | 57.9211 |
+| `ku _ _ _ bi` | 3 | 19,723 | 57.8793 |
+| `ji _ _ _ li` | 3 | 13,223 | 57.8077 |
+| `Di _ _ _ de` | 3 | 11,003 | 57.6591 |
+| `li _ _ _ ku` | 4 | 16,730 | 57.5684 |
+| `ji _ _ _ ku` | 3 | 15,022 | 57.5077 |
+| `li _ _ _ ji` | 3 | 11,161 | 57.1775 |
+| `ji _ _ _ ve` | 4 | 13,391 | 57.1108 |
+| `bi _ _ _ li` | 3 | 16,040 | 57.0700 |
+| `di _ _ _ li` | 3 | 11,801 | 57.0299 |
+| `bi _ _ _ ku` | 3 | 13,459 | 57.0137 |
+| `li _ _ _ bi` | 4 | 15,228 | 56.9704 |
+| `ji _ _ _ bi` | 3 | 11,238 | 56.7928 |
+| `bi _ _ _ ji` | 3 | 10,648 | 56.7629 |
+| `ku _ _ _ xwe` | 3 | 12,171 | 56.7414 |
+| `ku _ _ _ di` | 3 | 13,143 | 56.7056 |
+| `ya _ _ _ ku` | 3 | 11,057 | 56.4466 |
+| `de _ _ _ ji` | 3 | 10,845 | 56.3741 |
+| `ji _ _ _ ji` | 4 | 11,416 | 56.3258 |
+| `ji _ _ _ ya` | 3 | 11,981 | 56.2851 |
 
 ## 3. Morphology-context re-test
 
-V2 re-tested the highest-ranked V1 form-family candidates against complete occurrence contexts. Cross-source candidates surviving the current two-source aggregation threshold: **9,721**.
+V2 re-tested the highest-ranked V1 form-family candidates against complete occurrence contexts. Cross-source candidates surviving the current two-source aggregation threshold: **9,717**.
 
 | Base | Extended | Edge | Material | Sources | Support | Full-context similarity | MCES2 |
 |---|---|---|---|---:|---:|---:|---:|
-| `a` | `ya` | LEFT | `y` | 7 | 275,433 | 0.15511847 | 51.3233 |
-| `nav` | `nava` | RIGHT | `a` | 6 | 41,864 | 0.33323506 | 49.9617 |
-| `e` | `ye` | LEFT | `y` | 5 | 224,448 | 0.21398432 | 48.4370 |
-| `gor` | `gorî` | RIGHT | `î` | 4 | 19,470 | 0.49001334 | 47.8675 |
-| `hatin` | `hatine` | RIGHT | `e` | 4 | 58,980 | 0.32011602 | 47.4028 |
-| `hat` | `hatiye` | RIGHT | `iye` | 4 | 58,412 | 0.30596818 | 47.1201 |
-| `yê` | `yên` | RIGHT | `n` | 5 | 104,194 | 0.18833802 | 46.4399 |
-| `ên` | `yên` | LEFT | `y` | 5 | 102,000 | 0.16386514 | 45.3883 |
-| `e` | `ne` | LEFT | `n` | 5 | 178,789 | 0.12564612 | 45.3655 |
-| `ye` | `heye` | LEFT | `he` | 5 | 67,902 | 0.18909773 | 45.2421 |
-| `hember` | `hemberî` | RIGHT | `î` | 3 | 13,064 | 0.40028230 | 45.2323 |
-| `hat` | `hatine` | RIGHT | `ine` | 4 | 64,565 | 0.23388876 | 45.1178 |
-| `kir` | `kirin` | RIGHT | `in` | 4 | 140,573 | 0.17803915 | 44.8717 |
-| `hat` | `hatin` | RIGHT | `in` | 4 | 78,282 | 0.22253666 | 44.7238 |
-| `e` | `de` | LEFT | `d` | 5 | 251,674 | 0.07823073 | 44.6108 |
-| `e` | `re` | LEFT | `r` | 5 | 221,461 | 0.08096273 | 44.3932 |
-| `in` | `bikin` | LEFT | `bik` | 4 | 73,882 | 0.20380803 | 44.1990 |
-| `in` | `dikin` | LEFT | `dik` | 4 | 72,921 | 0.20147191 | 44.1081 |
-| `ê` | `ên` | RIGHT | `n` | 5 | 87,201 | 0.14832562 | 44.0894 |
-| `hat` | `hate` | RIGHT | `e` | 4 | 51,815 | 0.28626990 | 44.0498 |
-| `e` | `me` | LEFT | `m` | 5 | 194,614 | 0.07003111 | 43.7525 |
-| `bûn` | `bûne` | RIGHT | `e` | 4 | 31,183 | 0.23260706 | 43.7389 |
-| `bû` | `bûn` | RIGHT | `n` | 4 | 74,542 | 0.19309881 | 43.6315 |
-| `in` | `kirin` | LEFT | `kir` | 4 | 74,173 | 0.17774476 | 43.5812 |
-| `e` | `xwe` | LEFT | `xw` | 5 | 251,674 | 0.04385698 | 43.5796 |
-| `e` | `ve` | LEFT | `v` | 5 | 164,905 | 0.07456995 | 43.5223 |
-| `ne` | `hene` | LEFT | `he` | 5 | 50,740 | 0.14584617 | 43.3957 |
-| `e` | `heye` | LEFT | `hey` | 5 | 67,902 | 0.12518174 | 43.3246 |
-| `e` | `dike` | LEFT | `dik` | 4 | 120,209 | 0.14870792 | 43.3215 |
-| `kir` | `kiriye` | RIGHT | `iye` | 5 | 56,731 | 0.12857367 | 43.1864 |
-| `de` | `dest` | RIGHT | `st` | 6 | 71,930 | 0.02939781 | 43.0370 |
-| `e` | `ew` | RIGHT | `w` | 5 | 130,055 | 0.06738941 | 43.0169 |
-| `wek` | `wekî` | RIGHT | `î` | 4 | 32,477 | 0.21862210 | 43.0098 |
-| `bû` | `bûye` | RIGHT | `ye` | 4 | 41,756 | 0.19460176 | 42.9268 |
-| `e` | `em` | RIGHT | `m` | 5 | 161,951 | 0.05800261 | 42.9225 |
-| `hempîşeyê` | `hempîşeyên` | RIGHT | `n` | 3 | 83 | 0.81738429 | 42.8696 |
-| `ê` | `yê` | LEFT | `y` | 5 | 68,365 | 0.08812763 | 42.4360 |
-| `an` | `yan` | LEFT | `y` | 4 | 19,589 | 0.23438410 | 42.4229 |
-| `e` | `bike` | LEFT | `bik` | 4 | 121,269 | 0.12549299 | 42.3707 |
-| `be` | `bibe` | LEFT | `bi` | 4 | 49,826 | 0.16847027 | 42.3149 |
+| `a` | `ya` | LEFT | `y` | 7 | 275,343 | 0.15510724 | 51.3226 |
+| `nav` | `nava` | RIGHT | `a` | 6 | 41,863 | 0.33323868 | 49.9622 |
+| `e` | `ye` | LEFT | `y` | 5 | 224,383 | 0.21396682 | 48.4366 |
+| `gor` | `gorî` | RIGHT | `î` | 4 | 19,468 | 0.49017370 | 47.8728 |
+| `hatin` | `hatine` | RIGHT | `e` | 4 | 58,963 | 0.32003502 | 47.3998 |
+| `hat` | `hatiye` | RIGHT | `iye` | 4 | 58,394 | 0.30595007 | 47.1192 |
+| `yê` | `yên` | RIGHT | `n` | 5 | 104,145 | 0.18831774 | 46.4393 |
+| `ên` | `yên` | LEFT | `y` | 5 | 101,982 | 0.16387373 | 45.3887 |
+| `e` | `ne` | LEFT | `n` | 5 | 178,757 | 0.12563944 | 45.3655 |
+| `ye` | `heye` | LEFT | `he` | 5 | 67,895 | 0.18912947 | 45.2434 |
+| `hember` | `hemberî` | RIGHT | `î` | 3 | 13,063 | 0.40028311 | 45.2322 |
+| `hat` | `hatine` | RIGHT | `ine` | 4 | 64,559 | 0.23391171 | 45.1188 |
+| `kir` | `kirin` | RIGHT | `in` | 4 | 140,552 | 0.17802575 | 44.8712 |
+| `hat` | `hatin` | RIGHT | `in` | 4 | 78,262 | 0.22256893 | 44.7238 |
+| `e` | `de` | LEFT | `d` | 5 | 251,640 | 0.07823437 | 44.6112 |
+| `in` | `bikin` | LEFT | `bik` | 4 | 70,308 | 0.21458607 | 44.4392 |
+| `in` | `dikin` | LEFT | `dik` | 4 | 70,299 | 0.21330944 | 44.3934 |
+| `e` | `re` | LEFT | `r` | 5 | 221,342 | 0.08098129 | 44.3931 |
+| `ê` | `ên` | RIGHT | `n` | 5 | 87,150 | 0.14823783 | 44.0838 |
+| `hat` | `hate` | RIGHT | `e` | 4 | 51,794 | 0.28628584 | 44.0501 |
+| `in` | `kirin` | LEFT | `kir` | 4 | 70,599 | 0.18864013 | 43.8317 |
+| `e` | `me` | LEFT | `m` | 5 | 194,570 | 0.07002808 | 43.7525 |
+| `bûn` | `bûne` | RIGHT | `e` | 4 | 31,168 | 0.23264068 | 43.7397 |
+| `bû` | `bûn` | RIGHT | `n` | 4 | 74,504 | 0.19298960 | 43.6259 |
+| `e` | `xwe` | LEFT | `xw` | 5 | 251,640 | 0.04385747 | 43.5799 |
+| `e` | `ve` | LEFT | `v` | 5 | 164,857 | 0.07457092 | 43.5217 |
+| `ne` | `hene` | LEFT | `he` | 5 | 50,721 | 0.14583084 | 43.3951 |
+| `e` | `heye` | LEFT | `hey` | 5 | 67,895 | 0.12518838 | 43.3252 |
+| `e` | `dike` | LEFT | `dik` | 4 | 120,132 | 0.14870856 | 43.3210 |
+| `kir` | `kiriye` | RIGHT | `iye` | 5 | 56,716 | 0.12856584 | 43.1861 |
+| `de` | `dest` | RIGHT | `st` | 6 | 71,893 | 0.02939559 | 43.0366 |
+| `e` | `ew` | RIGHT | `w` | 5 | 130,048 | 0.06739643 | 43.0175 |
+| `wek` | `wekî` | RIGHT | `î` | 4 | 32,476 | 0.21863326 | 43.0107 |
+| `bû` | `bûye` | RIGHT | `ye` | 4 | 41,750 | 0.19465071 | 42.9287 |
+| `e` | `em` | RIGHT | `m` | 5 | 161,936 | 0.05799522 | 42.9226 |
+| `hempîşeyê` | `hempîşeyên` | RIGHT | `n` | 3 | 83 | 0.81738429 | 42.8698 |
+| `ê` | `yê` | LEFT | `y` | 5 | 68,316 | 0.08810759 | 42.4328 |
+| `an` | `yan` | LEFT | `y` | 4 | 19,584 | 0.23442497 | 42.4242 |
+| `in` | `bin` | LEFT | `b` | 5 | 48,716 | 0.11039610 | 42.4138 |
+| `e` | `bike` | LEFT | `bik` | 4 | 121,231 | 0.12549717 | 42.3703 |
 
 ## 4. Position system
 
-Cross-source full-occurrence position profiles: **54,751** exact forms. Each retains initial/final counts plus ten within-container position bins.
+Cross-source full-occurrence position profiles: **54,628** exact forms. Each retains initial/final counts plus ten within-container position bins.
 
 ## 5. Language Graph V2
 
-Graph V2 high-evidence core nodes: **17,091**. Edges: **21,169**.
+Graph V2 high-evidence core nodes: **17,085**. Edges: **21,161**.
 
 Graph nodes include named sources, exact forms, recurrent sequence/frame candidates, and V2-tested form-family candidates. Graph communities remain evidence clusters, not grammatical categories.
 
@@ -302,3 +302,15 @@ Graph nodes include named sources, exact forms, recurrent sequence/frame candida
 V2 moves the project from a lexicon-neighbor skeleton to a **full-occurrence constructional evidence system**. Recurrent relationships can now be tested as exact sequences, variable-slot frames, discontinuous endpoint patterns, positional profiles, and complete-context form-family relations across independently preserved named sources.
 
 The next interpretive step is no longer to guess a traditional grammar. It is to take the highest-evidence V2 constructions and form families, inspect their source-local support and counterexamples, compare competing structural explanations, and only then consider conventional linguistic terminology where it demonstrably compresses and predicts the evidence better than alternatives.
+
+## Full per-source pattern evidence in GitHub
+
+All complete source-local V2 recurrent-pattern tables are repository-resident under
+`Per_Source/<CORPUS>/Patterns/`. This includes all six pattern families for all fourteen
+sources: BIGRAMS, TRIGRAMS, FOURGRAMS, SLOT_FRAMES, GAP2, and GAP3.
+
+- Complete tables committed: **84/84**.
+- Every compressed table passed a full gzip read/integrity check before publication.
+- Every table has a SHA-256 digest, compressed byte size, and exact data-row count in
+  `FULL_PATTERN_REPOSITORY_MANIFEST.json` and the source-local `FULL_PATTERN_MANIFEST.json`.
+- GitHub Actions artifacts are backup/build transport only; they are not required to access the full V2 evidence.

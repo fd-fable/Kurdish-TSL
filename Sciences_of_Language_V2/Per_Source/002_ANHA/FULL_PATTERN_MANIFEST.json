@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "corpus": "002_ANHA",
+  "expected_tables": 6,
+  "published_table_count": 6,
+  "tables": [
+    {
+      "compressed_bytes": 1932048,
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/BIGRAMS.tsv.gz",
+      "rows": 334909,
+      "sha256": "ddda7967f0e66d53642955d9b9daaaf85c2ad484f483627e60320b3711577498"
+    },
+    {
+      "compressed_bytes": 4135922,
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 572738,
+      "sha256": "de48b9f79dc5064c49b29fa2b08c38e998fb625e026a3a262d59c1bfb8ebc245"
+    },
+    {
+      "compressed_bytes": 5922588,
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 651188,
+      "sha256": "f239fc598d2ac372fa2ad4b323b284178b60f8bc93d75459d36026ae30d59317"
+    },
+    {
+      "compressed_bytes": 1652619,
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 58168,
+      "sha256": "d1db89610ff049b38fb76b8b4183146f1f240d4e3845eb3765f8726edcdb0d4f"
+    },
+    {
+      "compressed_bytes": 2424736,
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/GAP2.tsv.gz",
+      "rows": 435722,
+      "sha256": "680fbb3de68cdf0c49b0913ee4e1df3637eb60f60abcbe93417d5dc468f0f804"
+    },
+    {
+      "compressed_bytes": 2376819,
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/GAP3.tsv.gz",
+      "rows": 429580,
+      "sha256": "fdcf70f2ecfabb86d560e85c2bdd299996cc7917e1babdcd5816defa8cd04adf"
+    }
+  ]
+}

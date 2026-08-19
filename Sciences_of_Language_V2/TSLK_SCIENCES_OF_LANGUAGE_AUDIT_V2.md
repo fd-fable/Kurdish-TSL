@@ -10,3 +10,11 @@
 - Native-speaker Stream B used: **NO**
 
 V2 candidate filtering is mechanical and does not prove Kurdish language membership. Cross-source tables contain only patterns attested in at least two named sources after per-source recurrence thresholds.
+
+## Repository-resident full-pattern audit
+
+- Expected complete source-local pattern tables: **84**
+- Published complete source-local pattern tables: **84**
+- All gzip integrity checks: **PASS**
+- All files below 95 MiB Git publication threshold: **PASS**
+- Direct Git repository storage: **PASS**

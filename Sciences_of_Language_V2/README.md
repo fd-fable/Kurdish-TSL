@@ -39,3 +39,15 @@ All V2 scores are evidence-ranking measures, **not probabilities of grammatical 
 ## Output policy
 
 Every retained construction has a declared retention threshold, source counts, support counts, and reproducible source-local evidence. Per-corpus intermediate packages are built independently and aggregated only after all fourteen pass their manifests.
+
+## Full per-source pattern evidence in GitHub
+
+All complete source-local V2 recurrent-pattern tables are repository-resident under
+`Per_Source/<CORPUS>/Patterns/`. This includes all six pattern families for all fourteen
+sources: BIGRAMS, TRIGRAMS, FOURGRAMS, SLOT_FRAMES, GAP2, and GAP3.
+
+- Complete tables committed: **84/84**.
+- Every compressed table passed a full gzip read/integrity check before publication.
+- Every table has a SHA-256 digest, compressed byte size, and exact data-row count in
+  `FULL_PATTERN_REPOSITORY_MANIFEST.json` and the source-local `FULL_PATTERN_MANIFEST.json`.
+- GitHub Actions artifacts are backup/build transport only; they are not required to access the full V2 evidence.

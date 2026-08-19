@@ -1,14 +1,16 @@
 {
-  "active_runs": 2186234,
-  "candidate_occurrences": 15934579,
+  "active_runs": 2014214,
+  "candidate_occurrences": 15620935,
   "containers": 1224887,
   "corpus": "004_RUDAW",
   "coverage_pass": true,
-  "documentary_only_occurrences": 1377280,
+  "documentary_only_occurrences": 1690924,
   "expected_occurrences": 17311859,
   "family_validation_limit": 10000,
   "ordering_anomalies": 0,
   "ordering_pass": true,
   "scanned_occurrences": 17311859,
-  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT"
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT",
+  "technical_risk_containers": 41856,
+  "technical_risk_occurrences": 682335
 }

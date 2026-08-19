@@ -10,5 +10,7 @@
   "ordering_anomalies": 0,
   "ordering_pass": true,
   "scanned_occurrences": 97,
-  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT"
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT",
+  "technical_risk_containers": 0,
+  "technical_risk_occurrences": 0
 }

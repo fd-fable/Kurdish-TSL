@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "corpus": "001_MEM_U_ZIN",
+  "expected_tables": 6,
+  "published_table_count": 6,
+  "tables": [
+    {
+      "compressed_bytes": 1897,
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/BIGRAMS.tsv.gz",
+      "rows": 366,
+      "sha256": "b5be819c9a6a608f956e8c3b336fad6d4cd2f7537a0dcaf91ec72ca73fa78b55"
+    },
+    {
+      "compressed_bytes": 688,
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 81,
+      "sha256": "a55af9730ea72a2e61dcfbdbe533ad31961624ecdfbe45fcb3706399f9a4b476"
+    },
+    {
+      "compressed_bytes": 245,
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 18,
+      "sha256": "444d763b244a71b8464f02a08424333579fa1d9d8ab2155e2fb0d1f327bfe648"
+    },
+    {
+      "compressed_bytes": 1445,
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 52,
+      "sha256": "a15ff0c7dbf5e9b9c487c16d2fd98613d63cb57c71ad88e23988060a81a6eaa0"
+    },
+    {
+      "compressed_bytes": 783,
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/GAP2.tsv.gz",
+      "rows": 161,
+      "sha256": "3564d4bb7033ef19e194f5c3b65c3eb11a1434be78b2c5d17519151b7bdb5457"
+    },
+    {
+      "compressed_bytes": 661,
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/GAP3.tsv.gz",
+      "rows": 135,
+      "sha256": "e5e900ca6939bf679687a44f333580978932f1ff572affe15cf8f046f2de00bf"
+    }
+  ]
+}
