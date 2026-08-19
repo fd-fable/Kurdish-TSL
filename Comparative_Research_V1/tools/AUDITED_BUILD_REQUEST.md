@@ -1,0 +1,1 @@
+Run both the base comparative builder and the audited lexical-candidate refinement. Preserve exhaustive documentary overlap, add letter-bearing/no-numeric candidate comparison, repeated-context template-risk flags, final combined result, and deep conclusion.
