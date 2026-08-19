@@ -1,0 +1,92 @@
+name: Publish Sciences of Language V2 full evidence to Git
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'V2_REPOSITORY_PUBLISH_REQUEST.md'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: tslk-v2-full-evidence-publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.ref == 'agent/sciences-of-language-v2'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: '32224574035'
+    steps:
+      - name: Checkout V2 feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sciences-of-language-v2
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /Sciences_of_Language_V2/**
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download latest current-scanner V2 source artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _v2_downloads _v2_artifacts
+          mkdir -p _v2_downloads _v2_artifacts/Per_Source
+          gh run download "$SOURCE_RUN_ID" --repo '${{ github.repository }}' --pattern 'v2-*' --dir _v2_downloads
+          echo "Downloaded artifact directories: $(find _v2_downloads -mindepth 1 -maxdepth 1 -type d | wc -l)"
+
+      - name: Reconstruct source-preserving artifact tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' f; do
+            rel="${f#*/Per_Source/}"
+            dst="_v2_artifacts/Per_Source/$rel"
+            mkdir -p "$(dirname "$dst")"
+            cp "$f" "$dst"
+          done < <(find _v2_downloads -type f -path '*/Per_Source/*' -print0)
+          test "$(find _v2_artifacts/Per_Source -name 'CORPUS_AUDIT.json' | wc -l)" -eq 14
+          test "$(find _v2_artifacts/Per_Source -path '*/Patterns/*.tsv.gz' | wc -l)" -eq 84
+          echo 'Artifact tree complete: 14 audits / 84 full pattern tables.'
+
+      - name: Re-aggregate current V2 and publish all full source pattern tables
+        shell: bash
+        run: |
+          set -euo pipefail
+          python Sciences_of_Language_V2/tools/aggregate_v2.py \
+            --artifacts-root _v2_artifacts \
+            --output-root Sciences_of_Language_V2
+          python Sciences_of_Language_V2/tools/publish_full_patterns.py \
+            --artifacts-root _v2_artifacts \
+            --output-root Sciences_of_Language_V2
+          cat Sciences_of_Language_V2/SCIENCES_OF_LANGUAGE_V2_MANIFEST.json
+          cat Sciences_of_Language_V2/FULL_PATTERN_REPOSITORY_MANIFEST.json | head -80
+          test "$(find Sciences_of_Language_V2/Per_Source -path '*/Patterns/*.tsv.gz' | wc -l)" -eq 84
+          find Sciences_of_Language_V2 -type f -size +95M -print -quit | grep -q . && { echo 'ERROR: GitHub file >95M'; exit 1; } || true
+
+      - name: Commit complete V2 evidence to feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'kurdish-tsl-v2-evidence-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add Sciences_of_Language_V2
+          if git diff --cached --quiet; then
+            echo 'No publication changes.'
+          else
+            git commit -m 'Publish complete Sciences of Language V2 source evidence in Git'
+            git push origin HEAD:agent/sciences-of-language-v2
+          fi
