@@ -1,0 +1,33 @@
+name: Build comparative research V1
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'Comparative_Research_V1/tools/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.event.pull_request.head.ref == 'agent/comparative-convergence-v1'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout comparative branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/comparative-convergence-v1
+          fetch-depth: 1
+      - name: Build named-source comparison
+        run: python Comparative_Research_V1/tools/build_comparative_research.py
+      - name: Commit generated comparative layer
+        run: |
+          set -euo pipefail
+          git config user.name "kurdish-tsl-comparison-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add Comparative_Research_V1
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate named-source comparative research V1"
+            git push origin HEAD:agent/comparative-convergence-v1
+          fi
