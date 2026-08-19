@@ -70,7 +70,8 @@ def load_v1_family_pairs(root: Path, limit: int = FAMILY_VALIDATION_LIMIT):
                 "material": r.get("added_edge_material", ""),
                 "v1_score": r.get("form_family_evidence_score", ""),
             })
-            targets.add(base); targets.add(ext)
+            targets.add(base)
+            targets.add(ext)
     return pairs, targets
 
 
@@ -106,6 +107,28 @@ def iter_occurrences(root: Path, corpus: str):
                 }
 
 
+def _finalize_container(rows, template_risk: set[str], audit=None):
+    """Apply candidate-stream decisions only after the whole container is visible.
+
+    If an explicit URL/technical marker occurs anywhere in the container, the
+    entire container remains documentary evidence but is excluded from active
+    structural scoring. This implements Protocol V2 section 3 exactly and
+    prevents URL/path fragments from becoming apparent constructions.
+    """
+    technical_risk = any(r["surface"].casefold() in TECHNICAL_MARKERS for r in rows)
+    if audit is not None and technical_risk:
+        audit["technical_risk_containers"] += 1
+        audit["technical_risk_occurrences"] += len(rows)
+    for r in rows:
+        r["active"] = (not technical_risk) and active_form(r["surface"], template_risk)
+        if audit is not None:
+            if r["active"]:
+                audit["candidate_occurrences"] += 1
+            else:
+                audit["documentary_only_occurrences"] += 1
+    return rows
+
+
 def iter_containers(root: Path, corpus: str, template_risk: set[str], audit=None):
     current = None
     rows = []
@@ -115,7 +138,7 @@ def iter_containers(root: Path, corpus: str, template_risk: set[str], audit=None
             current = r["container"]
         if r["container"] != current:
             if rows:
-                yield current, rows
+                yield current, _finalize_container(rows, template_risk, audit)
             current = r["container"]
             rows = []
             last_idx = 0
@@ -124,15 +147,9 @@ def iter_containers(root: Path, corpus: str, template_risk: set[str], audit=None
             if r["token_index"] <= last_idx:
                 audit["ordering_anomalies"] += 1
         last_idx = r["token_index"]
-        r["active"] = active_form(r["surface"], template_risk)
-        if audit is not None:
-            if r["active"]:
-                audit["candidate_occurrences"] += 1
-            else:
-                audit["documentary_only_occurrences"] += 1
         rows.append(r)
     if rows:
-        yield current, rows
+        yield current, _finalize_container(rows, template_risk, audit)
 
 
 def active_runs(rows):
@@ -153,20 +170,25 @@ def emit_windows(root: Path, corpus: str, template_risk: set[str], kind: str):
         for run in active_runs(rows):
             if kind == "bigram":
                 n = 2
-                for i in range(len(run)-n+1): print("\t".join(run[i:i+n]))
+                for i in range(len(run)-n+1):
+                    print("\t".join(run[i:i+n]))
             elif kind == "trigram":
                 n = 3
-                for i in range(len(run)-n+1): print("\t".join(run[i:i+n]))
+                for i in range(len(run)-n+1):
+                    print("\t".join(run[i:i+n]))
             elif kind == "fourgram":
                 n = 4
-                for i in range(len(run)-n+1): print("\t".join(run[i:i+n]))
+                for i in range(len(run)-n+1):
+                    print("\t".join(run[i:i+n]))
             elif kind == "slot":
                 for i in range(len(run)-2):
                     print("\t".join((run[i], run[i+2], run[i+1])))
             elif kind == "gap2":
-                for i in range(len(run)-3): print("\t".join((run[i], run[i+3])))
+                for i in range(len(run)-3):
+                    print("\t".join((run[i], run[i+3])))
             elif kind == "gap3":
-                for i in range(len(run)-4): print("\t".join((run[i], run[i+4])))
+                for i in range(len(run)-4):
+                    print("\t".join((run[i], run[i+4])))
             else:
                 raise SystemExit(f"Unknown emit kind: {kind}")
 
@@ -197,7 +219,9 @@ def audit_and_positions(root: Path, corpus: str, out_dir: Path, template_risk: s
     context_right = defaultdict(Counter)
     target_freq = Counter()
     pos = defaultdict(lambda: [0]*10)
-    init = Counter(); final = Counter(); active_freq = Counter()
+    init = Counter()
+    final = Counter()
+    active_freq = Counter()
     audit = {
         "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT",
         "corpus": corpus,
@@ -208,6 +232,8 @@ def audit_and_positions(root: Path, corpus: str, out_dir: Path, template_risk: s
         "containers": 0,
         "active_runs": 0,
         "ordering_anomalies": 0,
+        "technical_risk_containers": 0,
+        "technical_risk_occurrences": 0,
         "family_validation_limit": FAMILY_VALIDATION_LIMIT,
     }
     for _, rows in iter_containers(root, corpus, template_risk, audit):
@@ -225,13 +251,18 @@ def audit_and_positions(root: Path, corpus: str, out_dir: Path, template_risk: s
         for run in active_runs(rows):
             audit["active_runs"] += 1
         for r in rows:
+            if not r["active"]:
+                continue
             form = r["surface"]
             if form not in targets:
                 continue
             target_freq[form] += 1
-            l = r["left1"]; rr = r["right1"]
-            if active_form(l, template_risk): context_left[form][l] += 1
-            if active_form(rr, template_risk): context_right[form][rr] += 1
+            l = r["left1"]
+            rr = r["right1"]
+            if active_form(l, template_risk):
+                context_left[form][l] += 1
+            if active_form(rr, template_risk):
+                context_right[form][rr] += 1
 
     audit["coverage_pass"] = audit["scanned_occurrences"] == expected
     audit["ordering_pass"] = audit["ordering_anomalies"] == 0
@@ -239,19 +270,32 @@ def audit_and_positions(root: Path, corpus: str, out_dir: Path, template_risk: s
         raise SystemExit(f"Coverage mismatch for {corpus}: {audit['scanned_occurrences']} != {expected}")
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "CORPUS_AUDIT.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2, sort_keys=True)+"\n", encoding="utf-8")
+    (out_dir / "CORPUS_AUDIT.json").write_text(
+        json.dumps(audit, ensure_ascii=False, indent=2, sort_keys=True)+"\n",
+        encoding="utf-8",
+    )
 
     with gzip.open(out_dir / "POSITION_PROFILES.tsv.gz", "wt", encoding="utf-8", newline="") as f:
         fields = ["surface_form","frequency","initial_count","final_count"] + [f"decile_{i}" for i in range(10)]
         w = csv.DictWriter(f, fieldnames=fields, delimiter="\t")
         w.writeheader()
         for form, freq in sorted(active_freq.items(), key=lambda x:(-x[1], x[0].casefold(), x[0])):
-            r = {"surface_form":form,"frequency":freq,"initial_count":init[form],"final_count":final[form]}
-            for i,v in enumerate(pos[form]): r[f"decile_{i}"] = v
+            r = {
+                "surface_form":form,
+                "frequency":freq,
+                "initial_count":init[form],
+                "final_count":final[form],
+            }
+            for i,v in enumerate(pos[form]):
+                r[f"decile_{i}"] = v
             w.writerow(r)
 
     with gzip.open(out_dir / "MORPH_CONTEXT_PAIR_EVIDENCE.tsv.gz", "wt", encoding="utf-8", newline="") as f:
-        fields = ["base_form","extended_form","edge_side","added_edge_material","v1_score","base_frequency","extended_frequency","left_context_weighted_jaccard","right_context_weighted_jaccard","combined_context_similarity","status"]
+        fields = [
+            "base_form","extended_form","edge_side","added_edge_material","v1_score",
+            "base_frequency","extended_frequency","left_context_weighted_jaccard",
+            "right_context_weighted_jaccard","combined_context_similarity","status"
+        ]
         w = csv.DictWriter(f, fieldnames=fields, delimiter="\t")
         w.writeheader()
         for p in fam_pairs:
@@ -261,11 +305,17 @@ def audit_and_positions(root: Path, corpus: str, out_dir: Path, template_risk: s
             lj = weighted_jaccard(context_left[b], context_left[e])
             rj = weighted_jaccard(context_right[b], context_right[e])
             w.writerow({
-                "base_form":b,"extended_form":e,"edge_side":p["edge_side"],"added_edge_material":p["material"],"v1_score":p["v1_score"],
-                "base_frequency":target_freq[b],"extended_frequency":target_freq[e],
-                "left_context_weighted_jaccard":f"{lj:.8f}","right_context_weighted_jaccard":f"{rj:.8f}",
+                "base_form":b,
+                "extended_form":e,
+                "edge_side":p["edge_side"],
+                "added_edge_material":p["material"],
+                "v1_score":p["v1_score"],
+                "base_frequency":target_freq[b],
+                "extended_frequency":target_freq[e],
+                "left_context_weighted_jaccard":f"{lj:.8f}",
+                "right_context_weighted_jaccard":f"{rj:.8f}",
                 "combined_context_similarity":f"{(lj+rj)/2:.8f}",
-                "status":"V1 FORM-FAMILY CANDIDATE / FULL-OCCURRENCE CONTEXT TEST / FUNCTION UNRESOLVED"
+                "status":"V1 FORM-FAMILY CANDIDATE / FULL-OCCURRENCE CONTEXT TEST / FUNCTION UNRESOLVED",
             })
     return audit
 
@@ -283,9 +333,11 @@ def format_counts(kind: str, min_count: int):
     rx = re.compile(r"^\s*(\d+)\s(.*)$")
     for line in sys.stdin:
         m = rx.match(line.rstrip("\n"))
-        if not m: continue
+        if not m:
+            continue
         count = int(m.group(1))
-        if count < min_count: continue
+        if count < min_count:
+            continue
         pat = m.group(2)
         print(f"{count}\t{pat}")
 
@@ -296,49 +348,72 @@ def format_slot(min_support: int = 3, min_fillers: int = 2):
     current = None
     support = 0
     fillers = Counter()
+
     def flush():
-        nonlocal current,support,fillers
+        nonlocal current, support, fillers
         if current is None or support < min_support or len(fillers) < min_fillers:
             return
         ent = entropy_norm_counts(fillers.values())
         top = " | ".join(f"{x}::{n}" for x,n in fillers.most_common(20))
-        print(f"{current[0]}\t{current[1]}\t{support}\t{len(fillers)}\t{ent:.8f}\t{top}\tVARIABLE-SLOT FRAME CANDIDATE / FUNCTION UNRESOLVED")
+        print(
+            f"{current[0]}\t{current[1]}\t{support}\t{len(fillers)}\t{ent:.8f}\t{top}\t"
+            "VARIABLE-SLOT FRAME CANDIDATE / FUNCTION UNRESOLVED"
+        )
+
     for line in sys.stdin:
-        m=rx.match(line.rstrip("\n"))
-        if not m: continue
-        count=int(m.group(1)); parts=m.group(2).split("\t")
-        if len(parts)!=3: continue
-        key=(parts[0],parts[1]); filler=parts[2]
+        m = rx.match(line.rstrip("\n"))
+        if not m:
+            continue
+        count = int(m.group(1))
+        parts = m.group(2).split("\t")
+        if len(parts) != 3:
+            continue
+        key = (parts[0],parts[1])
+        filler = parts[2]
         if current is not None and key != current:
-            flush(); support=0; fillers=Counter()
-        current=key; support += count; fillers[filler] += count
+            flush()
+            support = 0
+            fillers = Counter()
+        current = key
+        support += count
+        fillers[filler] += count
     flush()
 
 
 def main():
-    ap=argparse.ArgumentParser()
+    ap = argparse.ArgumentParser()
     ap.add_argument("--repo-root", default=".")
     ap.add_argument("--corpus")
     ap.add_argument("--out-dir")
-    ap.add_argument("--mode", required=True, choices=["audit","emit-bigram","emit-trigram","emit-fourgram","emit-slot","emit-gap2","emit-gap3","format-counts","format-slot"])
+    ap.add_argument(
+        "--mode",
+        required=True,
+        choices=[
+            "audit","emit-bigram","emit-trigram","emit-fourgram","emit-slot",
+            "emit-gap2","emit-gap3","format-counts","format-slot"
+        ],
+    )
     ap.add_argument("--kind", choices=["bigram","trigram","fourgram","gap2","gap3"])
     ap.add_argument("--min-count", type=int, default=2)
-    args=ap.parse_args()
-    root=Path(args.repo_root).resolve()
+    args = ap.parse_args()
+    root = Path(args.repo_root).resolve()
     if args.mode == "format-counts":
-        if not args.kind: raise SystemExit("--kind required")
+        if not args.kind:
+            raise SystemExit("--kind required")
         return format_counts(args.kind,args.min_count)
     if args.mode == "format-slot":
         return format_slot()
-    if not args.corpus: raise SystemExit("--corpus required")
-    risk=load_template_risk(root)
+    if not args.corpus:
+        raise SystemExit("--corpus required")
+    risk = load_template_risk(root)
     if args.mode == "audit":
-        out=Path(args.out_dir) if args.out_dir else root/"Sciences_of_Language_V2"/"Per_Source"/args.corpus
-        audit=audit_and_positions(root,args.corpus,out,risk)
+        out = Path(args.out_dir) if args.out_dir else root/"Sciences_of_Language_V2"/"Per_Source"/args.corpus
+        audit = audit_and_positions(root,args.corpus,out,risk)
         print(json.dumps(audit,ensure_ascii=False,sort_keys=True))
         return
-    kind=args.mode.removeprefix("emit-")
+    kind = args.mode.removeprefix("emit-")
     emit_windows(root,args.corpus,risk,kind)
+
 
 if __name__ == "__main__":
     main()
