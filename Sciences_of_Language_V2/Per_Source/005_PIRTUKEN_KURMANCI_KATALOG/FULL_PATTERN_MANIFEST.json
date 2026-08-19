@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+  "expected_tables": 6,
+  "published_table_count": 6,
+  "tables": [
+    {
+      "compressed_bytes": 1004,
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/BIGRAMS.tsv.gz",
+      "rows": 130,
+      "sha256": "fc081c8f19b7256fb51d06bf737c2e2594476e8c9539385a9236e04a2b36e1cb"
+    },
+    {
+      "compressed_bytes": 549,
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 57,
+      "sha256": "94d4148af08694d842bac2e52df3c36a2fe8e7ccff3a5ac87a72e843361b9f17"
+    },
+    {
+      "compressed_bytes": 359,
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 29,
+      "sha256": "cb977c242ecdc604f5b4b1c3aeb12c9438b126cbb036d58d5382bb2660b3e98c"
+    },
+    {
+      "compressed_bytes": 369,
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 6,
+      "sha256": "dd1b320094886e34e4d5952924e2fb40e555e175fab3e06169dc422d46a4a863"
+    },
+    {
+      "compressed_bytes": 330,
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/GAP2.tsv.gz",
+      "rows": 38,
+      "sha256": "c12b84deb7401411b221028794fcf11eb76b20016bbb7e463c78c0625b755976"
+    },
+    {
+      "compressed_bytes": 230,
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/GAP3.tsv.gz",
+      "rows": 23,
+      "sha256": "cbbf6edc70869801cf0d54e3ca0a35e784b911bb735b0df04b47b8c2f298b2c3"
+    }
+  ]
+}

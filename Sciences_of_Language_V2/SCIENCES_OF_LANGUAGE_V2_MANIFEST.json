@@ -1,0 +1,30 @@
+{
+  "candidate_occurrences": 43486547,
+  "candidate_stream_is_language_membership_classifier": false,
+  "conventional_grammar_assignment_performed": false,
+  "cross_source_pattern_counts": {
+    "BIGRAMS": 173399,
+    "FOURGRAMS": 74054,
+    "GAP2": 176712,
+    "GAP3": 158980,
+    "SLOT_FRAMES": 60552,
+    "TRIGRAMS": 147070
+  },
+  "cross_source_position_profiles": 54628,
+  "documentary_only_occurrences": 4142502,
+  "expected_occurrences": 47629049,
+  "full_occurrence_coverage_pass": true,
+  "full_pattern_repository_manifest": "Sciences_of_Language_V2/FULL_PATTERN_REPOSITORY_MANIFEST.json",
+  "language_graph_v2_edges": 21161,
+  "language_graph_v2_nodes": 17085,
+  "morphology_context_candidates_cross_source": 9717,
+  "native_speaker_stream_used": false,
+  "per_source_full_pattern_table_count": 84,
+  "per_source_full_pattern_tables_committed": true,
+  "per_source_full_pattern_tables_storage": "DIRECT_GIT_REPOSITORY",
+  "scanned_occurrences": 47629049,
+  "scores_are_truth_probabilities": false,
+  "semantic_assignment_performed": false,
+  "source_count": 14,
+  "version": "TSLK_SCIENCES_OF_LANGUAGE_V2"
+}

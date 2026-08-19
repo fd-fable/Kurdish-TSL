@@ -1,0 +1,768 @@
+{
+  "actions_artifacts_required_for_future_access": false,
+  "complete": true,
+  "expected_full_pattern_tables": 84,
+  "pattern_kinds_per_source": 6,
+  "published_full_pattern_tables": 84,
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_FULL_PATTERN_REPOSITORY_MANIFEST",
+  "source_count": 14,
+  "storage": "DIRECT_GIT_REPOSITORY",
+  "tables": [
+    {
+      "compressed_bytes": 1897,
+      "corpus": "001_MEM_U_ZIN",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/BIGRAMS.tsv.gz",
+      "rows": 366,
+      "sha256": "b5be819c9a6a608f956e8c3b336fad6d4cd2f7537a0dcaf91ec72ca73fa78b55"
+    },
+    {
+      "compressed_bytes": 688,
+      "corpus": "001_MEM_U_ZIN",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 81,
+      "sha256": "a55af9730ea72a2e61dcfbdbe533ad31961624ecdfbe45fcb3706399f9a4b476"
+    },
+    {
+      "compressed_bytes": 245,
+      "corpus": "001_MEM_U_ZIN",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 18,
+      "sha256": "444d763b244a71b8464f02a08424333579fa1d9d8ab2155e2fb0d1f327bfe648"
+    },
+    {
+      "compressed_bytes": 1445,
+      "corpus": "001_MEM_U_ZIN",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 52,
+      "sha256": "a15ff0c7dbf5e9b9c487c16d2fd98613d63cb57c71ad88e23988060a81a6eaa0"
+    },
+    {
+      "compressed_bytes": 783,
+      "corpus": "001_MEM_U_ZIN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/GAP2.tsv.gz",
+      "rows": 161,
+      "sha256": "3564d4bb7033ef19e194f5c3b65c3eb11a1434be78b2c5d17519151b7bdb5457"
+    },
+    {
+      "compressed_bytes": 661,
+      "corpus": "001_MEM_U_ZIN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/001_MEM_U_ZIN/Patterns/GAP3.tsv.gz",
+      "rows": 135,
+      "sha256": "e5e900ca6939bf679687a44f333580978932f1ff572affe15cf8f046f2de00bf"
+    },
+    {
+      "compressed_bytes": 1932048,
+      "corpus": "002_ANHA",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/BIGRAMS.tsv.gz",
+      "rows": 334909,
+      "sha256": "ddda7967f0e66d53642955d9b9daaaf85c2ad484f483627e60320b3711577498"
+    },
+    {
+      "compressed_bytes": 4135922,
+      "corpus": "002_ANHA",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 572738,
+      "sha256": "de48b9f79dc5064c49b29fa2b08c38e998fb625e026a3a262d59c1bfb8ebc245"
+    },
+    {
+      "compressed_bytes": 5922588,
+      "corpus": "002_ANHA",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 651188,
+      "sha256": "f239fc598d2ac372fa2ad4b323b284178b60f8bc93d75459d36026ae30d59317"
+    },
+    {
+      "compressed_bytes": 1652619,
+      "corpus": "002_ANHA",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 58168,
+      "sha256": "d1db89610ff049b38fb76b8b4183146f1f240d4e3845eb3765f8726edcdb0d4f"
+    },
+    {
+      "compressed_bytes": 2424736,
+      "corpus": "002_ANHA",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/GAP2.tsv.gz",
+      "rows": 435722,
+      "sha256": "680fbb3de68cdf0c49b0913ee4e1df3637eb60f60abcbe93417d5dc468f0f804"
+    },
+    {
+      "compressed_bytes": 2376819,
+      "corpus": "002_ANHA",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/002_ANHA/Patterns/GAP3.tsv.gz",
+      "rows": 429580,
+      "sha256": "fdcf70f2ecfabb86d560e85c2bdd299996cc7917e1babdcd5816defa8cd04adf"
+    },
+    {
+      "compressed_bytes": 750870,
+      "corpus": "003_RONAHI",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/003_RONAHI/Patterns/BIGRAMS.tsv.gz",
+      "rows": 160302,
+      "sha256": "dc64e20f87ecac9d9a6cdb712430fcac96362636c7ecc3d727eaf5a7f5c2040a"
+    },
+    {
+      "compressed_bytes": 1031785,
+      "corpus": "003_RONAHI",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/003_RONAHI/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 175474,
+      "sha256": "e25dd97d4646eecf303e4f86b2adc08627dce679258f3c9ceea10c131cba0ff6"
+    },
+    {
+      "compressed_bytes": 1039763,
+      "corpus": "003_RONAHI",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/003_RONAHI/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 136459,
+      "sha256": "a50d85d90f1b635436d158b50e3dcf50d0024ae5c46780b0d5eaea63fc4be169"
+    },
+    {
+      "compressed_bytes": 1298398,
+      "corpus": "003_RONAHI",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/003_RONAHI/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 55043,
+      "sha256": "e1b44ba29c22ca2e03857838e2b7319fd29d7d23aace2674c47c217582bf169c"
+    },
+    {
+      "compressed_bytes": 649875,
+      "corpus": "003_RONAHI",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/003_RONAHI/Patterns/GAP2.tsv.gz",
+      "rows": 148187,
+      "sha256": "b4cf2029f6510cfc551a12ed42dc0b73fc96238f79ce75ff22f8f1719288d31c"
+    },
+    {
+      "compressed_bytes": 547091,
+      "corpus": "003_RONAHI",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/003_RONAHI/Patterns/GAP3.tsv.gz",
+      "rows": 126011,
+      "sha256": "7c4724ffa35c26f936ee061f8a9cd9e8c2803566a7f6dd4fc1ae1d084bb7f5d2"
+    },
+    {
+      "compressed_bytes": 5106080,
+      "corpus": "004_RUDAW",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/BIGRAMS.tsv.gz",
+      "rows": 1096063,
+      "sha256": "f7b1b2047c362e6b8ddcd69e377c83749c4173916de81fef1338b2b7b061fdb7"
+    },
+    {
+      "compressed_bytes": 10465853,
+      "corpus": "004_RUDAW",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 1857085,
+      "sha256": "5b6496c802af855e2ba343faa3f4e64bc2cbe31c350f6481531e46323c7c7353"
+    },
+    {
+      "compressed_bytes": 13534433,
+      "corpus": "004_RUDAW",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 1881058,
+      "sha256": "8044c0f90bdd309e5f993ebb0ac110422ebf884e186ea1f4fd40b38439a85333"
+    },
+    {
+      "compressed_bytes": 11083733,
+      "corpus": "004_RUDAW",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 450564,
+      "sha256": "548d5e7056563aec9c1b329e12b7811fff5a67a9518ee070333ab94c7e3b700b"
+    },
+    {
+      "compressed_bytes": 5440330,
+      "corpus": "004_RUDAW",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/GAP2.tsv.gz",
+      "rows": 1224234,
+      "sha256": "17a332b30f55ee96ef95273a1a3e011b2dcab36912c0fb534c4b239ea0aeef4e"
+    },
+    {
+      "compressed_bytes": 4891538,
+      "corpus": "004_RUDAW",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/GAP3.tsv.gz",
+      "rows": 1108744,
+      "sha256": "c93cf0722b62ee364aaca346fe1bf4d3942ab94b5529aadad0a43e70bea5564d"
+    },
+    {
+      "compressed_bytes": 1004,
+      "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/BIGRAMS.tsv.gz",
+      "rows": 130,
+      "sha256": "fc081c8f19b7256fb51d06bf737c2e2594476e8c9539385a9236e04a2b36e1cb"
+    },
+    {
+      "compressed_bytes": 549,
+      "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 57,
+      "sha256": "94d4148af08694d842bac2e52df3c36a2fe8e7ccff3a5ac87a72e843361b9f17"
+    },
+    {
+      "compressed_bytes": 359,
+      "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 29,
+      "sha256": "cb977c242ecdc604f5b4b1c3aeb12c9438b126cbb036d58d5382bb2660b3e98c"
+    },
+    {
+      "compressed_bytes": 369,
+      "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 6,
+      "sha256": "dd1b320094886e34e4d5952924e2fb40e555e175fab3e06169dc422d46a4a863"
+    },
+    {
+      "compressed_bytes": 330,
+      "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/GAP2.tsv.gz",
+      "rows": 38,
+      "sha256": "c12b84deb7401411b221028794fcf11eb76b20016bbb7e463c78c0625b755976"
+    },
+    {
+      "compressed_bytes": 230,
+      "corpus": "005_PIRTUKEN_KURMANCI_KATALOG",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/005_PIRTUKEN_KURMANCI_KATALOG/Patterns/GAP3.tsv.gz",
+      "rows": 23,
+      "sha256": "cbbf6edc70869801cf0d54e3ca0a35e784b911bb735b0df04b47b8c2f298b2c3"
+    },
+    {
+      "compressed_bytes": 20272,
+      "corpus": "006_KURMANJI_BEGINNERS",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/BIGRAMS.tsv.gz",
+      "rows": 4427,
+      "sha256": "28e65791535feee74a5c103063fe550473d31c4434f862ccc50eed8ff225046b"
+    },
+    {
+      "compressed_bytes": 11687,
+      "corpus": "006_KURMANJI_BEGINNERS",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 1946,
+      "sha256": "21c32e8814722664fae3bfd169ba6494445580da1ebabeb9c61c73b2ddfa17ee"
+    },
+    {
+      "compressed_bytes": 6675,
+      "corpus": "006_KURMANJI_BEGINNERS",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 927,
+      "sha256": "33a6e40475b1c136c11f33ede21e258f6116977df71debb6e234dc895ec55e9b"
+    },
+    {
+      "compressed_bytes": 15928,
+      "corpus": "006_KURMANJI_BEGINNERS",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 710,
+      "sha256": "e7cdfbccfa169cdd5b92de62b67c0967bc04801b6456f981905fb1afe7f6c4e2"
+    },
+    {
+      "compressed_bytes": 8719,
+      "corpus": "006_KURMANJI_BEGINNERS",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/GAP2.tsv.gz",
+      "rows": 2002,
+      "sha256": "e8bbc2442e53e8bf29c548b3f30fdb3bf8e16932ed554d263c31bf2a396e0413"
+    },
+    {
+      "compressed_bytes": 6117,
+      "corpus": "006_KURMANJI_BEGINNERS",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/GAP3.tsv.gz",
+      "rows": 1411,
+      "sha256": "c889901a4738cbf53e6c3a1b8924fc07494aeca617b5702844bde5c46dd6a49d"
+    },
+    {
+      "compressed_bytes": 37,
+      "corpus": "007_KOVARA_KURMANCI",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/007_KOVARA_KURMANCI/Patterns/BIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "0e56000fa81495bb7a27e0e6c6bee0e443e422a620bbe933c8faf292cb65c7dc"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "007_KOVARA_KURMANCI",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/007_KOVARA_KURMANCI/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "007_KOVARA_KURMANCI",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/007_KOVARA_KURMANCI/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "007_KOVARA_KURMANCI",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/007_KOVARA_KURMANCI/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "007_KOVARA_KURMANCI",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/007_KOVARA_KURMANCI/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "007_KOVARA_KURMANCI",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/007_KOVARA_KURMANCI/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 69,
+      "corpus": "008_KOVARA_HAWAR",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/008_KOVARA_HAWAR/Patterns/BIGRAMS.tsv.gz",
+      "rows": 2,
+      "sha256": "41f84c30c1aaad74c0ada8574aef8b131c15ef45ee699e8f8b218286123a1bf7"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "008_KOVARA_HAWAR",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/008_KOVARA_HAWAR/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "008_KOVARA_HAWAR",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/008_KOVARA_HAWAR/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "008_KOVARA_HAWAR",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/008_KOVARA_HAWAR/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "008_KOVARA_HAWAR",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/008_KOVARA_HAWAR/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "008_KOVARA_HAWAR",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/008_KOVARA_HAWAR/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 50,
+      "corpus": "009_ROJNAMA_KURDISTAN",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/009_ROJNAMA_KURDISTAN/Patterns/BIGRAMS.tsv.gz",
+      "rows": 1,
+      "sha256": "ca36fe93c5702996f71ec270cd91dada104fa94ea6b249e711c0972fcb453568"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "009_ROJNAMA_KURDISTAN",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/009_ROJNAMA_KURDISTAN/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "009_ROJNAMA_KURDISTAN",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/009_ROJNAMA_KURDISTAN/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "009_ROJNAMA_KURDISTAN",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/009_ROJNAMA_KURDISTAN/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "009_ROJNAMA_KURDISTAN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/009_ROJNAMA_KURDISTAN/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "009_ROJNAMA_KURDISTAN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/009_ROJNAMA_KURDISTAN/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 37,
+      "corpus": "010_KOVARA_JIN",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/010_KOVARA_JIN/Patterns/BIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "0e56000fa81495bb7a27e0e6c6bee0e443e422a620bbe933c8faf292cb65c7dc"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "010_KOVARA_JIN",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/010_KOVARA_JIN/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "010_KOVARA_JIN",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/010_KOVARA_JIN/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "010_KOVARA_JIN",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/010_KOVARA_JIN/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "010_KOVARA_JIN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/010_KOVARA_JIN/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "010_KOVARA_JIN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/010_KOVARA_JIN/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 54,
+      "corpus": "011_FOLKLORA_KURMANCA_1936",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/BIGRAMS.tsv.gz",
+      "rows": 1,
+      "sha256": "eb6930acb4913dd87c29401a6d42fb9dd5779cbd4c374cdb0920e0bfcade11d7"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "011_FOLKLORA_KURMANCA_1936",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "011_FOLKLORA_KURMANCA_1936",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "011_FOLKLORA_KURMANCA_1936",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "011_FOLKLORA_KURMANCA_1936",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "011_FOLKLORA_KURMANCA_1936",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 37,
+      "corpus": "012_KURD_TEAVUN_TERAKKI_1908",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/012_KURD_TEAVUN_TERAKKI_1908/Patterns/BIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "0e56000fa81495bb7a27e0e6c6bee0e443e422a620bbe933c8faf292cb65c7dc"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "012_KURD_TEAVUN_TERAKKI_1908",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/012_KURD_TEAVUN_TERAKKI_1908/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "012_KURD_TEAVUN_TERAKKI_1908",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/012_KURD_TEAVUN_TERAKKI_1908/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "012_KURD_TEAVUN_TERAKKI_1908",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/012_KURD_TEAVUN_TERAKKI_1908/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "012_KURD_TEAVUN_TERAKKI_1908",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/012_KURD_TEAVUN_TERAKKI_1908/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 58,
+      "corpus": "012_KURD_TEAVUN_TERAKKI_1908",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/012_KURD_TEAVUN_TERAKKI_1908/Patterns/GAP3.tsv.gz",
+      "rows": 1,
+      "sha256": "642f61bba093ac2893ca8cf124cbaf46853d5b0314b8404d7d69719f8365d542"
+    },
+    {
+      "compressed_bytes": 63,
+      "corpus": "013_ROJI_KURD_1913",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/013_ROJI_KURD_1913/Patterns/BIGRAMS.tsv.gz",
+      "rows": 2,
+      "sha256": "8b62d229d0302071506286f7657dcb6451eb9cc190d066fcec9cae4d32839760"
+    },
+    {
+      "compressed_bytes": 62,
+      "corpus": "013_ROJI_KURD_1913",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/013_ROJI_KURD_1913/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 1,
+      "sha256": "3f0150779e26e2a613262225896343d041d2972be033e5210ecae490c6ba0b2c"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "013_ROJI_KURD_1913",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/013_ROJI_KURD_1913/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "013_ROJI_KURD_1913",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/013_ROJI_KURD_1913/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "013_ROJI_KURD_1913",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/013_ROJI_KURD_1913/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "013_ROJI_KURD_1913",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/013_ROJI_KURD_1913/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 37,
+      "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/014_DIROK_U_CIVAKA_KURDAN/Patterns/BIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "0e56000fa81495bb7a27e0e6c6bee0e443e422a620bbe933c8faf292cb65c7dc"
+    },
+    {
+      "compressed_bytes": 40,
+      "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/014_DIROK_U_CIVAKA_KURDAN/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/014_DIROK_U_CIVAKA_KURDAN/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/014_DIROK_U_CIVAKA_KURDAN/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/014_DIROK_U_CIVAKA_KURDAN/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 58,
+      "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/014_DIROK_U_CIVAKA_KURDAN/Patterns/GAP3.tsv.gz",
+      "rows": 1,
+      "sha256": "22c7fd3ba0ba2594e954eec2a0c6cfa55a491837ab30c94b5ca57c5a2166d5ee"
+    }
+  ]
+}

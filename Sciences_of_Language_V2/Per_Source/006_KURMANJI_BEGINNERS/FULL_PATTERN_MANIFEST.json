@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "corpus": "006_KURMANJI_BEGINNERS",
+  "expected_tables": 6,
+  "published_table_count": 6,
+  "tables": [
+    {
+      "compressed_bytes": 20272,
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/BIGRAMS.tsv.gz",
+      "rows": 4427,
+      "sha256": "28e65791535feee74a5c103063fe550473d31c4434f862ccc50eed8ff225046b"
+    },
+    {
+      "compressed_bytes": 11687,
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 1946,
+      "sha256": "21c32e8814722664fae3bfd169ba6494445580da1ebabeb9c61c73b2ddfa17ee"
+    },
+    {
+      "compressed_bytes": 6675,
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 927,
+      "sha256": "33a6e40475b1c136c11f33ede21e258f6116977df71debb6e234dc895ec55e9b"
+    },
+    {
+      "compressed_bytes": 15928,
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 710,
+      "sha256": "e7cdfbccfa169cdd5b92de62b67c0967bc04801b6456f981905fb1afe7f6c4e2"
+    },
+    {
+      "compressed_bytes": 8719,
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/GAP2.tsv.gz",
+      "rows": 2002,
+      "sha256": "e8bbc2442e53e8bf29c548b3f30fdb3bf8e16932ed554d263c31bf2a396e0413"
+    },
+    {
+      "compressed_bytes": 6117,
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/006_KURMANJI_BEGINNERS/Patterns/GAP3.tsv.gz",
+      "rows": 1411,
+      "sha256": "c889901a4738cbf53e6c3a1b8924fc07494aeca617b5702844bde5c46dd6a49d"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "corpus": "011_FOLKLORA_KURMANCA_1936",
+  "expected_tables": 6,
+  "published_table_count": 6,
+  "tables": [
+    {
+      "compressed_bytes": 54,
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/BIGRAMS.tsv.gz",
+      "rows": 1,
+      "sha256": "eb6930acb4913dd87c29401a6d42fb9dd5779cbd4c374cdb0920e0bfcade11d7"
+    },
+    {
+      "compressed_bytes": 40,
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "51c54d3076cc4c76a6a73f5d2ee03bb367c714b413a80aac507a950f67b4b185"
+    },
+    {
+      "compressed_bytes": 43,
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 0,
+      "sha256": "abc4097bceffdf6c87f256501738d188f25c35f7424c0f1b18f36e1933109814"
+    },
+    {
+      "compressed_bytes": 83,
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 0,
+      "sha256": "5aa5eb4c162142f3bf670c68d862f8a10398f4d88aca9499efcc8945635552f6"
+    },
+    {
+      "compressed_bytes": 44,
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/GAP2.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    },
+    {
+      "compressed_bytes": 44,
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/011_FOLKLORA_KURMANCA_1936/Patterns/GAP3.tsv.gz",
+      "rows": 0,
+      "sha256": "8f2aa55ab89bb3a0426487efc61d5ebe89bcec4b7cdee6b4d4db9d21e63e2c9f"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "active_runs": 9,
+  "candidate_occurrences": 67,
+  "containers": 9,
+  "corpus": "013_ROJI_KURD_1913",
+  "coverage_pass": true,
+  "documentary_only_occurrences": 21,
+  "expected_occurrences": 88,
+  "family_validation_limit": 10000,
+  "ordering_anomalies": 0,
+  "ordering_pass": true,
+  "scanned_occurrences": 88,
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT",
+  "technical_risk_containers": 0,
+  "technical_risk_occurrences": 0
+}

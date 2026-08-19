@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "corpus": "004_RUDAW",
+  "expected_tables": 6,
+  "published_table_count": 6,
+  "tables": [
+    {
+      "compressed_bytes": 5106080,
+      "gzip_integrity": "PASS",
+      "kind": "BIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/BIGRAMS.tsv.gz",
+      "rows": 1096063,
+      "sha256": "f7b1b2047c362e6b8ddcd69e377c83749c4173916de81fef1338b2b7b061fdb7"
+    },
+    {
+      "compressed_bytes": 10465853,
+      "gzip_integrity": "PASS",
+      "kind": "TRIGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/TRIGRAMS.tsv.gz",
+      "rows": 1857085,
+      "sha256": "5b6496c802af855e2ba343faa3f4e64bc2cbe31c350f6481531e46323c7c7353"
+    },
+    {
+      "compressed_bytes": 13534433,
+      "gzip_integrity": "PASS",
+      "kind": "FOURGRAMS",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/FOURGRAMS.tsv.gz",
+      "rows": 1881058,
+      "sha256": "8044c0f90bdd309e5f993ebb0ac110422ebf884e186ea1f4fd40b38439a85333"
+    },
+    {
+      "compressed_bytes": 11083733,
+      "gzip_integrity": "PASS",
+      "kind": "SLOT_FRAMES",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/SLOT_FRAMES.tsv.gz",
+      "rows": 450564,
+      "sha256": "548d5e7056563aec9c1b329e12b7811fff5a67a9518ee070333ab94c7e3b700b"
+    },
+    {
+      "compressed_bytes": 5440330,
+      "gzip_integrity": "PASS",
+      "kind": "GAP2",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/GAP2.tsv.gz",
+      "rows": 1224234,
+      "sha256": "17a332b30f55ee96ef95273a1a3e011b2dcab36912c0fb534c4b239ea0aeef4e"
+    },
+    {
+      "compressed_bytes": 4891538,
+      "gzip_integrity": "PASS",
+      "kind": "GAP3",
+      "path": "Sciences_of_Language_V2/Per_Source/004_RUDAW/Patterns/GAP3.tsv.gz",
+      "rows": 1108744,
+      "sha256": "c93cf0722b62ee364aaca346fe1bf4d3942ab94b5529aadad0a43e70bea5564d"
+    }
+  ]
+}
