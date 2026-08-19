@@ -1,0 +1,14 @@
+{
+  "active_runs": 8,
+  "candidate_occurrences": 73,
+  "containers": 9,
+  "corpus": "014_DIROK_U_CIVAKA_KURDAN",
+  "coverage_pass": true,
+  "documentary_only_occurrences": 20,
+  "expected_occurrences": 93,
+  "family_validation_limit": 10000,
+  "ordering_anomalies": 0,
+  "ordering_pass": true,
+  "scanned_occurrences": 93,
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT"
+}

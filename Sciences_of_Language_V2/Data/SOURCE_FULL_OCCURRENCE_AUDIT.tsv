@@ -1,0 +1,15 @@
+source	corpus	domain	expected_occurrences	scanned_occurrences	candidate_occurrences	documentary_only_occurrences	containers	active_runs	ordering_anomalies	coverage_pass	ordering_pass
+Mem û Zîn	001_MEM_U_ZIN	Classical poetic/literary source	7813	7813	7661	152	356	455	0	True	True
+ANHA	002_ANHA	Modern news source	28275212	28275212	26117237	2157975	1765322	3044246	0	True	True
+Ronahî	003_RONAHI	Modern broadcast/news source	1977137	1977137	1809747	167390	153967	271658	0	True	True
+Rudaw	004_RUDAW	Modern news/opinion source	17311859	17311859	15934579	1377280	1224887	2186234	0	True	True
+Pirtûkên Kurmancî Katalog	005_PIRTUKEN_KURMANCI_KATALOG	Book/catalog source	1617	1617	1287	330	337	334	0	True	True
+Kurmanji Beginners	006_KURMANJI_BEGINNERS	Pedagogical source	54650	54650	52406	2244	11089	11949	0	True	True
+Kovara Kurmancî	007_KOVARA_KURMANCI	Periodical source	105	105	78	27	9	13	0	True	True
+Kovara Hawar	008_KOVARA_HAWAR	Historical periodical source	100	100	74	26	9	13	0	True	True
+Rojnama Kurdistan	009_ROJNAMA_KURDISTAN	Historical newspaper source	104	104	80	24	9	11	0	True	True
+Kovara Jîn	010_KOVARA_JIN	Historical periodical source	93	93	70	23	9	11	0	True	True
+Folklora Kurmanca (1936)	011_FOLKLORA_KURMANCA_1936	Folklore source	97	97	72	25	9	12	0	True	True
+Kurd Teavun Terakki (1908)	012_KURD_TEAVUN_TERAKKI_1908	Historical journal source	81	81	57	24	9	11	0	True	True
+Rojî Kurd (1913)	013_ROJI_KURD_1913	Historical periodical source	88	88	67	21	9	9	0	True	True
+Dîrok û Civaka Kurdan	014_DIROK_U_CIVAKA_KURDAN	Monograph/research source	93	93	73	20	9	8	0	True	True

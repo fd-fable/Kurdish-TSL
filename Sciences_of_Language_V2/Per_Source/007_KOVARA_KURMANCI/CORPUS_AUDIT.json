@@ -1,0 +1,14 @@
+{
+  "active_runs": 13,
+  "candidate_occurrences": 78,
+  "containers": 9,
+  "corpus": "007_KOVARA_KURMANCI",
+  "coverage_pass": true,
+  "documentary_only_occurrences": 27,
+  "expected_occurrences": 105,
+  "family_validation_limit": 10000,
+  "ordering_anomalies": 0,
+  "ordering_pass": true,
+  "scanned_occurrences": 105,
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT"
+}

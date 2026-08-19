@@ -1,0 +1,14 @@
+{
+  "active_runs": 271658,
+  "candidate_occurrences": 1809747,
+  "containers": 153967,
+  "corpus": "003_RONAHI",
+  "coverage_pass": true,
+  "documentary_only_occurrences": 167390,
+  "expected_occurrences": 1977137,
+  "family_validation_limit": 10000,
+  "ordering_anomalies": 0,
+  "ordering_pass": true,
+  "scanned_occurrences": 1977137,
+  "schema": "TSLK_SCIENCES_OF_LANGUAGE_V2_CORPUS_AUDIT"
+}
