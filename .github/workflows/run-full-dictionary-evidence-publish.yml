@@ -1,0 +1,197 @@
+name: Run full dictionary evidence publication to safety branch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/run-full-dictionary-evidence-publish.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: tslk-full-dictionary-evidence-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout safety publication branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: agent/full-dictionary-evidence-v1
+
+      - name: Download validated full dictionary evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: TSLK_DEEP_DICTIONARY_FULL_EVIDENCE_V1
+          path: _full_evidence
+          repository: fd-fable/Kurdish-TSL
+          run-id: 32168308087
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install and verify occurrence shards
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+
+          download_root = Path('_full_evidence')
+          candidates = [download_root / '_dict_artifacts', download_root]
+          source_root = next((p for p in candidates if any(p.glob('dict-*'))), None)
+          if source_root is None:
+              found = sorted(p for p in download_root.rglob('dict-*') if p.is_dir())
+              if not found:
+                  raise SystemExit('Could not locate dict-* evidence directories')
+              source_root = found[0].parent
+
+          repo_root = Path('Dictionaries')
+          corpora = sorted(p for p in source_root.glob('dict-*') if p.is_dir())
+          if len(corpora) != 14:
+              raise SystemExit(f'Expected 14 evidence directories, found {len(corpora)}')
+
+          total = 0
+          largest_size = 0
+          largest_path = None
+          for src in corpora:
+              corpus = src.name.removeprefix('dict-')
+              dest = repo_root / corpus
+              manifest_path = dest / 'MANIFEST.json'
+              manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+              expected = int(manifest['counts']['occurrence_shards'])
+              source_files = sorted(src.glob('OCCURRENCES_*.tsv.gz'))
+              if len(source_files) != expected:
+                  raise SystemExit(f'{corpus}: source shards={len(source_files)} expected={expected}')
+
+              occ = dest / 'Occurrences'
+              if occ.exists():
+                  shutil.rmtree(occ)
+              occ.mkdir(parents=True, exist_ok=True)
+              for f in source_files:
+                  out = occ / f.name
+                  shutil.copy2(f, out)
+                  size = out.stat().st_size
+                  if size >= 95 * 1024 * 1024:
+                      raise SystemExit(f'{out} is {size} bytes and too large for ordinary GitHub Git')
+                  if size > largest_size:
+                      largest_size, largest_path = size, out
+              actual = len(list(occ.glob('OCCURRENCES_*.tsv.gz')))
+              if actual != expected:
+                  raise SystemExit(f'{corpus}: copied={actual} expected={expected}')
+              total += actual
+
+              manifest['repository_core']['occurrence_files_committed_to_git'] = True
+              manifest['repository_core']['storage_model'] = 'Git-tracked exhaustive vocabulary core plus complete occurrence concordance shards'
+              manifest['files']['occurrence_shards'] = {
+                  'directory': 'Occurrences',
+                  'pattern': 'OCCURRENCES_*.tsv.gz',
+                  'count': expected,
+              }
+              manifest['full_evidence_artifact']['preservation_note'] = 'Backup artifact retained; complete occurrence shards are also committed in Dictionaries/<corpus>/Occurrences/.'
+              manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+
+              readme = dest / 'README.md'
+              text = readme.read_text(encoding='utf-8')
+              if '## Full evidence now stored in GitHub repository' not in text:
+                  text = text.rstrip() + '\n\n## Full evidence now stored in GitHub repository\n\n'
+                  text += f'This corpus has **{expected}** complete compressed occurrence/concordance shard(s) committed under `Occurrences/`. The Actions artifact remains as a backup.\n'
+                  readme.write_text(text, encoding='utf-8')
+
+          master_path = repo_root / 'DICTIONARY_BUILD_MANIFEST.json'
+          master = json.loads(master_path.read_text(encoding='utf-8'))
+          master['repository_storage'] = 'sharded exhaustive lexicon core plus complete compressed occurrence concordance shards'
+          master['full_occurrence_storage'] = 'Git repository Dictionaries/<corpus>/Occurrences/; GitHub Actions artifact retained as backup'
+          master['all_occurrence_shards_committed_to_git'] = True
+          master['total_occurrence_shards_committed'] = total
+          master_path.write_text(json.dumps(master, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+
+          index = repo_root / 'INDEX.md'
+          idx = index.read_text(encoding='utf-8')
+          old = 'The full 47.6M-occurrence concordance streams are not committed to ordinary Git because the combined evidence pack is ~1.8 GB. Each per-corpus `MANIFEST.json` records the validated source-run artifact ID and SHA-256. This is a storage separation only: no vocabulary entries are omitted from the Git-tracked lexicons.'
+          new = 'The complete 47.6M-occurrence concordance is stored directly in this GitHub repository as compressed per-corpus shards under `Dictionaries/<CORPUS>/Occurrences/OCCURRENCES_*.tsv.gz`. The Actions artifact remains as a backup. Large lexicons remain row-sharded so every ordinary Git file stays below GitHub file-size limits.'
+          if old in idx:
+              idx = idx.replace(old, new)
+          elif new not in idx:
+              idx = idx.rstrip() + '\n\n## Repository occurrence evidence\n\n' + new + '\n'
+          index.write_text(idx, encoding='utf-8')
+
+          print(f'PASS: 14 corpora; {total} occurrence shards copied.')
+          print(f'Largest shard: {largest_size} bytes :: {largest_path}')
+          PY
+          du -sh Dictionaries
+          find Dictionaries -path '*/Occurrences/*.tsv.gz' -type f -printf '%s %p\n' | sort -nr | head -20
+
+      - name: Commit occurrence evidence in small batches
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "kurdish-tsl-dictionary-bot"
+          git config user.email "actions@users.noreply.github.com"
+          mapfile -t files < <(find Dictionaries -path '*/Occurrences/*.tsv.gz' -type f | sort)
+          [[ ${#files[@]} -gt 0 ]]
+
+          batch_size=10
+          batch_no=0
+          batch=()
+          for f in "${files[@]}"; do
+            batch+=("$f")
+            if [[ ${#batch[@]} -ge $batch_size ]]; then
+              batch_no=$((batch_no+1))
+              git add -- "${batch[@]}"
+              git commit -m "Add full dictionary occurrence evidence batch ${batch_no}"
+              git push origin HEAD:agent/full-dictionary-evidence-v1
+              batch=()
+            fi
+          done
+          if [[ ${#batch[@]} -gt 0 ]]; then
+            batch_no=$((batch_no+1))
+            git add -- "${batch[@]}"
+            git commit -m "Add full dictionary occurrence evidence batch ${batch_no}"
+            git push origin HEAD:agent/full-dictionary-evidence-v1
+          fi
+
+          git add Dictionaries/INDEX.md Dictionaries/DICTIONARY_BUILD_MANIFEST.json Dictionaries/*/MANIFEST.json Dictionaries/*/README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Mark full dictionary evidence as repository-resident"
+            git push origin HEAD:agent/full-dictionary-evidence-v1
+          fi
+          echo "Published ${#files[@]} occurrence files in ${batch_no} batches."
+
+      - name: Verify pushed repository evidence
+        shell: bash
+        run: |
+          git fetch origin agent/full-dictionary-evidence-v1
+          git reset --hard origin/agent/full-dictionary-evidence-v1
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('Dictionaries')
+          master = json.loads((root / 'DICTIONARY_BUILD_MANIFEST.json').read_text(encoding='utf-8'))
+          if not master.get('all_occurrence_shards_committed_to_git'):
+              raise SystemExit('Master manifest repository-evidence flag is false')
+          total = 0
+          manifests = sorted(root.glob('*/MANIFEST.json'))
+          if len(manifests) != 14:
+              raise SystemExit(f'Expected 14 manifests, found {len(manifests)}')
+          for mp in manifests:
+              m = json.loads(mp.read_text(encoding='utf-8'))
+              corpus = m['corpus_folder']
+              expected = int(m['counts']['occurrence_shards'])
+              actual = len(list((root / corpus / 'Occurrences').glob('OCCURRENCES_*.tsv.gz')))
+              if actual != expected:
+                  raise SystemExit(f'{corpus}: final repository shards={actual} expected={expected}')
+              if not m['repository_core'].get('occurrence_files_committed_to_git'):
+                  raise SystemExit(f'{corpus}: manifest flag false')
+              total += actual
+          if total != int(master['total_occurrence_shards_committed']):
+              raise SystemExit(f'Global final count mismatch {total}')
+          print(f'FINAL PASS: {total} occurrence shards are physically committed to the safety branch.')
+          PY
