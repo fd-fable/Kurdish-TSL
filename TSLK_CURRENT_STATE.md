@@ -2,11 +2,15 @@
 
 ## Current milestone
 
-**Deep Dictionary V1 mechanical evidence layer is COMPLETE for all 14 committed CSTLK corpora.**
+**Deep Dictionary V1 mechanical evidence layer is COMPLETE for all 14 committed CSTLK corpora, including the complete occurrence/concordance evidence stored directly in GitHub.**
 
-Merged dictionary commit:
+Vocabulary-core merge commit:
 
 `02a8e9026025888c4c0623110c2ebfa80e3e9cbe`
+
+Complete repository-evidence merge commit:
+
+`a9e9bd7cb1cf43e3f01d75330ed67d01a2be42d2`
 
 Dictionary index:
 
@@ -33,6 +37,7 @@ Builder:
 - 14/14 corpus dictionaries mechanically complete.
 - 487,041 corpus-local exact word-like surface-form entries.
 - 47,629,049 represented word-like occurrences.
+- 250/250 compressed occurrence/concordance shards physically committed to GitHub.
 - 14/14 non-whitespace character coverage checks passed.
 - No cross-corpus lemma merging.
 - No external semantic assignment.
@@ -44,7 +49,17 @@ The 487,041 figure is not a global Kurdish lemma count. It intentionally preserv
 
 Git contains the complete vocabulary core for every corpus, including sharded exhaustive TSV/JSONL lexicons, raw-token inventories, character inventories, per-corpus manifests, frequencies, locators, contexts, positional counts, immediate-neighbor profiles, and graphemic metadata.
 
-The complete 47.6-million-occurrence concordance evidence is preserved as GitHub Actions artifact:
+The complete 47.6-million-occurrence concordance evidence is also stored directly in the repository as **250 compressed shards** under:
+
+`Dictionaries/<CORPUS>/Occurrences/OCCURRENCES_*.tsv.gz`
+
+Final remote verification on the publication branch returned:
+
+`FINAL REMOTE PASS: 250 occurrence shards physically present on safety branch.`
+
+Those verified objects were merged into `main` in commit `a9e9bd7cb1cf43e3f01d75330ed67d01a2be42d2`. The master manifest now records `all_occurrence_shards_committed_to_git: true`.
+
+The GitHub Actions artifact remains as an independent backup copy:
 
 - name: `TSLK_DEEP_DICTIONARY_FULL_EVIDENCE_V1`
 - artifact ID: `9336377934`
@@ -53,7 +68,7 @@ The complete 47.6-million-occurrence concordance evidence is preserved as GitHub
 - source publisher run: `32168308087`
 - expires: `2026-11-16T17:56:43Z`
 
-The evidence is deterministically rebuildable after artifact expiry from committed CSTLK files plus the committed builder and per-corpus source hashes.
+The evidence is therefore available directly through GitHub and is also deterministically rebuildable from the committed CSTLK files, builder, and source hashes.
 
 ## Dictionary epistemic status
 
@@ -67,6 +82,7 @@ Mechanically established:
 - first attested context;
 - local positional distribution;
 - immediate left/right neighbor profiles;
+- complete occurrence/concordance evidence;
 - raw token inventory;
 - character inventory;
 - source/build provenance.
