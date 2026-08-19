@@ -1,1 +1,0 @@
-Use the sparse comparative workflow to generate the named-source convergence report and data outputs without checking out occurrence shards.
